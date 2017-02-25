@@ -1,0 +1,9 @@
+/**
+ * You can provide comments in `.npmscriptrc`
+ */
+{
+   "publish":
+   {
+      "prepublish": { "scripts": ["do not build throw error"] }
+   }
+}

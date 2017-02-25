@@ -1,0 +1,6 @@
+coverage/
+dist/
+docs/
+node_modules/
+
+fixture/package/src/Invalid/CodeSyntax.js
