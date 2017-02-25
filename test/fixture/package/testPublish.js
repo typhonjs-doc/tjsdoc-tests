@@ -1,7 +1,5 @@
-import publish    from 'tjsdoc-publisher-static-html';
-
 /**
- * Wires up the default publisher to plugin eventbus adding a global variable `global.$$tjsdoc_alternate_publisher`
+ * Wires up a mock publisher to the plugin eventbus adding a global variable `global.$$tjsdoc_alternate_publisher`
  * to indicate that the publisher has been swapped out with an alternate version.
  *
  * @param {PluginEvent} ev - The plugin event.
@@ -10,12 +8,8 @@ import publish    from 'tjsdoc-publisher-static-html';
  */
 export function onPluginLoad(ev)
 {
-   const eventbus = ev.eventbus;
-
-   eventbus.on('tjsdoc:publisher:publish', (eventbus) =>
+   ev.eventbus.on('tjsdoc:publisher:publish', () =>
    {
-      publish(eventbus);
-
       // Set global variable for alternate publisher test.
       global.$$tjsdoc_alternate_publisher = true;
    });

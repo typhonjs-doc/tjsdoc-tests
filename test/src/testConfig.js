@@ -69,6 +69,23 @@ const testConfig =
 
    targets: runtimeTargets,
 
+   currentTarget: void 0,
+
+   forEachTarget: (catIndex, test, callback) =>
+   {
+      if (testConfig.category[catIndex])
+      {
+         if (testConfig[catIndex]['tests'][test])
+         {
+            for (const target of testConfig.targets)
+            {
+               testConfig.currentTarget = target;
+               callback(target);
+            }
+         }
+      }
+   },
+
    // Enables specific cli tests
    cli:
    {

@@ -19,6 +19,8 @@
     }
   ],
   "dependencies": {
+    "backbone-esnext-eventbus": "^0.3.0",
+    "typhonjs-plugin-manager": "^0.1.0",
     "tjsdoc-test-utils": "git+https://git@github.com/typhonjs-node-tjsdoc/tjsdoc-test-utils.git"
   },
   "devDependencies": {
@@ -32,8 +34,7 @@
   "keywords": [
   ],
   "files": [
-    "fixture",
-    "src",
+    "test",
     "AUTHORS.md"
   ],
   "directories": {},

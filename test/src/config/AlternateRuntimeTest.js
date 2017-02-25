@@ -2,21 +2,16 @@ import Util       from 'tjsdoc-test-utils';
 
 import testConfig from '../testConfig.js';
 
-if (testConfig.category.config && testConfig.config.tests.alternateRuntime)
+testConfig.forEachTarget('config', 'alternateRuntime', (target) =>
 {
-   for (const target of testConfig.targets)
+   /** @test {DocResolver#_resolveAccess} */
+   describe('test alternate config.runtime', () =>
    {
-      /** @test {DocResolver#_resolveAccess} */
-      describe('test alternate config.runtime', () =>
+      Util.invoke(target, './test/fixture/config/tjsdoc-alternateRuntime.json', false, false);
+
+      it('ran alternate publisher', () =>
       {
-         Util.invoke(target, './test/fixture/config/tjsdoc-alternateRuntime.json', true, false);
-
-         it('ran alternate publisher', () =>
-         {
-            Util.assert.isTrue(global.$$tjsdoc_alternate_runtime);
-         });
+         Util.assert.isTrue(global.$$tjsdoc_alternate_runtime);
       });
-   }
-}
-
-
+   });
+});

@@ -1,3 +1,21 @@
 {
-  "presets": ["latest", "stage-2"]
+  "presets": ["latest", "stage-2"],
+
+  "env":
+  {
+    "tjsdoc-dev":
+    {
+      "plugins":
+      [
+        ["module-resolver", {
+          "root": ["."],
+          "cwd": "babelrc",
+          "alias":
+          {
+            "tjsdoc-runtime-common/src": "../typhonjs-doc/tjsdoc-runtime-common/src"
+          }
+        }]
+      ]
+    }
+  }
 }
