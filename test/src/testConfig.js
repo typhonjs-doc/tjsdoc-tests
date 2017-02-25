@@ -22,7 +22,7 @@ try
 }
 catch (err)
 {
-   console.error(`'tjsdoc-tests' error: could not require './test/ecmascriptConfig.js'.`);
+   console.error(`'tjsdoc-tests-ecmascript' error: could not require './test/ecmascriptConfig.js'.`);
    process.exit(1);
 }
 
@@ -30,13 +30,13 @@ const runtimeTargets = typeof localConfig.targets === 'object' ? localConfig.tar
 
 if (runtimeTargets.length === 0)
 {
-   console.error(`'tjsdoc-tests' error: Missing runtime configuration for NPM script '${
-    npmScript}' in 'targets' object hash of './test/config.js'.`);
+   console.error(`'tjsdoc-tests-ecmascript' error: Missing runtime configuration for NPM script '${
+    npmScript}' in 'targets' object hash of './test/ecmascriptConfig.js'.`);
 
    process.exit(1);
 }
 
-const s_DEFAULT_CATEGORIES = { cli: true, config: true, doc: true, html: true, parser: true, utils: true };
+const s_DEFAULT_CATEGORIES = { cli: true, config: true, doc: true, html: true };
 
 const runtimeCategories = Object.assign(s_DEFAULT_CATEGORIES, localConfig.category);
 
@@ -201,26 +201,6 @@ const testConfig =
             'variable': true,
             'version': true
          }
-      }
-   },
-
-   // Enables specific parser tests.
-   parser:
-   {
-      tests:
-      {
-         codeParser: true,
-         commentParser: true,
-         paramParser: true
-      }
-   },
-
-   // Enables specific utils tests.
-   utils:
-   {
-      tests:
-      {
-         invalidCodeLogger: true
       }
    }
 };
