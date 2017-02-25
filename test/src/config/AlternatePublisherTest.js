@@ -9,7 +9,7 @@ if (testConfig.category.config && testConfig.config.tests.alternatePublisher)
       /** @test {DocResolver#_resolveAccess} */
       describe('test alternate config.publish', () =>
       {
-         Util.invoke(target, './test/fixture/config/tjsdoc-alternatePublisher.json', false, true, false);
+         Util.invoke(target, './test/fixture/config/tjsdoc-alternatePublisher.json', true, true, false);
 
          it('ran alternate publisher', () =>
          {

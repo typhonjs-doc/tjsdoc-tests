@@ -7,7 +7,7 @@ testConfig.forEachTarget('config', 'alternateRuntime', (target) =>
    /** @test {DocResolver#_resolveAccess} */
    describe('test alternate config.runtime', () =>
    {
-      Util.invoke(target, './test/fixture/config/tjsdoc-alternateRuntime.json', false, false);
+      Util.invoke(target, './test/fixture/config/tjsdoc-alternateRuntime.json', true, false);
 
       it('ran alternate publisher', () =>
       {
