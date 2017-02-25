@@ -1,0 +1,8 @@
+{
+  "source": "./test/fixture/package/src",
+  "destination": "./test/fixture/dest/tjsdoc-scripts",
+  "includes": ["desc/.*\\.js"],
+  "scripts": ["./test/fixture/package/script/custom.js"],
+  "index": "./test/fixture/package/README.md",
+  "package": "./test/fixture/package/package.json"
+}

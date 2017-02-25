@@ -1,0 +1,9 @@
+{
+  "source": "./test/fixture/package/src",
+  "destination": "./test/fixture/dest/tjsdoc-excludes",
+  "access": ["public", "protected"],
+  "includes": ["desc/.*\\.js"],
+  "excludes": ["Class\\.js"],
+  "index": "./test/fixture/package/README.md",
+  "package": "./test/fixture/package/package.json"
+}

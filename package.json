@@ -19,6 +19,7 @@
     }
   ],
   "dependencies": {
+    "tjsdoc-test-utils": "git+https://git@github.com/typhonjs-node-tjsdoc/tjsdoc-test-utils.git"
   },
   "devDependencies": {
     "typhonjs-config-eslint": "^0.5.0",

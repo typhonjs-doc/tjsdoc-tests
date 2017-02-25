@@ -1,0 +1,10 @@
+{
+   "source": "./test/fixture/package/src",
+   "destination": "./test/fixture/dest/tjsdoc-compressData",
+   "includes": ["desc/.*\\.js$"],
+   "index": "./test/fixture/package/README.md",
+   "package": "./test/fixture/package/package.json",
+   "compressData": true,
+   "outputASTData": true,
+   "outputDocData": true
+}

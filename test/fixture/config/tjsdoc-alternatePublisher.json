@@ -1,0 +1,9 @@
+// Tests alternate publisher / AlternatePublisherTest
+{
+   "source": "./test/fixture/package/src",
+   "destination": "./test/fixture/dest/tjsdoc-alternatePublisher",
+   "includes": ["desc/.*\\.js$"],
+   "index": "./test/fixture/package/README.md",
+   "package": "./test/fixture/package/package.json",
+   "publisher": "./test/fixture/package/testPublish.js"
+}

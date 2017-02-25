@@ -1,0 +1,9 @@
+// Tests alternate runtime / AlternateRuntimeTest
+{
+   "source": "./test/fixture/package/src",
+   "destination": "./test/fixture/dest/tjsdoc-alternateRuntime",
+   "includes": ["desc/.*\\.js$"],
+   "index": "./test/fixture/package/README.md",
+   "package": "./test/fixture/package/package.json",
+   "runtime": "./test/fixture/package/testRuntime.js"
+}

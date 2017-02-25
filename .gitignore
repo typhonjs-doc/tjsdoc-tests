@@ -4,3 +4,6 @@ npm-debug.log
 coverage/
 docs/
 node_modules/
+
+test/fixture/dest
+test/fixture/dest-cli
