@@ -12,6 +12,8 @@
           "cwd": "babelrc",
           "alias":
           {
+            "tjsdoc-test-utils": "../tjsdoc-test-utils/src/Util.js",
+
             "tjsdoc-runtime-common/src": "../tjsdoc/tjsdoc-runtime-common/src"
           }
         }]
