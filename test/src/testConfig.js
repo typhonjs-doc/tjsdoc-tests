@@ -1,89 +1,29 @@
-import path from 'path';
-
-let npmScript;
-
-try
-{
-   const npmArgv = JSON.parse(process.env['npm_config_argv']).cooked;
-   npmScript = npmArgv[1];
-}
-catch (err)
-{
-   console.error(`'tjsdoc-tests' error: could not obtain 'npm_config_argv' environment variable.`);
-   process.exit(1);
-}
-
-// Attempt to load local test config. A local config must be provided to define any target runtimes.
-let localConfig;
-
-try
-{
-   localConfig = require(path.resolve('./test/ecmascriptConfig.js'));
-}
-catch (err)
-{
-   console.error(`'tjsdoc-tests-ecmascript' error: could not require './test/ecmascriptConfig.js'.`);
-   process.exit(1);
-}
-
-const runtimeTargets = typeof localConfig.targets === 'object' ? localConfig.targets[npmScript] : [];
-
-if (runtimeTargets.length === 0)
-{
-   console.error(`'tjsdoc-tests-ecmascript' error: Missing runtime configuration for NPM script '${
-    npmScript}' in 'targets' object hash of './test/ecmascriptConfig.js'.`);
-
-   process.exit(1);
-}
-
-const s_DEFAULT_CATEGORIES = { cli: true, config: true, doc: true, html: true, html_doc: true };
-
-const runtimeCategories = Object.assign(s_DEFAULT_CATEGORIES, localConfig.category);
-
-const runtimeEmptyDest = typeof localConfig.emptyDest === 'boolean' && localConfig.emptyDest;
-const runtimeGenerateMain = typeof localConfig.generateMain === 'boolean' && localConfig.generateMain;
-
-console.log(`\nnpm script: ${npmScript}`);
-console.log(`emptying destination: ${runtimeEmptyDest}`);
-console.log(`generating main (tjsdoc): ${runtimeGenerateMain}\n`);
-console.log(`test runtimes: \n${JSON.stringify(runtimeTargets, null, 3)}\n`);
-console.log(`test categories: ${JSON.stringify(runtimeCategories)}\n`);
+import Utils from 'tjsdoc-test-utils';
 
 /**
  * Defines which modules to run tests. Please note that setting `generateMain` to false doesn't build documentation
  * for the main demo test code. The next level of tests which can be disabled are `testConfig.category` followed
- * by further tests or categories in `testConfig.config`, `testConfig.doc`, `testConfig.html` and `testConfig.parser`.
+ * by further tests or categories in `testConfig.cli`, `testConfig.config`, `testConfig.doc`, `testConfig.html` and
+ * `testConfig.html_doc`.
  *
  * @type {{}}
  */
-const testConfig =
+const config =
 {
    // Empties `./test/fixture/dest/` if true on initializing tests.
-   emptyDest: runtimeEmptyDest,
+   emptyDest: true,
 
    // Generates the main TJSDoc test output. Note: many tests will fail without main generation.
-   generateMain: runtimeGenerateMain,
+   generateMain: true,
 
    // Enables the main categories of tests.
-   category: runtimeCategories,
-
-   targets: runtimeTargets,
-
-   currentTarget: void 0,
-
-   forEachTarget: (catIndex, test, callback) =>
+   category:
    {
-      if (testConfig.category[catIndex])
-      {
-         if (testConfig[catIndex]['tests'][test])
-         {
-            for (const target of testConfig.targets)
-            {
-               testConfig.currentTarget = target;
-               callback(target);
-            }
-         }
-      }
+      cli: true,
+      config: true,
+      doc: true,
+      html: true,
+      html_doc: true
    },
 
    // Enables specific cli tests
@@ -204,4 +144,4 @@ const testConfig =
    }
 };
 
-export default testConfig;
+export default Utils.createTestConfig(config, './test/ecmascriptConfig.js', 'tjsdoc-tests-ecmascript');
