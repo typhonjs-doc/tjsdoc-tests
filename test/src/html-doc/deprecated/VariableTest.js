@@ -1,39 +1,37 @@
 import Util       from 'tjsdoc-test-utils';
-import testConfig       from '../../testConfig.js';
 
-if (testConfig.category.html_doc && testConfig.html_doc.tests.deprecated)
+import testConfig from '../../testConfig.js';
+
+testConfig.forEachTarget('html_doc', 'deprecated', (target) =>
 {
-   for (const target of testConfig.targets)
+   /** @test {AbstractDoc#@deprecated} */
+   describe(`testDeprecatedVariable (${target.name}):`, () =>
    {
-      /** @test {AbstractDoc#@deprecated} */
-      describe('testDeprecatedVariable:', () =>
+      const doc = Util.readDoc(target, 'variable/index.html');
+
+      describe('in summary', () =>
       {
-         const doc = Util.readDoc(target, 'variable/index.html');
-
-         describe('in summary', () =>
+         it('has deprecated message.', () =>
          {
-            it('has deprecated message.', () =>
+            Util.find(doc,
+             '[data-ice="summary"] [href="variable/index.html#static-variable-testDeprecatedVariable"]', (doc) =>
             {
-               Util.find(doc,
-                '[data-ice="summary"] [href="variable/index.html#static-variable-testDeprecatedVariable"]', (doc) =>
-               {
-                  doc = doc.parents('[data-ice="target"]');
-                  Util.assert.includes(doc, '[data-ice="deprecated"]', 'this variable was deprecated.');
-               });
-            });
-         });
-
-         describe('in details', () =>
-         {
-            it('has deprecated message.', () =>
-            {
-               Util.find(doc, '[id="static-variable-testDeprecatedVariable"]', (doc) =>
-               {
-                  doc = doc.parents('[data-ice="detail"]');
-                  Util.assert.includes(doc, '[data-ice="deprecated"]', 'this variable was deprecated.');
-               });
+               doc = doc.parents('[data-ice="target"]');
+               Util.assert.includes(doc, '[data-ice="deprecated"]', 'this variable was deprecated.');
             });
          });
       });
-   }
-}
+
+      describe('in details', () =>
+      {
+         it('has deprecated message.', () =>
+         {
+            Util.find(doc, '[id="static-variable-testDeprecatedVariable"]', (doc) =>
+            {
+               doc = doc.parents('[data-ice="detail"]');
+               Util.assert.includes(doc, '[data-ice="deprecated"]', 'this variable was deprecated.');
+            });
+         });
+      });
+   });
+});

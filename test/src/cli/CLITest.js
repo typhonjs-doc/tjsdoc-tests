@@ -8,55 +8,52 @@ const s_CONFIG_MAP =
    'default': './test/fixture/config-cli/default/tjsdoc-cli.js'
 };
 
-if (testConfig.category.cli && testConfig.cli.tests.cli)
+testConfig.forEachTarget('cli', 'cli', (target) =>
 {
-   for (const target of testConfig.targets)
+   if (s_CONFIG_MAP[target.name])
    {
-      if (s_CONFIG_MAP[target.name])
+      /**
+       * @test {TJSDocCLI#exec}
+       * @test {TJSDocCLI#_createConfigFromJSONFile}
+       */
+      describe(`test cli (${target.name}):`, () =>
       {
-         /**
-          * @test {TJSDocCLI#exec}
-          * @test {TJSDocCLI#_createConfigFromJSONFile}
-          */
-         describe(`test cli (${target.name})`, () =>
+         const configPath = s_CONFIG_MAP[target.name];
+
+         let cli;
+
+         beforeEach(() =>
          {
-            const configPath = s_CONFIG_MAP[target.name];
+            const argv = ['node', target.cli, '-c', configPath];
 
-            let cli;
+            const CLIClass = require(target.cli);
 
-            beforeEach(() =>
-            {
-               const argv = ['node', target.cli, '-c', configPath];
-
-               const CLIClass = require(target.cli);
-
-               // eslint-disable-next-line babel/new-cap
-               cli = typeof CLIClass.default === 'function' ? new CLIClass.default(argv) : new CLIClass(argv);
-            });
-
-            it('can execute with config file.', () =>
-            {
-               Util.consoleLogSwitch(false);
-               cli.exec();
-               Util.consoleLogSwitch(true);
-            });
-
-            it('can show help', () =>
-            {
-               Util.consoleLogSwitch(false);
-               cli._showHelp();
-               Util.consoleLogSwitch(true);
-            });
-
-            it('can show version', () =>
-            {
-               Util.consoleLogSwitch(false);
-               cli._showVersion();
-               Util.consoleLogSwitch(true);
-            });
+            // eslint-disable-next-line babel/new-cap
+            cli = typeof CLIClass.default === 'function' ? new CLIClass.default(argv) : new CLIClass(argv);
          });
-      }
+
+         it('can execute with config file.', () =>
+         {
+            Util.consoleLogSwitch(false);
+            cli.exec();
+            Util.consoleLogSwitch(true);
+         });
+
+         it('can show help', () =>
+         {
+            Util.consoleLogSwitch(false);
+            cli._showHelp();
+            Util.consoleLogSwitch(true);
+         });
+
+         it('can show version', () =>
+         {
+            Util.consoleLogSwitch(false);
+            cli._showVersion();
+            Util.consoleLogSwitch(true);
+         });
+      });
    }
-}
+});
 
 

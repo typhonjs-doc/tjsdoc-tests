@@ -18,7 +18,7 @@ if (testConfig.generateMain)
 {
    for (const target of testConfig.targets)
    {
-      console.log(`generating main test: ${target.name}`);
+      console.log(`generating main test (${target.name}):`);
 
       Util.invoke(target, './test/fixture/package/tjsdoc.json', false);
    }

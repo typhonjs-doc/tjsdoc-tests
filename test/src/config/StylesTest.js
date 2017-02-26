@@ -2,21 +2,18 @@ import Util       from 'tjsdoc-test-utils';
 
 import testConfig from '../testConfig.js';
 
-if (testConfig.category.config && testConfig.config.tests.styles)
+testConfig.forEachTarget('config', 'styles', (target) =>
 {
-   for (const target of testConfig.targets)
+   /** @test {DocBuilder#_buildLayoutDoc} */
+   describe(`test config.styles: ["./test/fixture/style/custom.css"] (${target.name}):`, () =>
    {
-      /** @test {DocBuilder#_buildLayoutDoc} */
-      describe('test config.styles: ["./test/fixture/style/custom.css"]', () =>
+      Util.invoke(target, './test/fixture/config/tjsdoc-styles.json');
+
+      it('has custom style', () =>
       {
-         Util.invoke(target, './test/fixture/config/tjsdoc-styles.json');
+         const doc = Util.readDoc(target, 'index.html', 'tjsdoc-styles');
 
-         it('has custom style', () =>
-         {
-            const doc = Util.readDoc(target, 'index.html', 'tjsdoc-styles');
-
-            Util.assert.includes(doc, '[data-ice="userStyle"]', 'user/css/0-custom.css', 'href');
-         });
+         Util.assert.includes(doc, '[data-ice="userStyle"]', 'user/css/0-custom.css', 'href');
       });
-   }
-}
+   });
+});

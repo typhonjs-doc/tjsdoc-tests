@@ -1,88 +1,86 @@
 import Util       from 'tjsdoc-test-utils';
-import testConfig       from '../../testConfig.js';
 
-if (testConfig.category.html_doc && testConfig.html_doc.tests.access)
+import testConfig from '../../testConfig.js';
+
+testConfig.forEachTarget('html_doc', 'access', (target) =>
 {
-   for (const target of testConfig.targets)
+   /** @test {SingleDocBuilder} */
+   describe(`TestAccessVariable (${target.name}):`, () =>
    {
-      /** @test {SingleDocBuilder} */
-      describe('TestAccessVariable:', () =>
+      const doc = Util.readDoc(target, 'variable/index.html');
+
+      /** @test {SingleDocBuilder#_buildSingleDoc} */
+      describe('in summary: ', () =>
       {
-         const doc = Util.readDoc(target, 'variable/index.html');
-
-         /** @test {SingleDocBuilder#_buildSingleDoc} */
-         describe('in summary: ', () =>
+         it('has public accessor.', () =>
          {
-            it('has public accessor.', () =>
+            Util.find(doc,
+             '[data-ice="summary"] [href="variable/index.html#static-variable-testAccessVariablePublic"]', (doc) =>
             {
-               Util.find(doc,
-                '[data-ice="summary"] [href="variable/index.html#static-variable-testAccessVariablePublic"]', (doc) =>
-               {
-                  doc = doc.parents('[data-ice="target"]');
-                  Util.assert.includes(doc, null, 'public testAccessVariablePublic:');
-               });
-            });
-
-            it('has protected accessor.', () =>
-            {
-               Util.find(doc,
-                '[data-ice="summary"] [href="variable/index.html#static-variable-testAccessVariableProtected"]',
-                 (doc) =>
-               {
-                  doc = doc.parents('[data-ice="target"]');
-                  Util.assert.includes(doc, null, 'protected testAccessVariableProtected:');
-               });
-            });
-
-            it('has private accessor.', () =>
-            {
-               Util.find(doc,
-                '[data-ice="summary"] [href="variable/index.html#static-variable-testAccessVariablePrivate"]', (doc) =>
-               {
-                  doc = doc.parents('[data-ice="target"]');
-                  Util.assert.includes(doc, null, 'private testAccessVariablePrivate:');
-               });
-            });
-
-            it('has auto private accessor.', () =>
-            {
-               Util.find(doc,
-                '[data-ice="summary"] [href="variable/index.html#static-variable-_testAccessVariableAutoPrivate"]',
-                 (doc) =>
-               {
-                  doc = doc.parents('[data-ice="target"]');
-                  Util.assert.includes(doc, null, 'private _testAccessVariableAutoPrivate:');
-               });
+               doc = doc.parents('[data-ice="target"]');
+               Util.assert.includes(doc, null, 'public testAccessVariablePublic:');
             });
          });
 
-         /** @test {SingleDocBuilder#_buildSingleDoc} */
-         describe('in detail: ', () =>
+         it('has protected accessor.', () =>
          {
-            it('has public accessor.', () =>
+            Util.find(doc,
+             '[data-ice="summary"] [href="variable/index.html#static-variable-testAccessVariableProtected"]',
+              (doc) =>
             {
-               Util.assert.includes(doc, '[data-ice="detail"] #static-variable-testAccessVariablePublic',
-                'public testAccessVariablePublic:');
+               doc = doc.parents('[data-ice="target"]');
+               Util.assert.includes(doc, null, 'protected testAccessVariableProtected:');
             });
+         });
 
-            it('has protected accessor.', () =>
+         it('has private accessor.', () =>
+         {
+            Util.find(doc,
+             '[data-ice="summary"] [href="variable/index.html#static-variable-testAccessVariablePrivate"]', (doc) =>
             {
-               Util.assert.includes(doc, '[data-ice="detail"] #static-variable-testAccessVariableProtected',
-                'protected testAccessVariableProtected:');
+               doc = doc.parents('[data-ice="target"]');
+               Util.assert.includes(doc, null, 'private testAccessVariablePrivate:');
             });
+         });
 
-            it('has private accessor.', () =>
+         it('has auto private accessor.', () =>
+         {
+            Util.find(doc,
+             '[data-ice="summary"] [href="variable/index.html#static-variable-_testAccessVariableAutoPrivate"]',
+              (doc) =>
             {
-               Util.assert.includes(doc, '[data-ice="detail"] #static-variable-testAccessVariablePrivate',
-                'private testAccessVariablePrivate:');
-            });
-
-            it('has auto private accessor.', () =>
-            {
-               Util.assert.includes(doc, '[data-ice="detail"] #static-variable-_testAccessVariableAutoPrivate',
-                'private _testAccessVariableAutoPrivate:');
+               doc = doc.parents('[data-ice="target"]');
+               Util.assert.includes(doc, null, 'private _testAccessVariableAutoPrivate:');
             });
          });
       });
-   }
-}
+
+      /** @test {SingleDocBuilder#_buildSingleDoc} */
+      describe('in detail: ', () =>
+      {
+         it('has public accessor.', () =>
+         {
+            Util.assert.includes(doc, '[data-ice="detail"] #static-variable-testAccessVariablePublic',
+             'public testAccessVariablePublic:');
+         });
+
+         it('has protected accessor.', () =>
+         {
+            Util.assert.includes(doc, '[data-ice="detail"] #static-variable-testAccessVariableProtected',
+             'protected testAccessVariableProtected:');
+         });
+
+         it('has private accessor.', () =>
+         {
+            Util.assert.includes(doc, '[data-ice="detail"] #static-variable-testAccessVariablePrivate',
+             'private testAccessVariablePrivate:');
+         });
+
+         it('has auto private accessor.', () =>
+         {
+            Util.assert.includes(doc, '[data-ice="detail"] #static-variable-_testAccessVariableAutoPrivate',
+             'private _testAccessVariableAutoPrivate:');
+         });
+      });
+   });
+});

@@ -1,37 +1,35 @@
 import Util       from 'tjsdoc-test-utils';
-import testConfig       from '../../testConfig.js';
 
-if (testConfig.category.html_doc && testConfig.html_doc.tests.variable)
+import testConfig from '../../testConfig.js';
+
+testConfig.forEachTarget('html_doc', 'variable', (target) =>
 {
-   for (const target of testConfig.targets)
+   /** @test {VariableDoc} */
+   describe(`testVariableObjectPattern (${target.name}):`, () =>
    {
-      /** @test {VariableDoc} */
-      describe('testVariableObjectPattern', () =>
+      const doc = Util.readDoc(target, 'variable/index.html');
+
+      describe('in summary', () =>
       {
-         const doc = Util.readDoc(target, 'variable/index.html');
-
-         describe('in summary', () =>
+         it('has desc', () =>
          {
-            it('has desc', () =>
+            Util.findParent(doc, '[data-ice="summary"] [href$="#static-variable-testVariableObjectPattern1"]',
+             '[data-ice="target"]', (doc) =>
             {
-               Util.findParent(doc, '[data-ice="summary"] [href$="#static-variable-testVariableObjectPattern1"]',
-                '[data-ice="target"]', (doc) =>
-               {
-                  Util.assert.includes(doc, null, 'public testVariableObjectPattern1: number');
-               });
-            });
-         });
-
-         describe('in details', () =>
-         {
-            it('has desc.', () =>
-            {
-               Util.findParent(doc, '[id="static-variable-testVariableObjectPattern1"]', '[data-ice="detail"]', (doc) =>
-               {
-                  Util.assert.includes(doc, 'h3', 'public testVariableObjectPattern1: number');
-               });
+               Util.assert.includes(doc, null, 'public testVariableObjectPattern1: number');
             });
          });
       });
-   }
-}
+
+      describe('in details', () =>
+      {
+         it('has desc.', () =>
+         {
+            Util.findParent(doc, '[id="static-variable-testVariableObjectPattern1"]', '[data-ice="detail"]', (doc) =>
+            {
+               Util.assert.includes(doc, 'h3', 'public testVariableObjectPattern1: number');
+            });
+         });
+      });
+   });
+});

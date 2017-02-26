@@ -2,17 +2,14 @@ import Util       from 'tjsdoc-test-utils';
 
 import testConfig from '../../testConfig.js';
 
-if (testConfig.category.html_doc && testConfig.html_doc.tests.export)
+testConfig.forEachTarget('html_doc', 'export', (target) =>
 {
-   for (const target of testConfig.targets)
+   /** @test {DocResolver#_resolveNecessary} */
+   describe(`TestExportExtendsInner (${target.name}):`, () =>
    {
-      /** @test {DocResolver#_resolveNecessary} */
-      describe('TestExportExtendsInner', () =>
+      it('is documented.', () =>
       {
-         it('is documented.', () =>
-         {
-            Util.readDoc(target, 'class/test/fixture/package/src/export/Extends.js~TestExportExtendsInner.html');
-         });
+         Util.readDoc(target, 'class/test/fixture/package/src/export/Extends.js~TestExportExtendsInner.html');
       });
-   }
-}
+   });
+});

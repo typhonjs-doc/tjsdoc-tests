@@ -1,22 +1,20 @@
 import Util       from 'tjsdoc-test-utils';
-import testConfig       from '../../testConfig.js';
 
-if (testConfig.category.html_doc && testConfig.html_doc.tests.todo)
+import testConfig from '../../testConfig.js';
+
+testConfig.forEachTarget('html_doc', 'todo', (target) =>
 {
-   for (const target of testConfig.targets)
+   /** @test {AbstractDoc#@todo} */
+   describe(`testTodoFunction (${target.name}):`, () =>
    {
-      /** @test {AbstractDoc#@todo} */
-      describe('testTodoFunction', () =>
-      {
-         const doc = Util.readDoc(target, 'function/index.html');
+      const doc = Util.readDoc(target, 'function/index.html');
 
-         it('has todo.', () =>
+      it('has todo.', () =>
+      {
+         Util.findParent(doc, '[id="static-function-testTodoFunction"]', '[data-ice="detail"]', (doc) =>
          {
-            Util.findParent(doc, '[id="static-function-testTodoFunction"]', '[data-ice="detail"]', (doc) =>
-            {
-               Util.assert.includes(doc, '[data-ice="todo"]', 'this is todo.');
-            });
+            Util.assert.includes(doc, '[data-ice="todo"]', 'this is todo.');
          });
       });
-   }
-}
+   });
+});

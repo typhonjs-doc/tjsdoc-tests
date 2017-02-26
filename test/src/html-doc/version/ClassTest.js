@@ -1,63 +1,60 @@
 import Util       from 'tjsdoc-test-utils';
-import testConfig       from '../../testConfig.js';
 
-if (testConfig.category.html_doc && testConfig.html_doc.tests.version)
+import testConfig from '../../testConfig.js';
+
+testConfig.forEachTarget('html_doc', 'version', (target) =>
 {
-   for (const target of testConfig.targets)
+   /** @test {AbstractDoc#@version} */
+   describe(`TestVersionClass (${target.name}):`, () =>
    {
-      /** @test {AbstractDoc#@version} */
-      describe('TestVersionClass', () =>
+      const doc = Util.readDoc(target, 'class/test/fixture/package/src/Version/Class.js~TestVersionClass.html');
+
+      describe('in self detail', () =>
       {
-         const doc = Util.readDoc(target, 'class/test/fixture/package/src/Version/Class.js~TestVersionClass.html');
-
-         describe('in self detail', () =>
+         it('has version.', () =>
          {
-            it('has version.', () =>
-            {
-               Util.assert.includes(doc, '.header-notice [data-ice="version"]', '1.2.3');
-            });
+            Util.assert.includes(doc, '.header-notice [data-ice="version"]', '1.2.3');
          });
+      });
 
-         describe('in summary', () =>
+      describe('in summary', () =>
+      {
+         it('has version', () =>
          {
-            it('has version', () =>
+            Util.assert.includes(doc, '[data-ice="constructorSummary"] [data-ice="version"]', '1.2.3');
+
+            Util.findParent(doc, '[data-ice="summary"] [href$="#instance-member-p1"]', '[data-ice="target"]', (doc) =>
             {
-               Util.assert.includes(doc, '[data-ice="constructorSummary"] [data-ice="version"]', '1.2.3');
-
-               Util.findParent(doc, '[data-ice="summary"] [href$="#instance-member-p1"]', '[data-ice="target"]',
-                (doc) =>
-               {
-                  Util.assert.includes(doc, '[data-ice="version"]', '1.2.3');
-               });
-
-               Util.findParent(doc, '[data-ice="summary"] [href$="#instance-method-method1"]', '[data-ice="target"]',
-                (doc) =>
-               {
-                  Util.assert.includes(doc, '[data-ice="version"]', '1.2.3');
-               });
+               Util.assert.includes(doc, '[data-ice="version"]', '1.2.3');
             });
-         });
 
-         describe('in details', () =>
-         {
-            it('has version', () =>
+            Util.findParent(doc, '[data-ice="summary"] [href$="#instance-method-method1"]', '[data-ice="target"]',
+             (doc) =>
             {
-               Util.findParent(doc, '[id="instance-constructor-constructor"]', '[data-ice="detail"]', (doc) =>
-               {
-                  Util.assert.includes(doc, '[data-ice="version"]', '1.2.3');
-               });
-
-               Util.findParent(doc, '[id="instance-member-p1"]', '[data-ice="detail"]', (doc) =>
-               {
-                  Util.assert.includes(doc, '[data-ice="version"]', '1.2.3');
-               });
-
-               Util.findParent(doc, '[id="instance-method-method1"]', '[data-ice="detail"]', (doc) =>
-               {
-                  Util.assert.includes(doc, '[data-ice="version"]', '1.2.3');
-               });
+               Util.assert.includes(doc, '[data-ice="version"]', '1.2.3');
             });
          });
       });
-   }
-}
+
+      describe('in details', () =>
+      {
+         it('has version', () =>
+         {
+            Util.findParent(doc, '[id="instance-constructor-constructor"]', '[data-ice="detail"]', (doc) =>
+            {
+               Util.assert.includes(doc, '[data-ice="version"]', '1.2.3');
+            });
+
+            Util.findParent(doc, '[id="instance-member-p1"]', '[data-ice="detail"]', (doc) =>
+            {
+               Util.assert.includes(doc, '[data-ice="version"]', '1.2.3');
+            });
+
+            Util.findParent(doc, '[id="instance-method-method1"]', '[data-ice="detail"]', (doc) =>
+            {
+               Util.assert.includes(doc, '[data-ice="version"]', '1.2.3');
+            });
+         });
+      });
+   });
+});

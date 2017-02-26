@@ -2,24 +2,21 @@ import Util       from 'tjsdoc-test-utils';
 
 import testConfig from '../testConfig.js';
 
-if (testConfig.category.config && testConfig.config.tests.coverage)
+testConfig.forEachTarget('config', 'coverage', (target) =>
 {
-   for (const target of testConfig.targets)
+   /** @test {CoverageBuilder} */
+   describe(`test config.coverage: false (${target.name}):`, () =>
    {
-      /** @test {CoverageBuilder} */
-      describe('test config.coverage: false', () =>
+      Util.invoke(target, './test/fixture/config/tjsdoc-coverage.json');
+
+      it('does not have coverage', () =>
       {
-         Util.invoke(target, './test/fixture/config/tjsdoc-coverage.json');
+         const doc = Util.readDoc(target, 'source.html', 'tjsdoc-coverage');
 
-         it('does not have coverage', () =>
+         Util.assert.throws(() =>
          {
-            const doc = Util.readDoc(target, 'source.html', 'tjsdoc-coverage');
-
-            Util.assert.throws(() =>
-            {
-               Util.assert.includes(doc, '[data-ice="coverageBadge"]', './badge.svg', 'src');
-            });
+            Util.assert.includes(doc, '[data-ice="coverageBadge"]', './badge.svg', 'src');
          });
       });
-   }
-}
+   });
+});

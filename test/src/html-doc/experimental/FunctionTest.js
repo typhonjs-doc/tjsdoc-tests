@@ -1,37 +1,35 @@
 import Util       from 'tjsdoc-test-utils';
-import testConfig       from '../../testConfig.js';
 
-if (testConfig.category.html_doc && testConfig.html_doc.tests.experimental)
+import testConfig from '../../testConfig.js';
+
+testConfig.forEachTarget('html_doc', 'experimental', (target) =>
 {
-   for (const target of testConfig.targets)
+   /** @test {AbstractDoc#@experimental} */
+   describe(`testExperimentalFunction (${target.name}):`, () =>
    {
-      /** @test {AbstractDoc#@experimental} */
-      describe('testExperimentalFunction', () =>
+      const doc = Util.readDoc(target, 'function/index.html');
+
+      describe('in summary', () =>
       {
-         const doc = Util.readDoc(target, 'function/index.html');
-
-         describe('in summary', () =>
+         it('has desc', () =>
          {
-            it('has desc', () =>
+            Util.findParent(doc, '[data-ice="summary"] [href$="#static-function-testExperimentalFunction"]',
+             '[data-ice="target"]', (doc) =>
             {
-               Util.findParent(doc, '[data-ice="summary"] [href$="#static-function-testExperimentalFunction"]',
-                '[data-ice="target"]', (doc) =>
-               {
-                  Util.assert.includes(doc, '[data-ice="experimental"]', 'this function is experimental.');
-               });
-            });
-         });
-
-         describe('in details', () =>
-         {
-            it('has desc.', () =>
-            {
-               Util.findParent(doc, '[id="static-function-testExperimentalFunction"]', '[data-ice="detail"]', (doc) =>
-               {
-                  Util.assert.includes(doc, '[data-ice="experimental"]', 'this function is experimental.');
-               });
+               Util.assert.includes(doc, '[data-ice="experimental"]', 'this function is experimental.');
             });
          });
       });
-   }
-}
+
+      describe('in details', () =>
+      {
+         it('has desc.', () =>
+         {
+            Util.findParent(doc, '[id="static-function-testExperimentalFunction"]', '[data-ice="detail"]', (doc) =>
+            {
+               Util.assert.includes(doc, '[data-ice="experimental"]', 'this function is experimental.');
+            });
+         });
+      });
+   });
+});

@@ -5,7 +5,7 @@ import testConfig from '../testConfig.js';
 testConfig.forEachTarget('config', 'alternateRuntime', (target) =>
 {
    /** @test {DocResolver#_resolveAccess} */
-   describe('test alternate config.runtime', () =>
+   describe(`test alternate config.runtime (${target.name}):`, () =>
    {
       Util.invoke(target, './test/fixture/config/tjsdoc-alternateRuntime.json', true, false);
 

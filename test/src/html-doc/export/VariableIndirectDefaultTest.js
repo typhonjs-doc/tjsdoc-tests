@@ -1,24 +1,22 @@
 import Util       from 'tjsdoc-test-utils';
-import testConfig       from '../../testConfig.js';
 
-if (testConfig.category.html_doc && testConfig.html_doc.tests.export)
+import testConfig from '../../testConfig.js';
+
+testConfig.forEachTarget('html_doc', 'export', (target) =>
 {
-   for (const target of testConfig.targets)
+   /** @test {VariableDoc#@_name} */
+   describe(`test export variable indirect default (${target.name}):`, () =>
    {
-      /** @test {VariableDoc#@_name} */
-      describe('test export variable indirect default', () =>
-      {
-         const doc = Util.readDoc(target, 'variable/index.html');
+      const doc = Util.readDoc(target, 'variable/index.html');
 
-         it('has default import path with indirect variable definition.', () =>
+      it('has default import path with indirect variable definition.', () =>
+      {
+         Util.findParent(doc, '[id="static-variable-testExportVariableIndirectDefault"]', '[data-ice="detail"]',
+          (doc) =>
          {
-            Util.findParent(doc, '[id="static-variable-testExportVariableIndirectDefault"]', '[data-ice="detail"]',
-             (doc) =>
-            {
-               Util.assert.includes(doc, '[data-ice="importPath"]',
-                `import testExportVariableIndirectDefault from 'tjsdoc-test-fixture/test/fixture/package/src/export/VariableIndirectDefault.js'`);
-            });
+            Util.assert.includes(doc, '[data-ice="importPath"]',
+             `import testExportVariableIndirectDefault from 'tjsdoc-test-fixture/test/fixture/package/src/export/VariableIndirectDefault.js'`);
          });
       });
-   }
-}
+   });
+});

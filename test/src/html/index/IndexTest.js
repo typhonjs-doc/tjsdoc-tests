@@ -1,19 +1,17 @@
 import Util       from 'tjsdoc-test-utils';
-import testConfig       from '../../testConfig.js';
 
-if (testConfig.category.html && testConfig.html.tests.index)
+import testConfig from '../../testConfig.js';
+
+testConfig.forEachTarget('html', 'index', (target) =>
 {
-   for (const target of testConfig.targets)
+   /** @test {IndexDocBuilder} */
+   describe(`test index (${target.name}):`, () =>
    {
-      /** @test {IndexDocBuilder} */
-      describe('test index', () =>
-      {
-         const doc = Util.readDoc(target, 'index.html');
+      const doc = Util.readDoc(target, 'index.html');
 
-         it('has README.md', () =>
-         {
-            Util.assert.includes(doc, '[data-ice="index"]', 'this is TJSDoc Test Fixture README.');
-         });
+      it('has README.md', () =>
+      {
+         Util.assert.includes(doc, '[data-ice="index"]', 'this is TJSDoc Test Fixture README.');
       });
-   }
-}
+   });
+});

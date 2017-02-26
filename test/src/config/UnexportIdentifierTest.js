@@ -2,23 +2,20 @@ import Util       from 'tjsdoc-test-utils';
 
 import testConfig from '../testConfig.js';
 
-if (testConfig.category.config && testConfig.config.tests.unexportIdentifier)
+testConfig.forEachTarget('config', 'unexportIdentifier', (target) =>
 {
-   for (const target of testConfig.targets)
+   /** @test {DocResolver#_resolveUnexportIdentifier} */
+   describe(`test config.unexportIdentifier: true (${target.name}):`, () =>
    {
-      /** @test {DocResolver#_resolveUnexportIdentifier} */
-      describe('test config.unexportIdentifier: true', () =>
+      Util.invoke(target, './test/fixture/config/tjsdoc-unexportIdentifier.json');
+
+      it('has unexport identifier', () =>
       {
-         Util.invoke(target, './test/fixture/config/tjsdoc-unexportIdentifier.json');
+         const doc = Util.readDoc(target,
+          'class/test/fixture/package/src/export/Class.js~TestExportClass6.html', 'tjsdoc-unexportIdentifier');
 
-         it('has unexport identifier', () =>
-         {
-            const doc = Util.readDoc(target,
-             'class/test/fixture/package/src/export/Class.js~TestExportClass6.html', 'tjsdoc-unexportIdentifier');
-
-            Util.assert.includes(doc, '.self-detail [data-ice="name"]', 'TestExportClass6');
-            Util.assert.notIncludes(doc, '.header-notice', 'import');
-         });
+         Util.assert.includes(doc, '.self-detail [data-ice="name"]', 'TestExportClass6');
+         Util.assert.notIncludes(doc, '.header-notice', 'import');
       });
-   }
-}
+   });
+});

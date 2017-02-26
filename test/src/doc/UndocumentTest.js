@@ -3,25 +3,22 @@ import Util       from 'tjsdoc-test-utils';
 
 import testConfig from '../testConfig.js';
 
-if (testConfig.category.doc && testConfig.doc.tests.undocument)
+testConfig.forEachTarget('doc', 'undocument', (target) =>
 {
-   for (const target of testConfig.targets)
+   /**
+    * @test {DocFactory#_traverseComments}
+    * @test {AbstractDoc#@desc}
+    * @test {DocResolver#_resolveUndocumentIdentifier}
+    */
+   describe(`test undocument (${target.name}):`, () =>
    {
-      /**
-       * @test {DocFactory#_traverseComments}
-       * @test {AbstractDoc#@desc}
-       * @test {DocResolver#_resolveUndocumentIdentifier}
-       */
-      describe('test undocument', () =>
+      it('has undocument tag.', () =>
       {
-         it('has undocument tag.', () =>
-         {
-            const docDB = new DocDB(Util.readJSON(target, 'docData.json'));
+         const docDB = new DocDB(Util.readJSON(target, 'docData.json'));
 
-            const doc = docDB.find({ name: 'TestUndocumentDefinition', undocument: true })[0];
+         const doc = docDB.find({ name: 'TestUndocumentDefinition', undocument: true })[0];
 
-            Util.assert.equal(doc.undocument, true);
-         });
+         Util.assert.equal(doc.undocument, true);
       });
-   }
-}
+   });
+});

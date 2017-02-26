@@ -2,22 +2,19 @@ import Util       from 'tjsdoc-test-utils';
 
 import testConfig from '../testConfig.js';
 
-if (testConfig.category.config && testConfig.config.tests.manual)
+testConfig.forEachTarget('config', 'manual', (target) =>
 {
-   for (const target of testConfig.targets)
+   /** @test {ManualDocBuilder} */
+   describe(`test config.manual: null (${target.name}):`, () =>
    {
-      /** @test {ManualDocBuilder} */
-      describe('test config.manual: null', () =>
-      {
-         Util.invoke(target, './test/fixture/config/tjsdoc-manual.json');
+      Util.invoke(target, './test/fixture/config/tjsdoc-manual.json');
 
-         it('does not have manual.', () =>
+      it('does not have manual.', () =>
+      {
+         Util.assert.throws(() =>
          {
-            Util.assert.throws(() =>
-            {
-               Util.readDoc(target, 'manual/index.html', 'tjsdoc-manual');
-            });
+            Util.readDoc(target, 'manual/index.html', 'tjsdoc-manual');
          });
       });
-   }
-}
+   });
+});

@@ -1,24 +1,22 @@
 import Util       from 'tjsdoc-test-utils';
-import testConfig       from '../../testConfig.js';
 
-if (testConfig.category.html_doc && testConfig.html_doc.tests.link)
+import testConfig from '../../testConfig.js';
+
+testConfig.forEachTarget('html_doc', 'link', (target) =>
 {
-   for (const target of testConfig.targets)
+   /** @test {DocResolver#_resolveLink} */
+   describe(`testLinkVariable (${target.name}):`, () =>
    {
-      /** @test {DocResolver#_resolveLink} */
-      describe('testLinkVariable', () =>
-      {
-         const doc = Util.readDoc(target, 'variable/index.html');
+      const doc = Util.readDoc(target, 'variable/index.html');
 
-         it('has link.', () =>
+      it('has link.', () =>
+      {
+         Util.findParent(doc, '[id="static-variable-testLinkVariable"]', '[data-ice="detail"]', (doc) =>
          {
-            Util.findParent(doc, '[id="static-variable-testLinkVariable"]', '[data-ice="detail"]', (doc) =>
-            {
-               Util.assert.includes(doc,
-                '[data-ice="description"] a[href="class/test/fixture/package/src/link/Class.js~TestLinkClass.html"]',
-                 'TestLinkClass');
-            });
+            Util.assert.includes(doc,
+             '[data-ice="description"] a[href="class/test/fixture/package/src/link/Class.js~TestLinkClass.html"]',
+              'TestLinkClass');
          });
       });
-   }
-}
+   });
+});
