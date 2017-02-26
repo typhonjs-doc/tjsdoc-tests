@@ -7,6 +7,9 @@ import process    from 'process';
 
 process.chdir(path.resolve(__dirname, '../..'));
 
+console.log(`emptying destination: ${testConfig.emptyDest}`);
+console.log(`generating main (tjsdoc): ${testConfig.generateMain}\n`);
+
 // Potentially remove any existing generated test docs.
 if (testConfig.emptyDest)
 {
@@ -16,10 +19,10 @@ if (testConfig.emptyDest)
 
 if (testConfig.generateMain)
 {
-   for (const target of testConfig.targets)
+   testConfig.forEachTarget((target) =>
    {
       console.log(`generating main test (${target.name}):`);
 
       Util.invoke(target, './test/fixture/package/tjsdoc.json', false);
-   }
+   });
 }
