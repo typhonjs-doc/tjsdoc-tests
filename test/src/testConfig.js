@@ -36,7 +36,7 @@ if (runtimeTargets.length === 0)
    process.exit(1);
 }
 
-const s_DEFAULT_CATEGORIES = { cli: true, config: true, doc: true, html: true };
+const s_DEFAULT_CATEGORIES = { cli: true, config: true, doc: true, html: true, html_doc: true };
 
 const runtimeCategories = Object.assign(s_DEFAULT_CATEGORIES, localConfig.category);
 
@@ -145,62 +145,61 @@ const testConfig =
    // There are several html sub-categories and each can be enabled independently.
    html:
    {
-      category:
+      tests:
       {
          coverage: true,
-         document: true,
          file: true,
          identifiers: true,
          index: true,
          manual: true,
          nav: true,
          test: true
-      },
+      }
+   },
 
-      // There are many documentation tests and each html document sub-category can be enabled independently.
-      document:
+   // There are many documentation tests and each html document sub-category can be enabled independently.
+   html_doc:
+   {
+      tests:
       {
-         category:
-         {
-            'abstract': true,
-            'access': true,
-            'async': true,
-            'class': true,
-            'classProperty': true,
-            'computed': true,
-            'decorator': true,
-            'deprecated': true,
-            'desc': true,
-            'destructuring': true,
-            'duplication': true,
-            'emits': true,
-            'example': true,
-            'experimental': true,
-            'exponentialOperator': true,
-            'export': true,
-            'extends': true,
-            'external': true,
-            'generator': true,
-            'guess': true,
-            'ignore': true,
-            'interface': true,
-            'jsx': true,
-            'link': true,
-            'listens': true,
-            'param': true,
-            'property': true,
-            'return': true,
-            'see': true,
-            'since': true,
-            'throws': true,
-            'todo': true,
-            'trailingComma': true,
-            'type': true,
-            'typedef': true,
-            'undocument': true,
-            'variable': true,
-            'version': true
-         }
+         'abstract': true,
+         'access': true,
+         'async': true,
+         'class': true,
+         'classProperty': true,
+         'computed': true,
+         'decorator': true,
+         'deprecated': true,
+         'desc': true,
+         'destructuring': true,
+         'duplication': true,
+         'emits': true,
+         'example': true,
+         'experimental': true,
+         'exponentialOperator': true,
+         'export': true,
+         'extends': true,
+         'external': true,
+         'generator': true,
+         'guess': true,
+         'ignore': true,
+         'interface': true,
+         'jsx': true,
+         'link': true,
+         'listens': true,
+         'param': true,
+         'property': true,
+         'return': true,
+         'see': true,
+         'since': true,
+         'throws': true,
+         'todo': true,
+         'trailingComma': true,
+         'type': true,
+         'typedef': true,
+         'undocument': true,
+         'variable': true,
+         'version': true
       }
    }
 };
