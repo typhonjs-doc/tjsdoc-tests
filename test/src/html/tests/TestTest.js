@@ -1,7 +1,7 @@
 import Util       from 'tjsdoc-test-utils';
 import testConfig       from '../../testConfig.js';
 
-if (testConfig.category.html && testConfig.html.category.test)
+if (testConfig.category.html && testConfig.html.tests.test)
 {
    for (const target of testConfig.targets)
    {

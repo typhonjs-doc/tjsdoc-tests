@@ -1,5 +1,5 @@
 import Util       from 'tjsdoc-test-utils';
-import testConfig       from '../../testConfig.js';
+import testConfig from '../../testConfig.js';
 
 if (testConfig.category.html && testConfig.html.tests.file)
 {

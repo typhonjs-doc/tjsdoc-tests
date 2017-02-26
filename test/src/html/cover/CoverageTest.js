@@ -8,15 +8,15 @@ if (testConfig.category.html && testConfig.html.tests.coverage)
       /** @test {CoverageBuilder} */
       describe(`test coverage (${target.name}):`, () =>
       {
-         const doc = Util.readDoc(target.name, 'source.html');
-         const badge = Util.readFile(target.name, 'badge.svg').toString();
+         const doc = Util.readDoc(target, 'source.html');
+         const badge = Util.readFile(target, 'badge.svg').toString();
 
          it('has coverage summary', () =>
          {
-            assert(badge.includes('89%'));
-            assert.includes(doc, '[data-ice="coverageBadge"]', './badge.svg', 'src');
-            assert.includes(doc, '[data-ice="totalCoverageCount"]', '319/356');
-            assert.equal(doc.find('[data-ice="file"] [data-ice="coverage"]').length, 121);
+            Util.assert(badge.includes('89%'));
+            Util.assert.includes(doc, '[data-ice="coverageBadge"]', './badge.svg', 'src');
+            Util.assert.includes(doc, '[data-ice="totalCoverageCount"]', '319/356');
+            Util.assert.equal(doc.find('[data-ice="file"] [data-ice="coverage"]').length, 121);
          });
 
          /* eslint-disable max-statements */
@@ -36,7 +36,7 @@ if (testConfig.category.html && testConfig.html.tests.coverage)
             {
                Util.findParent(doc, `a[href="${filePath}"]`, '[data-ice="file"]', (doc) =>
                {
-                  assert.includes(doc, '.coverage', expect);
+                  Util.assert.includes(doc, '.coverage', expect);
                   count++;
                });
             }
@@ -162,7 +162,7 @@ if (testConfig.category.html && testConfig.html.tests.coverage)
             test('file/test/fixture/package/src/version/Function.js.html', '100 %1/1');
             test('file/test/fixture/package/src/version/Variable.js.html', '100 %1/1');
 
-            assert.equal(count, 120);
+            Util.assert.equal(count, 120);
          });
       });
    }
