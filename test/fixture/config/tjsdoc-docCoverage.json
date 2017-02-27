@@ -1,8 +1,8 @@
 {
   "source": "./test/fixture/package/src",
-  "destination": "./test/fixture/dest/tjsdoc-coverage",
+  "destination": "./test/fixture/dest/tjsdoc-docCoverage",
   "includes": ["desc/.*\\.js"],
-  "coverage": false,
+  "docCoverage": false,
   "index": "./test/fixture/package/README.md",
   "package": "./test/fixture/package/package.json"
 }

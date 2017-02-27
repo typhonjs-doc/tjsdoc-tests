@@ -54,7 +54,7 @@ const config =
          compressData: true,
          compress: true,
          compressZip: true,
-         coverage: true,
+         docCoverage: true,
          emptyDestination: true,
          excludePackage: true,
          excludes: true,
