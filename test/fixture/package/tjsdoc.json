@@ -1,16 +1,14 @@
 {
    "source": "./test/fixture/package/src",
    "destination": "./test/fixture/dest/tjsdoc",
-   "access": [
-      "public",
-      "protected",
-      "private"
-   ],
+
    "debug": false,
+   "access": ["public", "protected", "private"],
    "index": "./test/fixture/package/README.md",
    "package": "./test/fixture/package/package.json",
    "title": "TJSDoc Test Fixture",
    "outputDocData": true,
+
    "test": {
       "type": "mocha",
       "source": "./test/fixture/package/test",
@@ -18,38 +16,41 @@
          "Test.js$"
       ]
    },
-   "manual": {
-      "index": "./test/fixture/package/manual/index.md",
-      "overview": [
-         "./test/fixture/package/manual/overview.md"
-      ],
-      "design": [
-         "./test/fixture/package/manual/design.md"
-      ],
-      "installation": [
-         "./test/fixture/package/manual/installation.md"
-      ],
-      "usage": [
-         "./test/fixture/package/manual/usage1.md",
-         "./test/fixture/package/manual/usage2.md"
-      ],
-      "tutorial": [
-         "./test/fixture/package/manual/tutorial.md"
-      ],
-      "configuration": [
-         "./test/fixture/package/manual/configuration.md"
-      ],
-      "example": [
-         "./test/fixture/package/manual/example.md"
-      ],
-      "advanced": [
-         "./test/fixture/package/manual/advanced.md"
-      ],
-      "faq": [
-         "./test/fixture/package/manual/faq.md"
-      ],
-      "changelog": [
-         "./test/fixture/package/CHANGELOG.md"
-      ]
+
+   "publisherOptions": {
+      "manual": {
+         "index": "./test/fixture/package/manual/index.md",
+         "overview": [
+            "./test/fixture/package/manual/overview.md"
+         ],
+         "design": [
+            "./test/fixture/package/manual/design.md"
+         ],
+         "installation": [
+            "./test/fixture/package/manual/installation.md"
+         ],
+         "usage": [
+            "./test/fixture/package/manual/usage1.md",
+            "./test/fixture/package/manual/usage2.md"
+         ],
+         "tutorial": [
+            "./test/fixture/package/manual/tutorial.md"
+         ],
+         "configuration": [
+            "./test/fixture/package/manual/configuration.md"
+         ],
+         "example": [
+            "./test/fixture/package/manual/example.md"
+         ],
+         "advanced": [
+            "./test/fixture/package/manual/advanced.md"
+         ],
+         "faq": [
+            "./test/fixture/package/manual/faq.md"
+         ],
+         "changelog": [
+            "./test/fixture/package/CHANGELOG.md"
+         ]
+      }
    }
 }

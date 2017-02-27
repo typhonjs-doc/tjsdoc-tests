@@ -1,0 +1,9 @@
+{
+  "source": "./test/fixture/package/src",
+  "destination": "./test/fixture/dest/tjsdoc-publisherStyles",
+  "includes": ["desc/.*\\.js"],
+  "index": "./test/fixture/package/README.md",
+  "package": "./test/fixture/package/package.json",
+
+  "publisherOptions": { "styles": ["./test/fixture/package/style/custom.css"] }
+}

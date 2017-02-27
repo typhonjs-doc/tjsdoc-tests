@@ -7,13 +7,13 @@ testConfig.forEachTarget('config', 'manual', (target) =>
    /** @test {ManualDocBuilder} */
    describe(`test config.manual: null (${target.name}):`, () =>
    {
-      Util.invoke(target, './test/fixture/config/tjsdoc-manual.json', testConfig.consoleSilent);
+      Util.invoke(target, './test/fixture/config/tjsdoc-publisherManual.json', testConfig.consoleSilent);
 
       it('does not have manual.', () =>
       {
          Util.assert.throws(() =>
          {
-            Util.readDoc(target, 'manual/index.html', 'tjsdoc-manual');
+            Util.readDoc(target, 'manual/index.html', 'tjsdoc-publisherManual');
          });
       });
    });
