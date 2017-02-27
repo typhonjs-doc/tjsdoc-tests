@@ -94,6 +94,23 @@ export function onHandleDocData(ev)
 }
 
 /**
+ * Tracks that `onHandleDocDB` has been invoked from `MyPlugin1`.
+ *
+ * Performs basic doc DB modification.
+ *
+ * @param {object} ev - Plugin event
+ */
+export function onHandleDocDB(ev)
+{
+   callInfo.handlerNames.onHandleDocDB = ['MyPlugin1'];
+
+   ev.data.docDB.query({ name: 'MyClass_ModifiedCode_ModifiedAST_ModifiedTag' }).update(function()
+   {
+      this.name = 'MyClass_ModifiedCode_ModifiedAST_ModifiedTag_ModifiedDB'; return this;
+   });
+}
+
+/**
  * Tracks that `onHandleWriteFile` has been invoked from `MyPlugin1`.
  *
  * Performs basic file / HTML modification.

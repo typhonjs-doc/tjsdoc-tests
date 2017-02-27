@@ -30,7 +30,10 @@ testConfig.forEachTarget('config', 'plugins', (target) =>
          const doc = Util.readDoc(target, 'index.html', 'tjsdoc-plugins');
 
          Util.assert.includes(doc, 'head title', 'Modified Config');
-         Util.assert.includes(doc, '.navigation', 'MyClass_ModifiedCode_ModifiedAST_ModifiedTag_ModifiedHTML');
+
+         Util.assert.includes(doc, '.navigation',
+          'MyClass_ModifiedCode_ModifiedAST_ModifiedTag_ModifiedHTML_ModifiedDB');
+
          Util.assert.includes(doc, 'head meta[name="x-from-plugin"]', 'fileName:', 'content');
       });
 
