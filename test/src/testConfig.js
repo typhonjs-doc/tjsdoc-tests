@@ -63,6 +63,7 @@ const config =
          outputASTData: true,
          outputDocData: true,
          plugins: true,
+         removeCommonPath: true,
          scripts: true,
          sourceFiles: true,
          styles: true,
