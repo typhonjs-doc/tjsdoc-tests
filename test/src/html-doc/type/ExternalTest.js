@@ -16,10 +16,11 @@ testConfig.forEachTarget('html_doc', 'type', (target) =>
       {
          Util.findParent(doc, '[data-ice="summary"] [href$="#instance-method-method1"]', '[data-ice="target"]', (doc) =>
          {
-            Util.assert.includes(doc, null, 'method1(p1: XMLHttpRequest)');
+            Util.assert.includes(doc, null, 'method1(p1: ArrayBuffer)');
 
-            Util.assert.includes(doc, 'a[href="https://developer.mozilla.org/en/docs/Web/API/XMLHttpRequest"]',
-             'XMLHttpRequest');
+            Util.assert.includes(doc,
+             'a[href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer"]',
+              'ArrayBuffer');
          });
       });
    });
