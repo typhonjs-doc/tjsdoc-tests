@@ -1,4 +1,4 @@
-import DocDB      from 'tjsdoc-runtime-common/src/doc/utils/DocDB.js';
+import DocDB      from 'tjsdoc-runtime-common/src/utils/DocDB.js';
 import Util       from 'tjsdoc-test-utils';
 
 import testConfig from '../testConfig.js';
