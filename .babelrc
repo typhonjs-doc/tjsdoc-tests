@@ -1,6 +1,18 @@
 {
   "presets": ["latest", "stage-2"],
 
+  "plugins":
+  [
+    "add-module-exports",
+    ["module-resolver", {
+      "root": ["."],
+      "alias":
+      {
+        "tjsdoc-runtime-common/src": "tjsdoc-runtime-common/dist"
+      }
+    }]
+  ],
+
   "env":
   {
     "tjsdoc-dev":
@@ -14,7 +26,7 @@
           {
             "tjsdoc-test-utils": "../tjsdoc-test-utils/src/Util.js",
 
-            "tjsdoc-runtime-common/src": "../tjsdoc/tjsdoc-runtime-common/src"
+            "tjsdoc-runtime-common/src": "../tjsdoc-runtime-common/src"
           }
         }]
       ]
