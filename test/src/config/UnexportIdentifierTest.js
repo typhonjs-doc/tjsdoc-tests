@@ -7,7 +7,7 @@ testConfig.forEachTarget('config', 'unexportIdentifier', (target) =>
    /** @test {DocResolver#_resolveUnexportIdentifier} */
    describe(`test config.unexportIdentifier: true (${target.name}):`, () =>
    {
-      Util.invoke(target, './test/fixture/config/tjsdoc-unexportIdentifier.json');
+      Util.invoke(target, './test/fixture/config/tjsdoc-unexportIdentifier.json', testConfig.consoleSilent);
 
       it('has unexport identifier', () =>
       {

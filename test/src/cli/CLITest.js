@@ -34,23 +34,23 @@ testConfig.forEachTarget('cli', 'cli', (target) =>
 
          it('can execute with config file.', () =>
          {
-            Util.consoleLogSwitch(false);
+            if (testConfig.consoleSilent) { Util.consoleLogSilent(true); }
             cli.exec();
-            Util.consoleLogSwitch(true);
+            if (testConfig.consoleSilent) { Util.consoleLogSilent(false); }
          });
 
          it('can show help', () =>
          {
-            Util.consoleLogSwitch(false);
+            if (testConfig.consoleSilent) { Util.consoleLogSilent(true); }
             cli._showHelp();
-            Util.consoleLogSwitch(true);
+            if (testConfig.consoleSilent) { Util.consoleLogSilent(false); }
          });
 
          it('can show version', () =>
          {
-            Util.consoleLogSwitch(false);
+            if (testConfig.consoleSilent) { Util.consoleLogSilent(true); }
             cli._showVersion();
-            Util.consoleLogSwitch(true);
+            if (testConfig.consoleSilent) { Util.consoleLogSilent(false); }
          });
       });
    }

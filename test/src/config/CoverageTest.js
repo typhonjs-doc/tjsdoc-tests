@@ -7,7 +7,7 @@ testConfig.forEachTarget('config', 'coverage', (target) =>
    /** @test {CoverageBuilder} */
    describe(`test config.coverage: false (${target.name}):`, () =>
    {
-      Util.invoke(target, './test/fixture/config/tjsdoc-coverage.json');
+      Util.invoke(target, './test/fixture/config/tjsdoc-coverage.json', testConfig.consoleSilent);
 
       it('does not have coverage', () =>
       {

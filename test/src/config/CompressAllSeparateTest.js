@@ -8,7 +8,7 @@ testConfig.forEachTarget('config', 'compressAllSeparate', (target) =>
    describe(`test compressData / compressOutput / outputASTData / outputDocData / separateDataArchives: true (${
     target.name}):`, () =>
    {
-      Util.invoke(target, './test/fixture/config/tjsdoc-compressAllSeparate.json');
+      Util.invoke(target, './test/fixture/config/tjsdoc-compressAllSeparate.json', testConfig.consoleSilent);
 
       it('compresses all output, AST and doc data separately', (done) =>
       {

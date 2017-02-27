@@ -16,6 +16,9 @@ const config =
    // Generates the main TJSDoc test output. Note: many tests will fail without main generation.
    generateMain: true,
 
+   // Disables console output when invoking CLI or TJSDoc directly in tests.
+   consoleSilent: true,
+
    // Enables the main categories of tests.
    category:
    {

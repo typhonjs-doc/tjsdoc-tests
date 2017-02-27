@@ -7,7 +7,7 @@ testConfig.forEachTarget('config', 'manual', (target) =>
    /** @test {ManualDocBuilder} */
    describe(`test config.manual: null (${target.name}):`, () =>
    {
-      Util.invoke(target, './test/fixture/config/tjsdoc-manual.json');
+      Util.invoke(target, './test/fixture/config/tjsdoc-manual.json', testConfig.consoleSilent);
 
       it('does not have manual.', () =>
       {

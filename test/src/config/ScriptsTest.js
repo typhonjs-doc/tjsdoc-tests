@@ -7,7 +7,7 @@ testConfig.forEachTarget('config', 'scripts', (target) =>
    /** @test {DocBuilder#_buildLayoutDoc} */
    describe(`test config.scripts: ["./test/fixture/script/custom.js"] (${target.name}):`, () =>
    {
-      Util.invoke(target, './test/fixture/config/tjsdoc-scripts.json');
+      Util.invoke(target, './test/fixture/config/tjsdoc-scripts.json', testConfig.consoleSilent);
 
       it('has custom script', () =>
       {

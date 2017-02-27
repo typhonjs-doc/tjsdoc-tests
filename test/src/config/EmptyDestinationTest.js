@@ -11,7 +11,7 @@ testConfig.forEachTarget('config', 'emptyDestination', (target) =>
       Util.ensureDir(target, 'tjsdoc-emptyDestination');
       Util.writeFile(target, 'tjsdoc-emptyDestination', 'DUMMY_DATA', 'DUMMY_DATA');
 
-      Util.invoke(target, './test/fixture/config/tjsdoc-emptyDestination.json');
+      Util.invoke(target, './test/fixture/config/tjsdoc-emptyDestination.json', testConfig.consoleSilent);
 
       it('destination emptied.', () =>
       {

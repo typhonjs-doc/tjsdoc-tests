@@ -7,7 +7,7 @@ testConfig.forEachTarget('config', 'excludePackage', (target) =>
    /** @test {publish} */
    describe(`test config.copyPackage: false (${target.name}):`, () =>
    {
-      Util.invoke(target, './test/fixture/config/tjsdoc-excludePackage.json');
+      Util.invoke(target, './test/fixture/config/tjsdoc-excludePackage.json', testConfig.consoleSilent);
 
       it('does not have ast data.', () =>
       {

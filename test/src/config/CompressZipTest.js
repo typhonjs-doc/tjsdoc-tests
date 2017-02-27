@@ -7,7 +7,7 @@ testConfig.forEachTarget('config', 'compressZip', (target) =>
    /** @test {publish} */
    describe(`test config.compressFormat: "zip", config.compressOutput: true (${target.name}):`, () =>
    {
-      Util.invoke(target, './test/fixture/config/tjsdoc-compressZip.json');
+      Util.invoke(target, './test/fixture/config/tjsdoc-compressZip.json', testConfig.consoleSilent);
 
       it('compresses as docs.zip', (done) =>
       {

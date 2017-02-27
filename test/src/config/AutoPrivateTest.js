@@ -7,7 +7,7 @@ testConfig.forEachTarget('config', 'autoPrivate', (target) =>
    /** @test {DocResolver#_resolveAccess} */
    describe(`test config.autoPrivate: false (${target.name}):`, () =>
    {
-      Util.invoke(target, './test/fixture/config/tjsdoc-autoPrivate.json');
+      Util.invoke(target, './test/fixture/config/tjsdoc-autoPrivate.json', testConfig.consoleSilent);
 
       /**
        * Helper function to change the directory when invoking `_readDoc`.

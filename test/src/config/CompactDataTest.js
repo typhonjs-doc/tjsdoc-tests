@@ -7,7 +7,7 @@ testConfig.forEachTarget('config', 'compactData', (target) =>
    /** @test {publish} */
    describe(`test compactData / outputASTData / outputDocData: true (${target.name}):`, () =>
    {
-      Util.invoke(target, './test/fixture/config/tjsdoc-compactData.json');
+      Util.invoke(target, './test/fixture/config/tjsdoc-compactData.json', testConfig.consoleSilent);
 
       it('does have ast data.', () =>
       {

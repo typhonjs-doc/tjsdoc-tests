@@ -7,7 +7,7 @@ testConfig.forEachTarget('config', 'styles', (target) =>
    /** @test {DocBuilder#_buildLayoutDoc} */
    describe(`test config.styles: ["./test/fixture/style/custom.css"] (${target.name}):`, () =>
    {
-      Util.invoke(target, './test/fixture/config/tjsdoc-styles.json');
+      Util.invoke(target, './test/fixture/config/tjsdoc-styles.json', testConfig.consoleSilent);
 
       it('has custom style', () =>
       {
