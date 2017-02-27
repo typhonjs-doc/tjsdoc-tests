@@ -14,7 +14,9 @@ import testConfig from '../../src/testConfig.js';
  */
 export function onPluginLoad(ev)
 {
-   require(testConfig.currentTarget.runtime).onPluginLoad(ev);
+   const runtime = testConfig.currentTarget.runtime;
+
+   require(typeof runtime === 'object' ? runtime.target || runtime.name : runtime).onPluginLoad(ev);
 
    // Set global variable for alternate runtime test.
    global.$$tjsdoc_alternate_runtime = true;
