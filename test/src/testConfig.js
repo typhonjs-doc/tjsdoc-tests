@@ -88,8 +88,8 @@ const config =
    {
       tests:
       {
-         docdb: true,
-         lintDocLogger: true
+         docDB: true,
+         utils: true
       }
    },
 

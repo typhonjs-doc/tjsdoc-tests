@@ -2,7 +2,7 @@ import Util       from 'tjsdoc-test-utils';
 
 import testConfig from '../../testConfig.js';
 
-testConfig.forEachTarget('runtime_common', 'docdb', (target) =>
+testConfig.forEachTarget('runtime_common', 'docDB', (target) =>
 {
    const DocDB = require('tjsdoc-runtime-common/src/utils/DocDB.js');
 
