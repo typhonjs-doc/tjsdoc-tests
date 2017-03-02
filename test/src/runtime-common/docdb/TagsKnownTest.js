@@ -1,10 +1,11 @@
-import DocDB      from 'tjsdoc-runtime-common/src/utils/DocDB.js';
 import Util       from 'tjsdoc-test-utils';
 
-import testConfig from '../testConfig.js';
+import testConfig from '../../testConfig.js';
 
-testConfig.forEachTarget('doc', 'tagsKnown', (target) =>
+testConfig.forEachTarget('runtime_common', 'docdb', (target) =>
 {
+   const DocDB = require('tjsdoc-runtime-common/src/utils/DocDB.js');
+
    /** @test {AbstractDoc#@_known} */
    describe(`test known tags (${target.name}):`, () =>
    {

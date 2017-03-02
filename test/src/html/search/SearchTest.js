@@ -1,8 +1,8 @@
 import Util       from 'tjsdoc-test-utils';
 
-import testConfig from '../testConfig.js';
+import testConfig from '../../testConfig.js';
 
-testConfig.forEachTarget('doc', 'search', (target) =>
+testConfig.forEachTarget('html', 'search', (target) =>
 {
    describe(`test search (${target.name}):`, () =>
    {

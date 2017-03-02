@@ -24,9 +24,10 @@ const config =
    {
       cli: true,
       config: true,
-      doc: true,
       html: true,
-      html_doc: true
+      html_doc: true,
+      runtime_babylon: true,
+      runtime_common: true
    },
 
    // Enables specific cli tests
@@ -73,16 +74,22 @@ const config =
       }
    },
 
-   // Enables specific doc tests.
-   doc:
+   // Enables specific runtime Babylon tests.
+   runtime_babylon:
    {
       tests:
       {
-         lintDocLogger: true,
-         search: true,
-         tagsKnown: true,
-         tagsUnknown: true,
-         undocument: true
+         parser: true
+      }
+   },
+
+   // Enables specific runtime common tests.
+   runtime_common:
+   {
+      tests:
+      {
+         docdb: true,
+         lintDocLogger: true
       }
    },
 
@@ -97,6 +104,7 @@ const config =
          index: true,
          manual: true,
          nav: true,
+         search: true,
          test: true
       }
    },
