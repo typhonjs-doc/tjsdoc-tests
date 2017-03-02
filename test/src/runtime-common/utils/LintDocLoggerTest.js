@@ -28,7 +28,7 @@ testConfig.forEachTarget('runtime_common', 'utils', (target) =>
    const PluginManager = require('typhonjs-plugin-manager');
    const testEventbus = require('backbone-esnext-eventbus').testEventbus;
 
-   /** @test {LintDocBuilder} */
+   /** @test {LintDocLogger} */
    describe(`LintDocLogger (${target.name})`, () =>
    {
       let pluginManager;
