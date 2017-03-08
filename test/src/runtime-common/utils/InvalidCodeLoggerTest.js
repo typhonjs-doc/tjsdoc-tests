@@ -4,17 +4,9 @@ import testConfig from '../../testConfig.js';
 
 testConfig.forEachTarget('runtime_common', 'utils', (target) =>
 {
-   const ParserError = require('tjsdoc-runtime-common/src/parser/ParserError.js');
+   //const ParserError = require('tjsdoc-runtime-common/src/parser/ParserError.js').ParserError;
    const PluginManager = require('typhonjs-plugin-manager');
    const testEventbus = require('backbone-esnext-eventbus').testEventbus;
-
-   const s_TEST_CODE1 = { code: "CODE1\nsome\nbogus\ncode\nthat\nis\njust\na\ntest!", node: { type: "ClassMethod", start: 111, end: 145, loc: { start: { line: 6, column: 3 }, end: { line: 6, column: 37 } } }, fatalError: new Error("TEST_ERROR") };
-   const s_TEST_CODE2 = { code: "CODE2\nsome\nbogus\ncode\nthat\nis\njust\na\ntest!", parserError: new ParserError(5, 0, 'An error message', 24) };
-   const s_TEST_CODE3 = { code: "CODE3\nsome\nbogus\ncode\nthat\nis\njust\na\ntest!", node: { type: "FunctionDeclaration", start: 72, end: 108, loc: { start: { line: 5, column: 0 }, end: { line: 5, column: 36 } }, leadingComments: [{ type: "CommentBlock", value: " eslint-disable valid-jsdoc, no-unused-vars ", start: 0, end: 48, loc: { start: { line: 1, column: 0 }, end: { line: 1, column: 48 } } }, { type: "CommentBlock", value: "*\n * @param {} p\n ", start: 49, end: 71, loc: { start: { line: 2, column: 0 }, end: { line: 4, column: 3 } } }] } };
-
-   const s_TEST_FILE1 = { filePath: "./test/fixture/package/src/guess/ObjectDefaultParam.js", node: { type: "ClassMethod", start: 111, end: 145, loc: { start: { line: 6, column: 3 }, end: { line: 6, column: 37 } } }, fatalError: new Error("TEST_ERROR") };
-   const s_TEST_FILE2 = { filePath: "./test/fixture/package/src/invalid/CodeSyntax.js", parserError: new ParserError(5, 0, 'An error message', 24) };
-   const s_TEST_FILE3 = { filePath: "./test/fixture/package/src/invalid/DocSyntax.js", node: { type: "FunctionDeclaration", start: 72, end: 108, loc: { start: { line: 5, column: 0 }, end: { line: 5, column: 36 } }, leadingComments: [{ type: "CommentBlock", value: " eslint-disable valid-jsdoc, no-unused-vars ", start: 0, end: 48, loc: { start: { line: 1, column: 0 }, end: { line: 1, column: 48 } } }, { type: "CommentBlock", value: "*\n * @param {} p\n ", start: 49, end: 71, loc: { start: { line: 2, column: 0 }, end: { line: 4, column: 3 } } }] } };
 
    /* eslint-disable comma-spacing */
    const s_TEST_CODE_OUTPUT = ["\n\u001b[33m==================================\u001b[0m","\u001b[32mInvalidCodeLogger warnings\u001b[0m","\u001b[33m==================================\u001b[0m","\n\u001b[33mwarning: could not process the following code.\u001b[0m","\u001b[33mAn error message\u001b[0m","\u001b[32m1| CODE2\n2| some\n3| bogus\n4| code\n5| that\n6| is\n7| just\n8| a\u001b[0m","\n\u001b[33mwarning: could not process the following code.\u001b[0m","\u001b[32m1| CODE3\n2| some\n3| bogus\n4| code\n5| that\u001b[0m","\n\u001b[31m==================================\u001b[0m","\u001b[1;31mInvalidCodeLogger errors (internal TJSDoc failure)\u001b\n\u001b[0m","\u001b[1;31mPlease report an issue after checking if a similar one already exists:\u001b[0m","\u001b[1;31mhttps://github.com/typhonjs-doc/tjsdoc/issues\u001b[0m","\u001b[31m==================================\u001b[0m","\n\u001b[31merror: could not process the following code.\u001b[0m","\u001b[1;31m1| CODE1\n2| some\n3| bogus\n4| code\n5| that\n6| is\u001b[0m","TEST_ERROR"];
@@ -27,6 +19,8 @@ testConfig.forEachTarget('runtime_common', 'utils', (target) =>
       let pluginManager;
       let output = [];
 
+      let testCode1, testCode2, testCode3, testFile1, testFile2, testFile3;
+
       before(() =>
       {
          pluginManager = new PluginManager({ eventbus: testEventbus });
@@ -36,6 +30,14 @@ testConfig.forEachTarget('runtime_common', 'utils', (target) =>
          testEventbus.on('log:error', (err) => output.push(err.message));
          testEventbus.on('log:error:raw', (message) => output.push(message));
          testEventbus.on('log:warn:raw', (message) => output.push(message));
+
+         testCode1 = { code: "CODE1\nsome\nbogus\ncode\nthat\nis\njust\na\ntest!", node: { type: "ClassMethod", start: 111, end: 145, loc: { start: { line: 6, column: 3 }, end: { line: 6, column: 37 } } }, fatalError: new Error("TEST_ERROR") };
+         testCode2 = { code: "CODE2\nsome\nbogus\ncode\nthat\nis\njust\na\ntest!", parserError: testEventbus.triggerSync('tjsdoc:error:parser:create', { line: 5, column: 0, message: 'An error message', position: 24 }) };
+         testCode3 = { code: "CODE3\nsome\nbogus\ncode\nthat\nis\njust\na\ntest!", node: { type: "FunctionDeclaration", start: 72, end: 108, loc: { start: { line: 5, column: 0 }, end: { line: 5, column: 36 } }, leadingComments: [{ type: "CommentBlock", value: " eslint-disable valid-jsdoc, no-unused-vars ", start: 0, end: 48, loc: { start: { line: 1, column: 0 }, end: { line: 1, column: 48 } } }, { type: "CommentBlock", value: "*\n * @param {} p\n ", start: 49, end: 71, loc: { start: { line: 2, column: 0 }, end: { line: 4, column: 3 } } }] } };
+
+         testFile1 = { filePath: "./test/fixture/package/src/guess/ObjectDefaultParam.js", node: { type: "ClassMethod", start: 111, end: 145, loc: { start: { line: 6, column: 3 }, end: { line: 6, column: 37 } } }, fatalError: new Error("TEST_ERROR") };
+         testFile2 = { filePath: "./test/fixture/package/src/invalid/CodeSyntax.js", parserError: testEventbus.triggerSync('tjsdoc:error:parser:create', { line: 5, column: 0, message: 'An error message', position: 24 }) };
+         testFile3 = { filePath: "./test/fixture/package/src/invalid/DocSyntax.js", node: { type: "FunctionDeclaration", start: 72, end: 108, loc: { start: { line: 5, column: 0 }, end: { line: 5, column: 36 } }, leadingComments: [{ type: "CommentBlock", value: " eslint-disable valid-jsdoc, no-unused-vars ", start: 0, end: 48, loc: { start: { line: 1, column: 0 }, end: { line: 1, column: 48 } } }, { type: "CommentBlock", value: "*\n * @param {} p\n ", start: 49, end: 71, loc: { start: { line: 2, column: 0 }, end: { line: 4, column: 3 } } }] } };
       });
 
       after(() => { pluginManager.destroy(); testEventbus.off(); });
@@ -50,7 +52,7 @@ testConfig.forEachTarget('runtime_common', 'utils', (target) =>
          output = [];
 
          // Add test invalid code.
-         testEventbus.trigger('tjsdoc:invalid:code:add', s_TEST_CODE1);
+         testEventbus.trigger('tjsdoc:invalid:code:add', testCode1);
 
          testEventbus.trigger('tjsdoc:invalid:code:clear');
 
@@ -66,9 +68,9 @@ testConfig.forEachTarget('runtime_common', 'utils', (target) =>
          testEventbus.trigger('tjsdoc:invalid:code:clear');
 
          // Add test invalid code.
-         testEventbus.trigger('tjsdoc:invalid:code:add', s_TEST_CODE1);
-         testEventbus.trigger('tjsdoc:invalid:code:add', s_TEST_CODE2);
-         testEventbus.trigger('tjsdoc:invalid:code:add', s_TEST_CODE3);
+         testEventbus.trigger('tjsdoc:invalid:code:add', testCode1);
+         testEventbus.trigger('tjsdoc:invalid:code:add', testCode2);
+         testEventbus.trigger('tjsdoc:invalid:code:add', testCode3);
 
          testEventbus.trigger('tjsdoc:invalid:code:log');
 
@@ -82,9 +84,9 @@ testConfig.forEachTarget('runtime_common', 'utils', (target) =>
          testEventbus.trigger('tjsdoc:invalid:code:clear');
 
          // Add test invalid code.
-         testEventbus.trigger('tjsdoc:invalid:code:add', s_TEST_FILE1);
-         testEventbus.trigger('tjsdoc:invalid:code:add', s_TEST_FILE2);
-         testEventbus.trigger('tjsdoc:invalid:code:add', s_TEST_FILE3);
+         testEventbus.trigger('tjsdoc:invalid:code:add', testFile1);
+         testEventbus.trigger('tjsdoc:invalid:code:add', testFile2);
+         testEventbus.trigger('tjsdoc:invalid:code:add', testFile3);
 
          testEventbus.trigger('tjsdoc:invalid:code:log');
 

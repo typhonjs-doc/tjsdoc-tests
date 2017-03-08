@@ -24,7 +24,7 @@ const s_TEST_OUTPUT = ["\n\u001b[33m==================================\u001b[0m"
 
 testConfig.forEachTarget('runtime_common', 'utils', (target) =>
 {
-   const DocDB = require('tjsdoc-runtime-common/src/utils/DocDB.js');
+   const DocDB = require('tjsdoc-runtime-common/src/doc/DocDB.js').DocDB;
    const PluginManager = require('typhonjs-plugin-manager');
    const testEventbus = require('backbone-esnext-eventbus').testEventbus;
 
