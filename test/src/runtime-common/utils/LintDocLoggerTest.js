@@ -54,10 +54,10 @@ testConfig.forEachTarget('runtime_common', 'utils', (target) =>
          testEventbus.on('tjsdoc:get:config', () => { return { _dirPath: path.resolve('.') }; });
 
          // Loads AST Nodes into IDs `0, 1, 2, 3` corresponding to the synthesized doc data.
-         testEventbus.triggerSync('tjsdoc:ast:add:node', s_NODES[0]);
-         testEventbus.triggerSync('tjsdoc:ast:add:node', s_NODES[1]);
-         testEventbus.triggerSync('tjsdoc:ast:add:node', s_NODES[2]);
-         testEventbus.triggerSync('tjsdoc:ast:add:node', s_NODES[3]);
+         testEventbus.triggerSync('tjsdoc:ast:nodes:add', s_NODES[0]);
+         testEventbus.triggerSync('tjsdoc:ast:nodes:add', s_NODES[1]);
+         testEventbus.triggerSync('tjsdoc:ast:nodes:add', s_NODES[2]);
+         testEventbus.triggerSync('tjsdoc:ast:nodes:add', s_NODES[3]);
 
          // Mock `log:warn:raw` logging storing in `output`.
          testEventbus.on('log:warn:raw', (message) => output.push(message));
