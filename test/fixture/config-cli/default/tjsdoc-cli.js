@@ -8,5 +8,5 @@ module.exports =
    'index': './test/fixture/package/README.md',
    'package': './test/fixture/package/package.json',
    'runtime': path.resolve('./tjsdoc-babylon/src/TJSDocBabylon.js'),
-   'publisher': path.resolve('./tjsdoc-publisher-static-html/src/publish.js')
+   'publisher': path.resolve('./tjsdoc-publisher-static-html/src/Publisher.js')
 };
