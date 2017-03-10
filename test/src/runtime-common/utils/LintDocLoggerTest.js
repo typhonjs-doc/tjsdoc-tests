@@ -51,7 +51,7 @@ testConfig.forEachTarget('runtime_common', 'utils', (target) =>
          const output = [];
 
          // Synthesize returning the `source` config value needed by LintDocLogger.
-         testEventbus.on('tjsdoc:get:config', () => { return { _dirPath: path.resolve('.') }; });
+         testEventbus.on('tjsdoc:data:config:get', () => { return { _dirPath: path.resolve('.') }; });
 
          // Loads AST Nodes into IDs `0, 1, 2, 3` corresponding to the synthesized doc data.
          testEventbus.triggerSync('tjsdoc:ast:nodes:add', s_NODES[0]);
