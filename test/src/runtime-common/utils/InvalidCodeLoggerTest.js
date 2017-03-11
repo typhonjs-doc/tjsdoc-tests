@@ -4,7 +4,6 @@ import testConfig from '../../testConfig.js';
 
 testConfig.forEachTarget('runtime_common', 'utils', (target) =>
 {
-   //const ParserError = require('tjsdoc-runtime-common/src/parser/ParserError.js').ParserError;
    const PluginManager = require('typhonjs-plugin-manager');
    const testEventbus = require('backbone-esnext-eventbus').testEventbus;
 
@@ -44,7 +43,7 @@ testConfig.forEachTarget('runtime_common', 'utils', (target) =>
 
       it('throws on no data', () =>
       {
-         Util.assert.throws(() => testEventbus.trigger('tjsdoc:invalid:code:add'));
+         Util.assert.throws(() => testEventbus.trigger('tjsdoc:system:invalid:code:add'));
       });
 
       it('can add and clear invalid code', () =>
@@ -52,11 +51,11 @@ testConfig.forEachTarget('runtime_common', 'utils', (target) =>
          output = [];
 
          // Add test invalid code.
-         testEventbus.trigger('tjsdoc:invalid:code:add', testCode1);
+         testEventbus.trigger('tjsdoc:system:invalid:code:add', testCode1);
 
-         testEventbus.trigger('tjsdoc:invalid:code:clear');
+         testEventbus.trigger('tjsdoc:system:invalid:code:clear');
 
-         testEventbus.trigger('tjsdoc:invalid:code:log');
+         testEventbus.trigger('tjsdoc:system:invalid:code:log');
 
          Util.assert.deepEqual(output, []);
       });
@@ -65,14 +64,14 @@ testConfig.forEachTarget('runtime_common', 'utils', (target) =>
       {
          output = [];
 
-         testEventbus.trigger('tjsdoc:invalid:code:clear');
+         testEventbus.trigger('tjsdoc:system:invalid:code:clear');
 
          // Add test invalid code.
-         testEventbus.trigger('tjsdoc:invalid:code:add', testCode1);
-         testEventbus.trigger('tjsdoc:invalid:code:add', testCode2);
-         testEventbus.trigger('tjsdoc:invalid:code:add', testCode3);
+         testEventbus.trigger('tjsdoc:system:invalid:code:add', testCode1);
+         testEventbus.trigger('tjsdoc:system:invalid:code:add', testCode2);
+         testEventbus.trigger('tjsdoc:system:invalid:code:add', testCode3);
 
-         testEventbus.trigger('tjsdoc:invalid:code:log');
+         testEventbus.trigger('tjsdoc:system:invalid:code:log');
 
          Util.assert.deepEqual(output, s_TEST_CODE_OUTPUT);
       });
@@ -81,14 +80,14 @@ testConfig.forEachTarget('runtime_common', 'utils', (target) =>
       {
          output = [];
 
-         testEventbus.trigger('tjsdoc:invalid:code:clear');
+         testEventbus.trigger('tjsdoc:system:invalid:code:clear');
 
          // Add test invalid code.
-         testEventbus.trigger('tjsdoc:invalid:code:add', testFile1);
-         testEventbus.trigger('tjsdoc:invalid:code:add', testFile2);
-         testEventbus.trigger('tjsdoc:invalid:code:add', testFile3);
+         testEventbus.trigger('tjsdoc:system:invalid:code:add', testFile1);
+         testEventbus.trigger('tjsdoc:system:invalid:code:add', testFile2);
+         testEventbus.trigger('tjsdoc:system:invalid:code:add', testFile3);
 
-         testEventbus.trigger('tjsdoc:invalid:code:log');
+         testEventbus.trigger('tjsdoc:system:invalid:code:log');
 
          Util.assert.deepEqual(output, s_TEST_FILE_OUTPUT);
       });

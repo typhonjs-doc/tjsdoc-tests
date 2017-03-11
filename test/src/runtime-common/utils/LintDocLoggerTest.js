@@ -54,16 +54,16 @@ testConfig.forEachTarget('runtime_common', 'utils', (target) =>
          testEventbus.on('tjsdoc:data:config:get', () => { return { _dirPath: path.resolve('.') }; });
 
          // Loads AST Nodes into IDs `0, 1, 2, 3` corresponding to the synthesized doc data.
-         testEventbus.triggerSync('tjsdoc:ast:nodes:add', s_NODES[0]);
-         testEventbus.triggerSync('tjsdoc:ast:nodes:add', s_NODES[1]);
-         testEventbus.triggerSync('tjsdoc:ast:nodes:add', s_NODES[2]);
-         testEventbus.triggerSync('tjsdoc:ast:nodes:add', s_NODES[3]);
+         testEventbus.triggerSync('tjsdoc:data:ast:nodes:add', s_NODES[0]);
+         testEventbus.triggerSync('tjsdoc:data:ast:nodes:add', s_NODES[1]);
+         testEventbus.triggerSync('tjsdoc:data:ast:nodes:add', s_NODES[2]);
+         testEventbus.triggerSync('tjsdoc:data:ast:nodes:add', s_NODES[3]);
 
          // Mock `log:warn:raw` logging storing in `output`.
          testEventbus.on('log:warn:raw', (message) => output.push(message));
 
          // Invoke LintDocLogger
-         testEventbus.trigger('tjsdoc:log:lint:doc:warnings');
+         testEventbus.trigger('tjsdoc:system:lint:docdb:log');
 
          Util.assert.deepEqual(output, s_TEST_OUTPUT);
       });
