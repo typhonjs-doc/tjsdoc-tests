@@ -31,11 +31,11 @@ testConfig.forEachTarget('runtime_common', 'utils', (target) =>
          testEventbus.on('log:warn:raw', (message) => output.push(message));
 
          testCode1 = { code: "CODE1\nsome\nbogus\ncode\nthat\nis\njust\na\ntest!", node: { type: "ClassMethod", start: 111, end: 145, loc: { start: { line: 6, column: 3 }, end: { line: 6, column: 37 } } }, fatalError: new Error("TEST_ERROR") };
-         testCode2 = { code: "CODE2\nsome\nbogus\ncode\nthat\nis\njust\na\ntest!", parserError: testEventbus.triggerSync('tjsdoc:error:parser:create', { line: 5, column: 0, message: 'An error message', position: 24 }) };
+         testCode2 = { code: "CODE2\nsome\nbogus\ncode\nthat\nis\njust\na\ntest!", parserError: testEventbus.triggerSync('tjsdoc:system:error:parser:create', { line: 5, column: 0, message: 'An error message', position: 24 }) };
          testCode3 = { code: "CODE3\nsome\nbogus\ncode\nthat\nis\njust\na\ntest!", node: { type: "FunctionDeclaration", start: 72, end: 108, loc: { start: { line: 5, column: 0 }, end: { line: 5, column: 36 } }, leadingComments: [{ type: "CommentBlock", value: " eslint-disable valid-jsdoc, no-unused-vars ", start: 0, end: 48, loc: { start: { line: 1, column: 0 }, end: { line: 1, column: 48 } } }, { type: "CommentBlock", value: "*\n * @param {} p\n ", start: 49, end: 71, loc: { start: { line: 2, column: 0 }, end: { line: 4, column: 3 } } }] } };
 
          testFile1 = { filePath: "./test/fixture/package/src/guess/ObjectDefaultParam.js", node: { type: "ClassMethod", start: 111, end: 145, loc: { start: { line: 6, column: 3 }, end: { line: 6, column: 37 } } }, fatalError: new Error("TEST_ERROR") };
-         testFile2 = { filePath: "./test/fixture/package/src/invalid/CodeSyntax.js", parserError: testEventbus.triggerSync('tjsdoc:error:parser:create', { line: 5, column: 0, message: 'An error message', position: 24 }) };
+         testFile2 = { filePath: "./test/fixture/package/src/invalid/CodeSyntax.js", parserError: testEventbus.triggerSync('tjsdoc:system:error:parser:create', { line: 5, column: 0, message: 'An error message', position: 24 }) };
          testFile3 = { filePath: "./test/fixture/package/src/invalid/DocSyntax.js", node: { type: "FunctionDeclaration", start: 72, end: 108, loc: { start: { line: 5, column: 0 }, end: { line: 5, column: 36 } }, leadingComments: [{ type: "CommentBlock", value: " eslint-disable valid-jsdoc, no-unused-vars ", start: 0, end: 48, loc: { start: { line: 1, column: 0 }, end: { line: 1, column: 48 } } }, { type: "CommentBlock", value: "*\n * @param {} p\n ", start: 49, end: 71, loc: { start: { line: 2, column: 0 }, end: { line: 4, column: 3 } } }] } };
       });
 
