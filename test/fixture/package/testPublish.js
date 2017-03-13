@@ -8,7 +8,7 @@
  */
 export function onPluginLoad(ev)
 {
-   ev.eventbus.on('tjsdoc:publisher:publish', () =>
+   ev.eventbus.on('tjsdoc:system:publisher:publish', () =>
    {
       // Set global variable for alternate publisher test.
       global.$$tjsdoc_alternate_publisher = true;
