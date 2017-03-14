@@ -23,48 +23,60 @@ testConfig.forEachTarget('runtime_babylon', 'parser', (target) =>
 
       it('can parse "do expressions"', () =>
       {
-         const ast = testEventbus.triggerSync('tjsdoc:parse:file', './test/fixture/syntax/DoExpressions.js');
+         const ast = testEventbus.triggerSync('tjsdoc:system:parser:code:file:parse',
+          './test/fixture/syntax/DoExpressions.js');
+
          Util.assert(ast.program.sourceType === 'module');
       });
 
       it('can parse "function bind"', () =>
       {
-         const ast = testEventbus.triggerSync('tjsdoc:parse:file', './test/fixture/syntax/FunctionBind.js');
+         const ast = testEventbus.triggerSync('tjsdoc:system:parser:code:file:parse',
+          './test/fixture/syntax/FunctionBind.js');
+
          Util.assert(ast.program.sourceType === 'module');
       });
 
       it('can parse "function sent"', () =>
       {
-         const ast = testEventbus.triggerSync('tjsdoc:parse:file', './test/fixture/syntax/FunctionSent.js');
+         const ast = testEventbus.triggerSync('tjsdoc:system:parser:code:file:parse',
+          './test/fixture/syntax/FunctionSent.js');
+
          Util.assert(ast.program.sourceType === 'module');
       });
 
       it('can parse "async generators"', () =>
       {
-         const ast = testEventbus.triggerSync('tjsdoc:parse:file', './test/fixture/syntax/AsyncGenerators.js');
+         const ast = testEventbus.triggerSync('tjsdoc:system:parser:code:file:parse',
+          './test/fixture/syntax/AsyncGenerators.js');
+
          Util.assert(ast.program.sourceType === 'module');
       });
 
       it('can parse "export extensions"', () =>
       {
-         const ast = testEventbus.triggerSync('tjsdoc:parse:file', './test/fixture/syntax/ExportExtensions.js');
+         const ast = testEventbus.triggerSync('tjsdoc:system:parser:code:file:parse',
+          './test/fixture/syntax/ExportExtensions.js');
+
          Util.assert(ast.program.sourceType === 'module');
       });
 
       it('can parse "dynamic import"', () =>
       {
-         const ast = testEventbus.triggerSync('tjsdoc:parse:file', './test/fixture/syntax/DynamicImport.js');
+         const ast = testEventbus.triggerSync('tjsdoc:system:parser:code:file:parse',
+          './test/fixture/syntax/DynamicImport.js');
+
          Util.assert(ast.program.sourceType === 'script');
       });
 
       it('throws with no code to parse', () =>
       {
-         Util.assert.throw(() => testEventbus.triggerSync('tjsdoc:parse:code'));
+         Util.assert.throw(() => testEventbus.triggerSync('tjsdoc:system:parser:code:source:parse'));
       });
 
       it('throws with no file to parse', () =>
       {
-         Util.assert.throw(() => testEventbus.triggerSync('tjsdoc:parse:file'));
+         Util.assert.throw(() => testEventbus.triggerSync('tjsdoc:system:parser:code:file:parse'));
       });
    });
 });
