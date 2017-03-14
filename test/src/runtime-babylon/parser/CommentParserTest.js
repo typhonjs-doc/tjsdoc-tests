@@ -35,7 +35,7 @@ testConfig.forEachTarget('runtime_babylon', 'parser', (target) =>
    *
    `;
          const comment = { type: 'CommentBlock', value };
-         const tags = testEventbus.triggerSync('tjsdoc:parse:comment', comment);
+         const tags = testEventbus.triggerSync('tjsdoc:system:parser:comment:parse', comment);
 
          Util.assert.equal(tags.length, 5);
          Util.assert.deepEqual(tags[0], { tagName: '@desc', tagValue: 'this is desc.' });
@@ -59,7 +59,7 @@ testConfig.forEachTarget('runtime_babylon', 'parser', (target) =>
    \t*
    `;
          const comment = { type: 'CommentBlock', value };
-         const tags = testEventbus.triggerSync('tjsdoc:parse:comment', comment);
+         const tags = testEventbus.triggerSync('tjsdoc:system:parser:comment:parse', comment);
 
          Util.assert.equal(tags.length, 5);
          Util.assert.deepEqual(tags[0], { tagName: '@desc', tagValue: 'this is desc.' });
@@ -76,7 +76,7 @@ testConfig.forEachTarget('runtime_babylon', 'parser', (target) =>
    this is not doc comment.
    `;
          const comment = { type: 'CommentBlock', value };
-         const tags = testEventbus.triggerSync('tjsdoc:parse:comment', comment);
+         const tags = testEventbus.triggerSync('tjsdoc:system:parser:comment:parse', comment);
 
          Util.assert.equal(tags.length, 0);
       });
@@ -86,7 +86,7 @@ testConfig.forEachTarget('runtime_babylon', 'parser', (target) =>
       {
          const value = `this is line comment.`;
          const comment = { type: 'CommentLine', value };
-         const tags = testEventbus.triggerSync('tjsdoc:parse:comment', comment);
+         const tags = testEventbus.triggerSync('tjsdoc:system:parser:comment:parse', comment);
 
          Util.assert.equal(tags.length, 0);
       });

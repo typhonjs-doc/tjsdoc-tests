@@ -25,7 +25,9 @@ testConfig.forEachTarget('runtime_babylon', 'parser', (target) =>
       it('parse param value.', () =>
       {
          const value = '{number} p1 this is desc';
-         const { typeText, paramName, paramDesc } = testEventbus.triggerSync('tjsdoc:parse:param:value', value);
+
+         const { typeText, paramName, paramDesc } = testEventbus.triggerSync('tjsdoc:system:parser:param:value:parse',
+          value);
 
          Util.assert.equal(typeText, 'number');
          Util.assert.equal(paramName, 'p1');
@@ -36,7 +38,9 @@ testConfig.forEachTarget('runtime_babylon', 'parser', (target) =>
       it('parse param value with hyphen prefix.', () =>
       {
          const value = '{number} p1 - this is desc';
-         const { typeText, paramName, paramDesc } = testEventbus.triggerSync('tjsdoc:parse:param:value', value);
+
+         const { typeText, paramName, paramDesc } = testEventbus.triggerSync('tjsdoc:system:parser:param:value:parse',
+          value);
 
          Util.assert.equal(typeText, 'number');
          Util.assert.equal(paramName, 'p1');
@@ -48,7 +52,7 @@ testConfig.forEachTarget('runtime_babylon', 'parser', (target) =>
       {
          const value = '{number} this is desc';
 
-         const { typeText, paramDesc } = testEventbus.triggerSync('tjsdoc:parse:param:value', value,
+         const { typeText, paramDesc } = testEventbus.triggerSync('tjsdoc:system:parser:param:value:parse', value,
           { type: true, name: false, desc: true });
 
          Util.assert.equal(typeText, 'number');
@@ -60,7 +64,7 @@ testConfig.forEachTarget('runtime_babylon', 'parser', (target) =>
       {
          const value = '{number} p1';
 
-         const { typeText, paramName } = testEventbus.triggerSync('tjsdoc:parse:param:value', value,
+         const { typeText, paramName } = testEventbus.triggerSync('tjsdoc:system:parser:param:value:parse', value,
           { type: true, name: true, desc: false });
 
          Util.assert.equal(typeText, 'number');
@@ -71,7 +75,9 @@ testConfig.forEachTarget('runtime_babylon', 'parser', (target) =>
       it('parse param value with complex', () =>
       {
          const value = '{!(number|string|boolean[])} [p1=10] this is desc';
-         const { typeText, paramName, paramDesc } = testEventbus.triggerSync('tjsdoc:parse:param:value', value);
+
+         const { typeText, paramName, paramDesc } = testEventbus.triggerSync('tjsdoc:system:parser:param:value:parse',
+          value);
 
          Util.assert.equal(typeText, '!(number|string|boolean[])');
          Util.assert.equal(paramName, '[p1=10]');
@@ -85,8 +91,8 @@ testConfig.forEachTarget('runtime_babylon', 'parser', (target) =>
       {
          const value = '{number} p1 this is desc';
 
-         const result = testEventbus.triggerSync('tjsdoc:parse:param:from:value',
-          testEventbus.triggerSync('tjsdoc:parse:param:value', value));
+         const result = testEventbus.triggerSync('tjsdoc:system:parser:param:from:value:parse',
+          testEventbus.triggerSync('tjsdoc:system:parser:param:value:parse', value));
 
          Util.assert.deepEqual(result, {
             nullable: null,
@@ -97,7 +103,7 @@ testConfig.forEachTarget('runtime_babylon', 'parser', (target) =>
             description: 'this is desc'
          });
 
-         const result2 = testEventbus.triggerSync('tjsdoc:parse:param', value);
+         const result2 = testEventbus.triggerSync('tjsdoc:system:parser:param:parse', value);
 
          Util.assert.deepEqual(result2, {
             nullable: null,
@@ -116,8 +122,8 @@ testConfig.forEachTarget('runtime_babylon', 'parser', (target) =>
       {
          const value = '{?(number|string|boolean[])} [p1] this is desc';
 
-         const result = testEventbus.triggerSync('tjsdoc:parse:param:from:value',
-          testEventbus.triggerSync('tjsdoc:parse:param:value', value));
+         const result = testEventbus.triggerSync('tjsdoc:system:parser:param:from:value:parse',
+          testEventbus.triggerSync('tjsdoc:system:parser:param:value:parse', value));
 
          Util.assert.deepEqual(result, {
             nullable: true,
@@ -128,7 +134,7 @@ testConfig.forEachTarget('runtime_babylon', 'parser', (target) =>
             description: 'this is desc'
          });
 
-         const result2 = testEventbus.triggerSync('tjsdoc:parse:param', value);
+         const result2 = testEventbus.triggerSync('tjsdoc:system:parser:param:parse', value);
 
          Util.assert.deepEqual(result2, {
             nullable: true,
@@ -146,8 +152,8 @@ testConfig.forEachTarget('runtime_babylon', 'parser', (target) =>
       {
          const value = '{!(number|string|boolean[])} [p1={}] this is desc';
 
-         const result = testEventbus.triggerSync('tjsdoc:parse:param:from:value',
-          testEventbus.triggerSync('tjsdoc:parse:param:value', value));
+         const result = testEventbus.triggerSync('tjsdoc:system:parser:param:from:value:parse',
+          testEventbus.triggerSync('tjsdoc:system:parser:param:value:parse', value));
 
          Util.assert.deepEqual(result, {
             nullable: false,
@@ -160,8 +166,8 @@ testConfig.forEachTarget('runtime_babylon', 'parser', (target) =>
             defaultRaw: {}
          });
 
-         const result2 = testEventbus.triggerSync('tjsdoc:parse:param:from:value',
-          testEventbus.triggerSync('tjsdoc:parse:param:value', value));
+         const result2 = testEventbus.triggerSync('tjsdoc:system:parser:param:from:value:parse',
+          testEventbus.triggerSync('tjsdoc:system:parser:param:value:parse', value));
 
          Util.assert.deepEqual(result2, {
             nullable: false,
@@ -181,8 +187,8 @@ testConfig.forEachTarget('runtime_babylon', 'parser', (target) =>
       {
          const value = '{...number} [p1=[10,20,30]] this is desc';
 
-         const result = testEventbus.triggerSync('tjsdoc:parse:param:from:value',
-          testEventbus.triggerSync('tjsdoc:parse:param:value', value));
+         const result = testEventbus.triggerSync('tjsdoc:system:parser:param:from:value:parse',
+          testEventbus.triggerSync('tjsdoc:system:parser:param:value:parse', value));
 
          Util.assert.deepEqual(result, {
             nullable: null,
@@ -195,8 +201,8 @@ testConfig.forEachTarget('runtime_babylon', 'parser', (target) =>
             defaultRaw: [10, 20, 30]
          });
 
-         const result2 = testEventbus.triggerSync('tjsdoc:parse:param:from:value',
-          testEventbus.triggerSync('tjsdoc:parse:param:value', value));
+         const result2 = testEventbus.triggerSync('tjsdoc:system:parser:param:from:value:parse',
+          testEventbus.triggerSync('tjsdoc:system:parser:param:value:parse', value));
 
          Util.assert.deepEqual(result2, {
             nullable: null,
@@ -216,8 +222,8 @@ testConfig.forEachTarget('runtime_babylon', 'parser', (target) =>
       {
          const value = '{number} p1 foo {a: number} bar';
 
-         const result = testEventbus.triggerSync('tjsdoc:parse:param:from:value',
-          testEventbus.triggerSync('tjsdoc:parse:param:value', value));
+         const result = testEventbus.triggerSync('tjsdoc:system:parser:param:from:value:parse',
+          testEventbus.triggerSync('tjsdoc:system:parser:param:value:parse', value));
 
          Util.assert.deepEqual(result, {
             nullable: null,
@@ -228,8 +234,8 @@ testConfig.forEachTarget('runtime_babylon', 'parser', (target) =>
             description: 'foo {a: number} bar'
          });
 
-         const result2 = testEventbus.triggerSync('tjsdoc:parse:param:from:value',
-          testEventbus.triggerSync('tjsdoc:parse:param:value', value));
+         const result2 = testEventbus.triggerSync('tjsdoc:system:parser:param:from:value:parse',
+          testEventbus.triggerSync('tjsdoc:system:parser:param:value:parse', value));
 
          Util.assert.deepEqual(result2, {
             nullable: null,
@@ -250,8 +256,8 @@ testConfig.forEachTarget('runtime_babylon', 'parser', (target) =>
 
          try
          {
-            testEventbus.triggerSync('tjsdoc:parse:param:from:value',
-             testEventbus.triggerSync('tjsdoc:parse:param:value', value));
+            testEventbus.triggerSync('tjsdoc:system:parser:param:from:value:parse',
+             testEventbus.triggerSync('tjsdoc:system:parser:param:value:parse', value));
          }
          catch (err)
          {
@@ -262,7 +268,7 @@ testConfig.forEachTarget('runtime_babylon', 'parser', (target) =>
 
          try
          {
-            testEventbus.triggerSync('tjsdoc:parse:param', value);
+            testEventbus.triggerSync('tjsdoc:system:parser:param:parse', value);
          }
          catch (err)
          {
