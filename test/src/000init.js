@@ -23,6 +23,6 @@ if (testConfig.generateMain)
    {
       console.log(`generating main test (${target.name}):`);
 
-      Util.invoke(target, './test/fixture/package/tjsdoc.json', false);
+      Util.invoke(target, './test/fixture/package/tjsdoc.json', { silent: false });
    });
 }

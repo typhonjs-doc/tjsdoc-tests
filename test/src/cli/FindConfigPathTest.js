@@ -8,12 +8,23 @@ testConfig.forEachTarget('cli', 'findConfigPath', (target) =>
 
    describe(`test finding config path (${target.name}):`, () =>
    {
-      Util.cli(target, null, testConfig.consoleSilent, `./test/fixture/config-cli/${target.name}/find-.tjsdoc.json/`);
-      Util.cli(target, null, testConfig.consoleSilent, `./test/fixture/config-cli/${target.name}/find-.tjsdoc.js/`);
-      Util.cli(target, null, testConfig.consoleSilent, `./test/fixture/config-cli/${target.name}/find-.tjsdocrc.json/`);
-      Util.cli(target, null, testConfig.consoleSilent, `./test/fixture/config-cli/${target.name}/find-.tjsdocrc.js/`);
-      Util.cli(target, null, testConfig.consoleSilent, `./test/fixture/config-cli/${target.name}/find-.tjsdocrc/`);
-      Util.cli(target, null, testConfig.consoleSilent, `./test/fixture/config-cli/${target.name}/find-package.json/`);
+      Util.cli(target, null,
+       { silent: testConfig.consoleSilent, cwdPath: `./test/fixture/config-cli/${target.name}/find-.tjsdoc.json/` });
+
+      Util.cli(target, null,
+       { silent: testConfig.consoleSilent, cwdPath: `./test/fixture/config-cli/${target.name}/find-.tjsdoc.js/` });
+
+      Util.cli(target, null,
+       { silent: testConfig.consoleSilent, cwdPath: `./test/fixture/config-cli/${target.name}/find-.tjsdocrc.json/` });
+
+      Util.cli(target, null,
+       { silent: testConfig.consoleSilent, cwdPath: `./test/fixture/config-cli/${target.name}/find-.tjsdocrc.js/` });
+
+      Util.cli(target, null,
+       { silent: testConfig.consoleSilent, cwdPath: `./test/fixture/config-cli/${target.name}/find-.tjsdocrc/` });
+
+      Util.cli(target, null,
+       { silent: testConfig.consoleSilent, cwdPath: `./test/fixture/config-cli/${target.name}/find-package.json/` });
 
       /**
        * Helper function to change the directory when invoking `_readDoc`.

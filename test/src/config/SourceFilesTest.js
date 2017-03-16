@@ -7,7 +7,7 @@ testConfig.forEachTarget('config', 'sourceFiles', (target) =>
    /** @test {ManualDocBuilder} */
    describe(`test config.sourceFiles (${target.name}):`, () =>
    {
-      Util.invoke(target, './test/fixture/config/tjsdoc-sourceFiles.js', testConfig.consoleSilent);
+      Util.invoke(target, './test/fixture/config/tjsdoc-sourceFiles.js', { silent: testConfig.consoleSilent });
 
       /**
        * Helper function to change the directory when invoking `_readDoc`.

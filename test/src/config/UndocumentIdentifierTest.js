@@ -7,7 +7,8 @@ testConfig.forEachTarget('config', 'undocumentIdentifier', (target) =>
    /** @test {DocResolver#_resolveUndocumentIdentifier} */
    describe(`test config.undocumentIdentifier: false (${target.name}):`, () =>
    {
-      Util.invoke(target, './test/fixture/config/tjsdoc-undocumentIdentifier.json', testConfig.consoleSilent);
+      Util.invoke(target, './test/fixture/config/tjsdoc-undocumentIdentifier.json',
+       { silent: testConfig.consoleSilent });
 
       it('does not have undocument identifier', () =>
       {

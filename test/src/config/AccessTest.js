@@ -11,7 +11,7 @@ testConfig.forEachTarget('config', 'access', (target) =>
       /** @test {DocResolver#_resolveAccess} */
       describe(`test config.access: ["public", "protected"] (${target.name}):`, () =>
       {
-         Util.invoke(target, './test/fixture/config/tjsdoc-access.json', testConfig.consoleSilent);
+         Util.invoke(target, './test/fixture/config/tjsdoc-access.json', { silent: testConfig.consoleSilent });
 
          /**
           * Helper function to change the directory when invoking `_readDoc`.

@@ -8,7 +8,7 @@ testConfig.forEachTarget('config', 'plugins', (target) =>
    /** @test {Plugin} */
    describe(`test config.plugins: [...] (${target.name}):`, () =>
    {
-      Util.invoke(target, './test/fixture/config/tjsdoc-plugins.json', testConfig.consoleSilent);
+      Util.invoke(target, './test/fixture/config/tjsdoc-plugins.json', { silent: testConfig.consoleSilent });
 
       /* eslint-disable global-require */
       it('call each handlers', () =>
