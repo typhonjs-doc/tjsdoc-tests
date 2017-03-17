@@ -53,11 +53,13 @@ testConfig.forEachTarget('runtime_common', 'utils', (target) =>
          // Synthesize returning the `source` config value needed by LintDocLogger.
          testEventbus.on('tjsdoc:data:config:get', () => { return { _dirPath: path.resolve('.') }; });
 
+         const astNodeContainer = testEventbus.triggerSync('tjsdoc:data:ast:node:container:get');
+
          // Loads AST Nodes into IDs `0, 1, 2, 3` corresponding to the synthesized doc data.
-         testEventbus.triggerSync('tjsdoc:data:ast:nodes:add', s_NODES[0]);
-         testEventbus.triggerSync('tjsdoc:data:ast:nodes:add', s_NODES[1]);
-         testEventbus.triggerSync('tjsdoc:data:ast:nodes:add', s_NODES[2]);
-         testEventbus.triggerSync('tjsdoc:data:ast:nodes:add', s_NODES[3]);
+         astNodeContainer.add(s_NODES[0]);
+         astNodeContainer.add(s_NODES[1]);
+         astNodeContainer.add(s_NODES[2]);
+         astNodeContainer.add(s_NODES[3]);
 
          // Mock `log:warn:raw` logging storing in `output`.
          testEventbus.on('log:warn:raw', (message) => output.push(message));
