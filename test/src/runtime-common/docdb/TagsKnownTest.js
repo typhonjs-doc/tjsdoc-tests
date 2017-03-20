@@ -84,14 +84,6 @@ testConfig.forEachTarget('runtime_common', 'docDB', (target) =>
           tag.tagValue === '{TestExternalDefinition} http://example.com'), 0);
       });
 
-      it('has known tags (@ignore / Property.js~foo).', () =>
-      {
-         const doc = docDB.find({ longname: 'test/fixture/package/src/computed/Property.js~foo' })[0];
-
-         Util.assert.isArray(doc.tagsKnown);
-         Util.assert.isAtLeast(doc.tagsKnown.findIndex((tag) => tag.tagName === '@ignore'), 0);
-      });
-
       it('has known tags (@interface / TestInterfaceDefinition).', () =>
       {
          const doc = docDB.find({ name: 'TestInterfaceDefinition' })[0];
