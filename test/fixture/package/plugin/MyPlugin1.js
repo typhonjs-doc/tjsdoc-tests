@@ -81,19 +81,6 @@ export function onHandleAST(ev)
 }
 
 /**
- * Tracks that `onHandleDocData` has been invoked from `MyPlugin1`.
- *
- * Performs basic doc tag modification.
- *
- * @param {object} ev - Plugin event
- */
-export function onHandleDocData(ev)
-{
-   callInfo.handlerNames.onHandleDocData = ['MyPlugin1'];
-   ev.data.docData[1].name += '_ModifiedTag';
-}
-
-/**
  * Tracks that `onHandleDocDB` has been invoked from `MyPlugin1`.
  *
  * Performs basic doc DB modification.
@@ -104,9 +91,9 @@ export function onHandleDocDB(ev)
 {
    callInfo.handlerNames.onHandleDocDB = ['MyPlugin1'];
 
-   ev.data.docDB.query({ name: 'MyClass_ModifiedCode_ModifiedAST_ModifiedTag' }).update(function()
+   ev.data.docDB.query({ name: 'MyClass_ModifiedCode_ModifiedAST' }).update(function()
    {
-      this.name = 'MyClass_ModifiedCode_ModifiedAST_ModifiedTag_ModifiedDB'; return this;
+      this.name = 'MyClass_ModifiedCode_ModifiedAST_ModifiedDB'; return this;
    });
 }
 
@@ -123,8 +110,8 @@ export function onHandleWriteFile(ev)
 
    if (!ev.data.fileName.endsWith('html')) { return; }
 
-   ev.data.fileData = ev.data.fileData.replace('MyClass_ModifiedCode_ModifiedAST_ModifiedTag',
-    'MyClass_ModifiedCode_ModifiedAST_ModifiedTag_ModifiedHTML');
+   ev.data.fileData = ev.data.fileData.replace('MyClass_ModifiedCode_ModifiedAST_ModifiedDB',
+    'MyClass_ModifiedCode_ModifiedAST_ModifiedDB_ModifiedHTML');
 
    // insert ev.data.fileName into <head />
    ev.data.fileData = ev.data.fileData.replace(

@@ -41,14 +41,6 @@ export function onHandleAST()
 }
 
 /**
- * Tracks that `onHandleDocData` has been invoked from `MyPlugin2`.
- */
-export function onHandleDocData()
-{
-   callInfo.handlerNames.onHandleDocData.push('MyPlugin2');
-}
-
-/**
  * Tracks that `onHandleDocDB` has been invoked from `MyPlugin2`.
  */
 export function onHandleDocDB()

@@ -46,14 +46,14 @@ testConfig.forEachTarget('runtime_common', 'utils', (target) =>
          Util.assert.throws(() => testEventbus.trigger('tjsdoc:system:invalid:code:add'));
       });
 
-      it('can add and clear invalid code', () =>
+      it('can add and reset invalid code', () =>
       {
          output = [];
 
          // Add test invalid code.
          testEventbus.trigger('tjsdoc:system:invalid:code:add', testCode1);
 
-         testEventbus.trigger('tjsdoc:system:invalid:code:clear');
+         testEventbus.trigger('tjsdoc:system:invalid:code:reset');
 
          testEventbus.trigger('tjsdoc:system:invalid:code:log');
 
@@ -64,7 +64,7 @@ testConfig.forEachTarget('runtime_common', 'utils', (target) =>
       {
          output = [];
 
-         testEventbus.trigger('tjsdoc:system:invalid:code:clear');
+         testEventbus.trigger('tjsdoc:system:invalid:code:reset');
 
          // Add test invalid code.
          testEventbus.trigger('tjsdoc:system:invalid:code:add', testCode1);
@@ -80,7 +80,7 @@ testConfig.forEachTarget('runtime_common', 'utils', (target) =>
       {
          output = [];
 
-         testEventbus.trigger('tjsdoc:system:invalid:code:clear');
+         testEventbus.trigger('tjsdoc:system:invalid:code:reset');
 
          // Add test invalid code.
          testEventbus.trigger('tjsdoc:system:invalid:code:add', testFile1);
