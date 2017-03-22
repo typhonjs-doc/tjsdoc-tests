@@ -29,7 +29,8 @@ testConfig.forEachTarget('cli', 'findConfigPath', (target) =>
       /**
        * Helper function to change the directory when invoking `_readDoc`.
        *
-       * @param {string}   filePath - Local file path to load relative to './test/fixture/dest/tjsdoc-access'.
+       * @param {string}   filePath - filePath to load.
+       * @param {string}   dirName - dirName to append.
        *
        * @returns {*}
        */
