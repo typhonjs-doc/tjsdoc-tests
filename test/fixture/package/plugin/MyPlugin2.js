@@ -1,6 +1,14 @@
 import { callInfo } from './MyPlugin1.js';
 
 /**
+ * Tracks that `onPreGenerate` has been invoked from `MyPlugin2`
+ */
+export function onPreGenerate()
+{
+   callInfo.handlerNames.onPreGenerate.push('MyPlugin2');
+}
+
+/**
  * Tracks that `onStart` has been invoked from `MyPlugin2`.
  */
 export function onStart()
@@ -38,6 +46,17 @@ export function onHandleCodeParser()
 export function onHandleAST()
 {
    callInfo.handlerNames.onHandleAST.push('MyPlugin2');
+}
+
+/**
+ * Tracks that `onHandleDocObject` has been invoked from `MyPlugin2`.
+ */
+export function onHandleDocObject()
+{
+   if (callInfo.handlerNames.onHandleDocObject.indexOf('MyPlugin2') === -1)
+   {
+      callInfo.handlerNames.onHandleDocObject.push('MyPlugin2');
+   }
 }
 
 /**

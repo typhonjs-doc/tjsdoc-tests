@@ -32,7 +32,7 @@ testConfig.forEachTarget('config', 'plugins', (target) =>
          Util.assert.includes(doc, 'head title', 'Modified Config');
 
          Util.assert.includes(doc, '.navigation',
-          'MyClass_ModifiedCode_ModifiedAST_ModifiedDB_ModifiedHTML');
+          'MyClass_ModifiedCode_ModifiedAST_ModifiedDoc_ModifiedDB_ModifiedHTML');
 
          Util.assert.includes(doc, 'head meta[name="x-from-plugin"]', 'fileName:', 'content');
       });

@@ -17,6 +17,14 @@ function parser(code)
 }
 
 /**
+ * Tracks that `onPreGenerate` has been invoked from `MyPlugin1`
+ */
+export function onPreGenerate()
+{
+   callInfo.handlerNames.onPreGenerate = ['MyPlugin1'];
+}
+
+/**
  * Tracks that `onStart` has been invoked from `MyPlugin1` and stores plugin options.
  *
  * @param {object} ev - Plugin event
@@ -43,7 +51,7 @@ export function onHandleConfig(ev)
 /**
  * Tracks that `onHandleCode` has been invoked from `MyPlugin1`.
  *
- * Modifies code for testing.
+ * Modifies code for testing. Note: All `./test/fixture/pacakge/src/desc/` files are modified.
  *
  * @param {object} ev - Plugin event
  */
@@ -81,6 +89,25 @@ export function onHandleAST(ev)
 }
 
 /**
+ * Tracks that `onHandleDocObject` has been invoked from `MyPlugin1`.
+ *
+ * Performs basic DocObject modification.
+ *
+ * @param {object} ev - Plugin event
+ */
+export function onHandleDocObject(ev)
+{
+   const doc = ev.data.doc;
+
+   doc.name += '_ModifiedDoc';
+
+   if (!Array.isArray(callInfo.handlerNames.onHandleDocObject))
+   {
+      callInfo.handlerNames.onHandleDocObject = ['MyPlugin1'];
+   }
+}
+
+/**
  * Tracks that `onHandleDocDB` has been invoked from `MyPlugin1`.
  *
  * Performs basic doc DB modification.
@@ -91,9 +118,9 @@ export function onHandleDocDB(ev)
 {
    callInfo.handlerNames.onHandleDocDB = ['MyPlugin1'];
 
-   ev.data.docDB.query({ name: 'MyClass_ModifiedCode_ModifiedAST' }).update(function()
+   ev.data.docDB.query({ name: 'MyClass_ModifiedCode_ModifiedAST_ModifiedDoc' }).update(function()
    {
-      this.name = 'MyClass_ModifiedCode_ModifiedAST_ModifiedDB'; return this;
+      this.name = 'MyClass_ModifiedCode_ModifiedAST_ModifiedDoc_ModifiedDB'; return this;
    });
 }
 
@@ -110,8 +137,8 @@ export function onHandleWriteFile(ev)
 
    if (!ev.data.fileName.endsWith('html')) { return; }
 
-   ev.data.fileData = ev.data.fileData.replace('MyClass_ModifiedCode_ModifiedAST_ModifiedDB',
-    'MyClass_ModifiedCode_ModifiedAST_ModifiedDB_ModifiedHTML');
+   ev.data.fileData = ev.data.fileData.replace('MyClass_ModifiedCode_ModifiedAST_ModifiedDoc_ModifiedDB',
+    'MyClass_ModifiedCode_ModifiedAST_ModifiedDoc_ModifiedDB_ModifiedHTML');
 
    // insert ev.data.fileName into <head />
    ev.data.fileData = ev.data.fileData.replace(
