@@ -3,4 +3,7 @@ dist/
 docs/
 node_modules/
 
-fixture/package/src/Invalid/CodeSyntax.js
+test/fixture/dest/
+test/fixture/dest-cli/
+
+test/fixture/package/src/Invalid/CodeSyntax.js
