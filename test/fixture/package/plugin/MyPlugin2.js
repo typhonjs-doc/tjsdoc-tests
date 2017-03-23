@@ -98,3 +98,11 @@ export function onComplete()
 {
    callInfo.handlerNames.onComplete.push('MyPlugin2');
 }
+
+/**
+ * Tracks that `onShutdown` has been invoked from `MyPlugin2`.
+ */
+export function onShutdown()
+{
+   callInfo.handlerNames.onShutdown.push('MyPlugin2');
+}
