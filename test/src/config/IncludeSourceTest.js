@@ -9,13 +9,11 @@ testConfig.forEachTarget('config', 'includeSource', (target) =>
    {
       Util.invoke(target, './test/fixture/config/tjsdoc-includeSource.json', { silent: testConfig.consoleSilent });
 
-      it('does not have source code.', () =>
+      it('has source code.', () =>
       {
          const doc = Util.readDoc(target, 'file/test/fixture/package/src/desc/Class.js.html', 'tjsdoc-includeSource');
 
-         Util.assert.includes(doc, '[data-ice="content"]', 'src/desc/Class.js');
-         Util.assert.includes(doc, '[data-ice="content"]', 'Sorry, this documentation does not provide source code.');
-         Util.assert.notIncludes(doc, '[data-ice="content"]', 'class TestDescClass');
+         Util.assert.includes(doc, 'code[data-ice="content"]', 'export default class TestDescClass {');
       });
    });
 });

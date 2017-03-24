@@ -4,5 +4,5 @@
   "includes": ["desc/.*\\.js$"],
   "index": "./test/fixture/package/README.md",
   "package": "./test/fixture/package/package.json",
-  "includeSource": false
+  "includeSource": true
 }

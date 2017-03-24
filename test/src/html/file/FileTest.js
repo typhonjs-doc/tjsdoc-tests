@@ -9,10 +9,14 @@ testConfig.forEachTarget('html', 'file', (target) =>
    {
       const doc = Util.readDoc(target, 'file/test/fixture/package/src/desc/Class.js.html');
 
-      it('has source code.', () =>
+      it('does not have source code.', () =>
       {
          Util.assert.includes(doc, 'body [data-ice="title"]', 'src/desc/Class.js');
-         Util.assert.includes(doc, 'code[data-ice="content"]', 'export default class TestDescClass {');
+
+         // By default source code is not output.
+         Util.assert.includes(doc, '[data-ice="content"]', 'src/desc/Class.js');
+         Util.assert.includes(doc, '[data-ice="content"]', 'Sorry, this documentation does not provide source code.');
+         Util.assert.notIncludes(doc, '[data-ice="content"]', 'class TestDescClass');
       });
    });
 });
