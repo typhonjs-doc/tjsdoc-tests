@@ -14,8 +14,8 @@ testConfig.forEachTarget('html', 'coverage', (target) =>
       {
          Util.assert(badge.includes('89%'));
          Util.assert.includes(doc, '[data-ice="coverageBadge"]', './badge.svg', 'src');
-         Util.assert.includes(doc, '[data-ice="totalCoverageCount"]', '319/356');
-         Util.assert.equal(doc.find('[data-ice="file"] [data-ice="coverage"]').length, 121);
+         Util.assert.includes(doc, '[data-ice="totalCoverageCount"]', '323/360');
+         Util.assert.equal(doc.find('[data-ice="file"] [data-ice="coverage"]').length, 124);
       });
 
       /* eslint-disable max-statements */
