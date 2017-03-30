@@ -36,18 +36,6 @@ testConfig.forEachTarget('html_doc', 'export', (target) =>
          });
       });
 
-      it('is not documented with direct function definition', () =>
-      {
-         Util.assert.throws(() => Util.findParent(doc, '[id="static-function-testExportFunction4"]',
-          '[data-ice="detail"]', () => {}));
-      });
-
-      it('is not documented with direct function expression', () =>
-      {
-         Util.assert.throws(() => Util.findParent(doc, '[id="static-function-testExportFunction5"]',
-          '[data-ice="detail"]', () => {}));
-      });
-
       it('has named import path with direct generator function definition.', () =>
       {
          Util.findParent(doc, '[id="static-function-testExportFunction6"]', '[data-ice="detail"]', (doc) =>

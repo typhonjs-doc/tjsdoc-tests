@@ -49,11 +49,5 @@ testConfig.forEachTarget('html_doc', 'export', (target) =>
          Util.assert.includes(doc, '.header-notice [data-ice="importPath"]',
           `import {TestExportClass5} from 'tjsdoc-test-fixture/test/fixture/package/src/export/Class.js'`);
       });
-
-      it('is not documented.', () =>
-      {
-         Util.assert.throws(() => Util.readDoc(target,
-          'class/test/fixture/package/src/export/Class.js~TestExportClass6.html'));
-      });
    });
 });

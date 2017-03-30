@@ -26,13 +26,7 @@ testConfig.forEachTarget('html_doc', 'export', (target) =>
              `import {testExportArrowFunction2} from 'tjsdoc-test-fixture/test/fixture/package/src/export/ArrowFunction.js'`);
          });
       });
-
-      it('is not documented with direct arrow function expression', () =>
-      {
-         Util.assert.throws(() => Util.findParent(doc, '[id="static-function-testExportArrowFunction3"]',
-          '[data-ice="detail"]', () => {}));
-      });
-
+      
       it('has named import path with undocument', () =>
       {
          Util.findParent(doc, '[id="static-function-testExportArrowFunction4"]', '[data-ice="detail"]', (doc) =>

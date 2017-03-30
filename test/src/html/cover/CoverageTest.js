@@ -14,7 +14,7 @@ testConfig.forEachTarget('html', 'coverage', (target) =>
       {
          Util.assert(badge.includes('89%'));
          Util.assert.includes(doc, '[data-ice="coverageBadge"]', './badge.svg', 'src');
-         Util.assert.includes(doc, '[data-ice="totalCoverageCount"]', '323/360');
+         Util.assert.includes(doc, '[data-ice="totalCoverageCount"]', '330/368');
          Util.assert.equal(doc.find('[data-ice="file"] [data-ice="coverage"]').length, 124);
       });
 
@@ -77,26 +77,26 @@ testConfig.forEachTarget('html', 'coverage', (target) =>
          test('file/test/fixture/package/src/exponentiationoperator/Definition.js.html', '100 %2/2');
          test('file/test/fixture/package/src/export/AnonymousClass.js.html', '100 %1/1');
          test('file/test/fixture/package/src/export/AnonymousFunction.js.html', '100 %1/1');
-         test('file/test/fixture/package/src/export/ArrowFunction.js.html#errorLines=18', '75 %3/4');
-         test('file/test/fixture/package/src/export/Class.js.html#errorLines=25', '80 %4/5');
+         test('file/test/fixture/package/src/export/ArrowFunction.js.html#errorLines=18', '80 %4/5');
+         test('file/test/fixture/package/src/export/Class.js.html#errorLines=25', '83 %5/6');
          test('file/test/fixture/package/src/export/ClassIndirectDefault.js.html', '100 %1/1');
          test('file/test/fixture/package/src/export/Default.js.html', '100 %1/1');
          test('file/test/fixture/package/src/export/Extends.js.html', '100 %2/2');
-         test('file/test/fixture/package/src/export/Function.js.html#errorLines=33', '83 %5/6');
+         test('file/test/fixture/package/src/export/Function.js.html#errorLines=33', '87 %7/8');
          test('file/test/fixture/package/src/export/FunctionIndirectDefault.js.html', '100 %1/1');
          test('file/test/fixture/package/src/export/Multiple.js.html', '100 %2/2');
          test('file/test/fixture/package/src/export/Named.js.html', '100 %1/1');
          test('file/test/fixture/package/src/export/NewExpression.js.html', '100 %4/4');
          test('file/test/fixture/package/src/export/NewExpressionIndirect.js.html', '100 %2/2');
-         test('file/test/fixture/package/src/export/NewExpressionProperty.js.html', '100 %2/2');
-         test('file/test/fixture/package/src/export/Variable.js.html#errorLines=23,24', '66 %4/6');
+         test('file/test/fixture/package/src/export/NewExpressionProperty.js.html#errorLines=6', '66 %2/3');
+         test('file/test/fixture/package/src/export/Variable.js.html#errorLines=23,24', '71 %5/7');
          test('file/test/fixture/package/src/export/VariableIndirectDefault.js.html', '100 %1/1');
          test('file/test/fixture/package/src/extends/Builtin.js.html', '100 %2/2');
          test('file/test/fixture/package/src/extends/Deep.js.html#errorLines=110,129,22,41,66,85', '77 %21/27');
          test('file/test/fixture/package/src/extends/Expression.js.html', '100 %3/3');
          test('file/test/fixture/package/src/extends/Inner.js.html', '100 %6/6');
          test('file/test/fixture/package/src/extends/Mixin.js.html', '100 %6/6');
-         test('file/test/fixture/package/src/extends/MixinExplicit.js.html', '100 %3/3');
+         test('file/test/fixture/package/src/extends/MixinExplicit.js.html', '100 %4/4');
          test('file/test/fixture/package/src/extends/Outer.js.html', '100 %2/2');
          test('file/test/fixture/package/src/extends/Property.js.html', '100 %1/1');
          test('file/test/fixture/package/src/external/Definition.js.html', '-');
@@ -111,7 +111,7 @@ testConfig.forEachTarget('html', 'coverage', (target) =>
          test('file/test/fixture/package/src/ignore/Variable.js.html', '-');
          test('file/test/fixture/package/src/interface/Definition.js.html', '100 %2/2');
          test('file/test/fixture/package/src/interface/Implements.js.html', '100 %5/5');
-         test('file/test/fixture/package/src/invalid/DocSyntax.js.html', '-');
+         test('file/test/fixture/package/src/invalid/DocSyntax.js.html', '100 %1/1');
          test('file/test/fixture/package/src/jsx/Definition.js.html', '100 %2/2');
          test('file/test/fixture/package/src/link/Class.js.html', '100 %4/4');
          test('file/test/fixture/package/src/link/Function.js.html', '100 %1/1');

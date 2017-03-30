@@ -27,12 +27,6 @@ testConfig.forEachTarget('html_doc', 'export', (target) =>
          });
       });
 
-      it('is not documented with direct variable definition', () =>
-      {
-         Util.assert.throws(() => Util.findParent(doc, '[id="static-variable-testExportVariable3"]',
-          '[data-ice="detail"]', () => {}));
-      });
-
       it('has named import path with none doc comment', () =>
       {
          Util.findParent(doc, '[id="static-variable-testExportVariable4"]', '[data-ice="detail"]', (doc) =>
