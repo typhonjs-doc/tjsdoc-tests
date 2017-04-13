@@ -49,7 +49,7 @@ testConfig.forEachTarget('runtime_common', 'utils', (target) =>
 
          for (const docObject of s_DOC_DATA)
          {
-            pluginManager.invokeSyncEvent('onHandleDocObject', void 0, { doc: docObject });
+            pluginManager.invokeSyncEvent('onHandleDocObject', void 0, { docObject });
          }
 
          // Invoke LintDocLogger

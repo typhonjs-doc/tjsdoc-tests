@@ -97,7 +97,7 @@ export function onHandleAST(ev)
  */
 export function onHandleDocObject(ev)
 {
-   const doc = ev.data.doc;
+   const doc = ev.data.docObject;
 
    doc.name += '_ModifiedDoc';
 
