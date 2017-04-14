@@ -17,7 +17,7 @@ testConfig.forEachTarget('html_doc', 'deprecated', (target) =>
              '[data-ice="summary"] [href="variable/index.html#static-variable-testDeprecatedVariable"]', (doc) =>
             {
                doc = doc.parents('[data-ice="target"]');
-               Util.assert.includes(doc, '[data-ice="deprecated"]', 'this variable was deprecated.');
+               Util.assert.includes(doc, '[data-ice="deprecated"]', 'Deprecated');
             });
          });
       });
@@ -29,7 +29,7 @@ testConfig.forEachTarget('html_doc', 'deprecated', (target) =>
             Util.find(doc, '[id="static-variable-testDeprecatedVariable"]', (doc) =>
             {
                doc = doc.parents('[data-ice="detail"]');
-               Util.assert.includes(doc, '[data-ice="deprecated"]', 'this variable was deprecated.');
+               Util.assert.includes(doc, '[data-ice="deprecated"]', 'Deprecated');
             });
          });
       });

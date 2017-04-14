@@ -14,7 +14,7 @@ testConfig.forEachTarget('html_doc', 'type', (target) =>
 
       it('has nullable value.', () =>
       {
-         Util.findParent(doc, '[id="instance-method-method1"]', '[data-ice="detail"]', (doc) =>
+         Util.findParent(doc, '[id="instance-classmethod-method1"]', '[data-ice="detail"]', (doc) =>
          {
             Util.assert.includes(doc, '.params [data-ice="property"]:nth-child(1)', 'nullable: true');
             Util.assert.includes(doc, '.params [data-ice="property"]:nth-child(2)', 'nullable: false');

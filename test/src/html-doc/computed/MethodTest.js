@@ -16,42 +16,42 @@ testConfig.forEachTarget('html_doc', 'computed', (target) =>
             Util.find(doc, '[data-ice="summary"]', (doc) =>
             {
                Util.assert.includes(doc,
-                `[href="class/test/fixture/package/src/computed/Method.js~TestComputedMethod.html#instance-method-['foo']"]`,
+                `[href="class/test/fixture/package/src/computed/Method.js~TestComputedMethod.html#instance-classmethod-['foo']"]`,
                  `['foo']`);
 
                Util.assert.includes(doc,
-                `[href="class/test/fixture/package/src/computed/Method.js~TestComputedMethod.html#instance-method-[Symbol.iterator]"]`,
+                `[href="class/test/fixture/package/src/computed/Method.js~TestComputedMethod.html#instance-classmethod-[Symbol.iterator]"]`,
                  `[Symbol.iterator]`);
 
                Util.assert.includes(doc,
-                '[href="class/test/fixture/package/src/computed/Method.js~TestComputedMethod.html#instance-method-[`${foo}`]"]',
+                '[href="class/test/fixture/package/src/computed/Method.js~TestComputedMethod.html#instance-classmethod-[`${foo}`]"]',
                  '[`${foo}`]');
 
                Util.assert.includes(doc,
-                `[href="class/test/fixture/package/src/computed/Method.js~TestComputedMethod.html#instance-method-[foo + bar]"]`,
+                `[href="class/test/fixture/package/src/computed/Method.js~TestComputedMethod.html#instance-classmethod-[foo + bar]"]`,
                  `[foo + bar]`);
 
                Util.assert.includes(doc,
-                `[href="class/test/fixture/package/src/computed/Method.js~TestComputedMethod.html#instance-method-[foo()]"]`,
+                `[href="class/test/fixture/package/src/computed/Method.js~TestComputedMethod.html#instance-classmethod-[foo()]"]`,
                  `[foo()]`);
 
                Util.assert.includes(doc,
-                `[href="class/test/fixture/package/src/computed/Method.js~TestComputedMethod.html#instance-method-[foo.bar()]"]`,
+                `[href="class/test/fixture/package/src/computed/Method.js~TestComputedMethod.html#instance-classmethod-[foo.bar()]"]`,
                  `[foo.bar()]`);
 
                Util.assert.includes(doc,
-                `[href="class/test/fixture/package/src/computed/Method.js~TestComputedMethod.html#instance-method-[foo.bar.baz]"]`,
+                `[href="class/test/fixture/package/src/computed/Method.js~TestComputedMethod.html#instance-classmethod-[foo.bar.baz]"]`,
                  `[foo.bar.baz]`);
 
                Util.assert.includes(doc,
-                `[href="class/test/fixture/package/src/computed/Method.js~TestComputedMethod.html#instance-method-[foo.bar]"]`,
+                `[href="class/test/fixture/package/src/computed/Method.js~TestComputedMethod.html#instance-classmethod-[foo.bar]"]`,
                  `[foo.bar]`);
 
                Util.assert.includes(doc,
-                `[href="class/test/fixture/package/src/computed/Method.js~TestComputedMethod.html#instance-method-[foo.p + bar]"]`,
+                `[href="class/test/fixture/package/src/computed/Method.js~TestComputedMethod.html#instance-classmethod-[foo.p + bar]"]`,
                  `[foo.p + bar]`);
 
-               Util.assert.includes(doc, `[href="class/test/fixture/package/src/computed/Method.js~TestComputedMethod.html#instance-method-[foo]"]`,
+               Util.assert.includes(doc, `[href="class/test/fixture/package/src/computed/Method.js~TestComputedMethod.html#instance-classmethod-[foo]"]`,
                 `[foo]`);
             });
          });
@@ -61,16 +61,16 @@ testConfig.forEachTarget('html_doc', 'computed', (target) =>
       {
          it('has computed method.', () =>
          {
-            Util.assert.includes(doc, `[id="instance-method-['foo']"] [data-ice="name"]`, `['foo']`);
-            Util.assert.includes(doc, `[id="instance-method-[Symbol.iterator]"] [data-ice="name"]`, `[Symbol.iterator]`);
-            Util.assert.includes(doc, '[id="instance-method-[`${foo}`]"] [data-ice="name"]', '[`${foo}`]');
-            Util.assert.includes(doc, `[id="instance-method-[foo + bar]"] [data-ice="name"]`, `[foo + bar]`);
-            Util.assert.includes(doc, `[id="instance-method-[foo()]"] [data-ice="name"]`, `[foo()]`);
-            Util.assert.includes(doc, `[id="instance-method-[foo.bar()]"] [data-ice="name"]`, `[foo.bar()]`);
-            Util.assert.includes(doc, `[id="instance-method-[foo.bar.baz]"] [data-ice="name"]`, `[foo.bar.baz]`);
-            Util.assert.includes(doc, `[id="instance-method-[foo.bar]"] [data-ice="name"]`, `[foo.bar]`);
-            Util.assert.includes(doc, `[id="instance-method-[foo.p + bar]"] [data-ice="name"]`, `[foo.p + bar]`);
-            Util.assert.includes(doc, `[id="instance-method-[foo]"] [data-ice="name"]`, `[foo]`);
+            Util.assert.includes(doc, `[id="instance-classmethod-['foo']"] [data-ice="name"]`, `['foo']`);
+            Util.assert.includes(doc, `[id="instance-classmethod-[Symbol.iterator]"] [data-ice="name"]`, `[Symbol.iterator]`);
+            Util.assert.includes(doc, '[id="instance-classmethod-[`${foo}`]"] [data-ice="name"]', '[`${foo}`]');
+            Util.assert.includes(doc, `[id="instance-classmethod-[foo + bar]"] [data-ice="name"]`, `[foo + bar]`);
+            Util.assert.includes(doc, `[id="instance-classmethod-[foo()]"] [data-ice="name"]`, `[foo()]`);
+            Util.assert.includes(doc, `[id="instance-classmethod-[foo.bar()]"] [data-ice="name"]`, `[foo.bar()]`);
+            Util.assert.includes(doc, `[id="instance-classmethod-[foo.bar.baz]"] [data-ice="name"]`, `[foo.bar.baz]`);
+            Util.assert.includes(doc, `[id="instance-classmethod-[foo.bar]"] [data-ice="name"]`, `[foo.bar]`);
+            Util.assert.includes(doc, `[id="instance-classmethod-[foo.p + bar]"] [data-ice="name"]`, `[foo.p + bar]`);
+            Util.assert.includes(doc, `[id="instance-classmethod-[foo]"] [data-ice="name"]`, `[foo]`);
          });
       });
    });

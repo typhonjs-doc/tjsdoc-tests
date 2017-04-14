@@ -44,15 +44,15 @@ testConfig.forEachTarget('html_doc', 'extends', (target) =>
                 'class/test/fixture/package/src/extends/Deep.js~TestExtendsDeepRectangle.html',
                   'href');
 
-               Util.assert.includes(doc, 'a[href$="#static-get-staticValueRectangle"]', 'staticValueRectangle');
-               Util.assert.includes(doc, 'a[href$="#static-set-staticValueRectangle"]', 'staticValueRectangle');
+               Util.assert.includes(doc, 'a[href$="#static-classmethod-get-staticValueRectangle"]', 'staticValueRectangle');
+               Util.assert.includes(doc, 'a[href$="#static-classmethod-set-staticValueRectangle"]', 'staticValueRectangle');
                Util.assert.includes(doc, 'a[href$="#static-member-staticPRectangle"]', 'staticPRectangle');
-               Util.assert.includes(doc, 'a[href$="#static-method-staticMethodRectangle"]', 'staticMethodRectangle');
+               Util.assert.includes(doc, 'a[href$="#static-classmethod-staticMethodRectangle"]', 'staticMethodRectangle');
 
-               Util.assert.includes(doc, 'a[href$="#instance-get-valueRectangle"]', 'valueRectangle');
-               Util.assert.includes(doc, 'a[href$="#instance-set-valueRectangle"]', 'valueRectangle');
+               Util.assert.includes(doc, 'a[href$="#instance-classmethod-get-valueRectangle"]', 'valueRectangle');
+               Util.assert.includes(doc, 'a[href$="#instance-classmethod-set-valueRectangle"]', 'valueRectangle');
                Util.assert.includes(doc, 'a[href$="#instance-member-pRectangle"]', 'pRectangle');
-               Util.assert.includes(doc, 'a[href$="#instance-method-methodRectangle"]', 'methodRectangle');
+               Util.assert.includes(doc, 'a[href$="#instance-classmethod-methodRectangle"]', 'methodRectangle');
             });
          });
 
@@ -65,15 +65,15 @@ testConfig.forEachTarget('html_doc', 'extends', (target) =>
                Util.assert.includes(doc, 'thead a',
                 'class/test/fixture/package/src/extends/Deep.js~TestExtendsDeepShape.html', 'href');
 
-               Util.assert.includes(doc, 'a[href$="#static-get-staticValueShape"]', 'staticValueShape');
-               Util.assert.includes(doc, 'a[href$="#static-set-staticValueShape"]', 'staticValueShape');
+               Util.assert.includes(doc, 'a[href$="#static-classmethod-get-staticValueShape"]', 'staticValueShape');
+               Util.assert.includes(doc, 'a[href$="#static-classmethod-set-staticValueShape"]', 'staticValueShape');
                Util.assert.includes(doc, 'a[href$="#static-member-staticPShape"]', 'staticPShape');
-               Util.assert.includes(doc, 'a[href$="#static-method-staticMethodShape"]', 'staticMethodShape');
+               Util.assert.includes(doc, 'a[href$="#static-classmethod-staticMethodShape"]', 'staticMethodShape');
 
-               Util.assert.includes(doc, 'a[href$="#instance-get-valueShape"]', 'valueShape');
-               Util.assert.includes(doc, 'a[href$="#instance-set-valueShape"]', 'valueShape');
+               Util.assert.includes(doc, 'a[href$="#instance-classmethod-get-valueShape"]', 'valueShape');
+               Util.assert.includes(doc, 'a[href$="#instance-classmethod-set-valueShape"]', 'valueShape');
                Util.assert.includes(doc, 'a[href$="#instance-member-pShape"]', 'pShape');
-               Util.assert.includes(doc, 'a[href$="#instance-method-methodShape"]', 'methodShape');
+               Util.assert.includes(doc, 'a[href$="#instance-classmethod-methodShape"]', 'methodShape');
             });
          });
       });

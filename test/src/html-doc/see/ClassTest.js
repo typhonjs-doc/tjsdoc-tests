@@ -20,7 +20,7 @@ testConfig.forEachTarget('html_doc', 'see', (target) =>
 
       it('has see from constructor.', () =>
       {
-         Util.findParent(doc, '[id="instance-constructor-constructor"]', '[data-ice="detail"]', (doc) =>
+         Util.findParent(doc, '[id="instance-classmethod-constructor"]', '[data-ice="detail"]', (doc) =>
          {
             Util.assert.includes(doc, '[data-ice="see"] a[href="http://example.com"]', 'http://example.com');
          });
@@ -36,7 +36,7 @@ testConfig.forEachTarget('html_doc', 'see', (target) =>
 
       it('has see from method.', () =>
       {
-         Util.findParent(doc, '[id="instance-method-method1"]', '[data-ice="detail"]', (doc) =>
+         Util.findParent(doc, '[id="instance-classmethod-method1"]', '[data-ice="detail"]', (doc) =>
          {
             Util.assert.includes(doc, '[data-ice="see"] a[href="http://example.com"]', 'http://example.com');
          });

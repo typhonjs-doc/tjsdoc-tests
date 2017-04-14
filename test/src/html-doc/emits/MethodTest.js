@@ -13,7 +13,7 @@ testConfig.forEachTarget('html_doc', 'emits', (target) =>
       {
          it('has desc.', () =>
          {
-            Util.findParent(doc, '[id="instance-method-method1"]', '[data-ice="detail"]', (doc) =>
+            Util.findParent(doc, '[id="instance-classmethod-method1"]', '[data-ice="detail"]', (doc) =>
             {
                Util.findParent(doc, '[data-ice="emit"] [href$="TestEmitsMethodEvent1.html"]', '[data-ice="emit"]',
                 (doc) =>

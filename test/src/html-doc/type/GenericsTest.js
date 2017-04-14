@@ -14,7 +14,8 @@ testConfig.forEachTarget('html_doc', 'type', (target) =>
 
       it('has generics type.', () =>
       {
-         Util.findParent(doc, '[data-ice="summary"] [href$="#instance-method-method1"]', '[data-ice="target"]', (doc) =>
+         Util.findParent(doc, '[data-ice="summary"] [href$="#instance-classmethod-method1"]', '[data-ice="target"]', 
+          (doc) =>
          {
             Util.assert.includes(doc, null,
              'method1(p1: Array<number>, p2: Map<number, string>, p3: Promise<number[], Error>)');

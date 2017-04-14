@@ -14,7 +14,8 @@ testConfig.forEachTarget('html_doc', 'type', (target) =>
 
       it('has function complex type.', () =>
       {
-         Util.findParent(doc, '[data-ice="summary"] [href$="#instance-method-method1"]', '[data-ice="target"]', (doc) =>
+         Util.findParent(doc, '[data-ice="summary"] [href$="#instance-classmethod-method1"]', '[data-ice="target"]',
+          (doc) =>
          {
             Util.assert.includes(doc, null, 'method1(p1: function(x1: number[], x2: Map<string, boolean>): Object)');
 
@@ -31,7 +32,7 @@ testConfig.forEachTarget('html_doc', 'type', (target) =>
 
       it('has complex generics type.', () =>
       {
-         Util.findParent(doc, '[data-ice="summary"] [href$="#instance-method-method2"]', '[data-ice="target"]',
+         Util.findParent(doc, '[data-ice="summary"] [href$="#instance-classmethod-method2"]', '[data-ice="target"]',
           (doc) =>
          {
             Util.assert.includes(doc, null, 'method2(p1: Map<number, string[]>)');
@@ -46,7 +47,7 @@ testConfig.forEachTarget('html_doc', 'type', (target) =>
 
       it('has complex record type.', () =>
       {
-         Util.findParent(doc, '[data-ice="summary"] [href$="#instance-method-method3"]', '[data-ice="target"]',
+         Util.findParent(doc, '[data-ice="summary"] [href$="#instance-classmethod-method3"]', '[data-ice="target"]',
           (doc) =>
          {
             Util.assert.includes(doc, null,
@@ -65,7 +66,8 @@ testConfig.forEachTarget('html_doc', 'type', (target) =>
 
       it('has complex union type.', () =>
       {
-         Util.findParent(doc, '[data-ice="summary"] [href$="#instance-method-method4"]', '[data-ice="target"]', (doc) =>
+         Util.findParent(doc, '[data-ice="summary"] [href$="#instance-classmethod-method4"]', '[data-ice="target"]',
+          (doc) =>
          {
             Util.assert.includes(doc, null, 'method4(p1: number | string, p2: number | string)');
 
@@ -80,7 +82,8 @@ testConfig.forEachTarget('html_doc', 'type', (target) =>
 
       it('has complex union type in generics.', () =>
       {
-         Util.findParent(doc, '[data-ice="summary"] [href$="#instance-method-method5"]', '[data-ice="target"]', (doc) =>
+         Util.findParent(doc, '[data-ice="summary"] [href$="#instance-classmethod-method5"]', '[data-ice="target"]',
+          (doc) =>
          {
             Util.assert.includes(doc, null, 'method5(p1: Promise<string|number, Error>)');
 
@@ -95,7 +98,8 @@ testConfig.forEachTarget('html_doc', 'type', (target) =>
 
       it('has complex union type with spread.', () =>
       {
-         Util.findParent(doc, '[data-ice="summary"] [href$="#instance-method-method6"]', '[data-ice="target"]', (doc) =>
+         Util.findParent(doc, '[data-ice="summary"] [href$="#instance-classmethod-method6"]', '[data-ice="target"]',
+          (doc) =>
          {
             Util.assert.includes(doc, null, 'method6(p1: ...(number|string))');
 

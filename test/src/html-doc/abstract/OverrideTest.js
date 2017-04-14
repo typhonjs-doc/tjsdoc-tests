@@ -18,7 +18,7 @@ testConfig.forEachTarget('html_doc', 'abstract', (target) =>
             Util.assert.includes(doc, '[data-ice="override"] a', 'TestAbstractDefinition#method1');
 
             Util.assert.includes(doc, '[data-ice="override"] a',
-             'class/test/fixture/package/src/abstract/Definition.js~TestAbstractDefinition.html#instance-method-method1',
+             'class/test/fixture/package/src/abstract/Definition.js~TestAbstractDefinition.html#instance-classmethod-method1',
               'href');
          });
 
@@ -27,7 +27,7 @@ testConfig.forEachTarget('html_doc', 'abstract', (target) =>
             Util.assert.includes(doc, '[data-ice="override"] a', 'TestAbstractDefinition#method2');
 
             Util.assert.includes(doc, '[data-ice="override"] a',
-             'class/test/fixture/package/src/abstract/Definition.js~TestAbstractDefinition.html#instance-method-method2',
+             'class/test/fixture/package/src/abstract/Definition.js~TestAbstractDefinition.html#instance-classmethod-method2',
                'href');
          });
       });

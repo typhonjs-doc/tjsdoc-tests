@@ -18,7 +18,7 @@ testConfig.forEachTarget('html_doc', 'link', (target) =>
 
       it('has link from constructor.', () =>
       {
-         Util.findParent(doc, '[id="instance-constructor-constructor"]', '[data-ice="detail"]', (doc) =>
+         Util.findParent(doc, '[id="instance-classmethod-constructor"]', '[data-ice="detail"]', (doc) =>
          {
             Util.assert.includes(doc,
              '[data-ice="description"] a[href="function/index.html#static-function-testLinkFunction"]',
@@ -38,7 +38,7 @@ testConfig.forEachTarget('html_doc', 'link', (target) =>
 
       it('has link from method.', () =>
       {
-         Util.findParent(doc, '[id="instance-method-method1"]', '[data-ice="detail"]', (doc) =>
+         Util.findParent(doc, '[id="instance-classmethod-method1"]', '[data-ice="detail"]', (doc) =>
          {
             Util.assert.includes(doc,
              '[data-ice="description"] a[href="function/index.html#static-function-testLinkFunction"]',

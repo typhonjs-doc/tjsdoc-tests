@@ -35,7 +35,7 @@ testConfig.forEachTarget('html', 'test', (target) =>
                Util.assert.includes(doc, null, 'Use it style mocha interface TestDescClass#constructor');
                Util.assert.multiIncludes(doc, 'a', [
                   'test-file/test/fixture/package/test/DescTest.js.html#lineNumber5',
-                  'class/test/fixture/package/src/desc/Class.js~TestDescClass.html#instance-constructor-constructor'
+                  'class/test/fixture/package/src/desc/Class.js~TestDescClass.html#instance-classmethod-constructor'
                ], 'href');
             });
          });
@@ -78,7 +78,7 @@ testConfig.forEachTarget('html', 'test', (target) =>
                Util.assert.includes(doc, null, 'Use context style mocha interface TestDescClass#method1 1');
                Util.assert.multiIncludes(doc, 'a', [
                   'test-file/test/fixture/package/test/DescTest.js.html#lineNumber19',
-                  'class/test/fixture/package/src/desc/Class.js~TestDescClass.html#instance-method-method1'
+                  'class/test/fixture/package/src/desc/Class.js~TestDescClass.html#instance-classmethod-method1'
                ], 'href');
             });
          });
@@ -120,7 +120,7 @@ testConfig.forEachTarget('html', 'test', (target) =>
                Util.assert.includes(doc, null, 'Use test style mocha interface TestDescClass#constructor');
                Util.assert.multiIncludes(doc, 'a', [
                   'test-file/test/fixture/package/test/DescTest.js.html#lineNumber32',
-                  'class/test/fixture/package/src/desc/Class.js~TestDescClass.html#instance-constructor-constructor'
+                  'class/test/fixture/package/src/desc/Class.js~TestDescClass.html#instance-classmethod-constructor'
                ], 'href');
             });
          });
@@ -146,7 +146,7 @@ testConfig.forEachTarget('html', 'test', (target) =>
                Util.assert.includes(doc, null, 'Nested test TestDescClass#method1');
                Util.assert.multiIncludes(doc, 'a', [
                   'test-file/test/fixture/package/test/DescTest.js.html#lineNumber40',
-                  'class/test/fixture/package/src/desc/Class.js~TestDescClass.html#instance-method-method1'
+                  'class/test/fixture/package/src/desc/Class.js~TestDescClass.html#instance-classmethod-method1'
                ], 'href');
             });
          });

@@ -32,7 +32,7 @@ testConfig.forEachTarget('config', 'autoPrivate', (target) =>
       {
          const doc = readDoc('class/test/fixture/package/src/access/Method.js~TestAccessMethod.html');
 
-         Util.assert.includes(doc, '#instance-method-_method4', 'public _method4()');
+         Util.assert.includes(doc, '#instance-classmethod-_method4', 'public _method4()');
       });
 
       it('treat _member as public', () =>

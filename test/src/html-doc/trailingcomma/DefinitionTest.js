@@ -22,13 +22,13 @@ testConfig.forEachTarget('html_doc', 'trailingComma', (target) =>
       {
          it('has desc', () =>
          {
-            Util.findParent(doc, '[data-ice="summary"] [href$="#instance-method-method1"]', '[data-ice="target"]',
+            Util.findParent(doc, '[data-ice="summary"] [href$="#instance-classmethod-method1"]', '[data-ice="target"]',
              (doc) =>
             {
                Util.assert.includes(doc, null, 'public method1(p1: number, p2: string)');
             });
 
-            Util.findParent(doc, '[data-ice="summary"] [href$="#instance-method-method2"]', '[data-ice="target"]',
+            Util.findParent(doc, '[data-ice="summary"] [href$="#instance-classmethod-method2"]', '[data-ice="target"]',
              (doc) =>
             {
                Util.assert.includes(doc, null, 'public method2()');
@@ -40,13 +40,13 @@ testConfig.forEachTarget('html_doc', 'trailingComma', (target) =>
       {
          it('has desc.', () =>
          {
-            Util.findParent(doc, '[id="instance-method-method1"]', '[data-ice="detail"]', (doc) =>
+            Util.findParent(doc, '[id="instance-classmethod-method1"]', '[data-ice="detail"]', (doc) =>
             {
                Util.assert.includes(doc, '.params [data-ice="property"]:nth-of-type(1)', 'p1 number this is p1.');
                Util.assert.includes(doc, '.params [data-ice="property"]:nth-of-type(2)', 'p2 string this is p2.');
             });
 
-            Util.findParent(doc, '[id="instance-method-method2"]', '[data-ice="detail"]', (doc) =>
+            Util.findParent(doc, '[id="instance-classmethod-method2"]', '[data-ice="detail"]', (doc) =>
             {
                Util.assert.includes(doc, '[data-ice="description"]', 'this is method2.');
             });

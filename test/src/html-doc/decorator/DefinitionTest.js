@@ -23,7 +23,7 @@ testConfig.forEachTarget('html_doc', 'decorator', (target) =>
 
       it('has decorator at static method.', () =>
       {
-         Util.findParent(doc, '[id="static-method-method1"]', '[data-ice="detail"]', (doc) =>
+         Util.findParent(doc, '[id="static-classmethod-method1"]', '[data-ice="detail"]', (doc) =>
          {
             Util.assert.includes(doc, '[data-ice="decorator"]', 'testDecoratorAnnotation1');
          });
@@ -31,7 +31,7 @@ testConfig.forEachTarget('html_doc', 'decorator', (target) =>
 
       it('has decorator at getter.', () =>
       {
-         Util.findParent(doc, '[id="instance-get-value1"]', '[data-ice="detail"]', (doc) =>
+         Util.findParent(doc, '[id="instance-classmethod-get-value1"]', '[data-ice="detail"]', (doc) =>
          {
             Util.assert.includes(doc, '[data-ice="decorator"]', 'testDecoratorAnnotation1');
          });
@@ -39,7 +39,7 @@ testConfig.forEachTarget('html_doc', 'decorator', (target) =>
 
       it('has decorator at setter.', () =>
       {
-         Util.findParent(doc, '[id="instance-set-value2"]', '[data-ice="detail"]', (doc) =>
+         Util.findParent(doc, '[id="instance-classmethod-set-value2"]', '[data-ice="detail"]', (doc) =>
          {
             Util.assert.includes(doc, '[data-ice="decorator"]', 'testDecoratorAnnotation1');
          });
@@ -47,7 +47,7 @@ testConfig.forEachTarget('html_doc', 'decorator', (target) =>
 
       it('has decorator at method.', () =>
       {
-         Util.findParent(doc, '[id="instance-method-method1"]', '[data-ice="detail"]', (doc) =>
+         Util.findParent(doc, '[id="instance-classmethod-method1"]', '[data-ice="detail"]', (doc) =>
          {
             Util.assert.includes(doc, '[data-ice="decorator"] li:nth-of-type(1)', 'testDecoratorAnnotation1');
             Util.assert.includes(doc, '[data-ice="decorator"] li:nth-of-type(2)', 'testDecoratorAnnotation2(true)');

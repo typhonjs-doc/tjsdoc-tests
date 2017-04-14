@@ -14,19 +14,19 @@ testConfig.forEachTarget('html_doc', 'desc', (target) =>
       {
          it('has first sentence desc', () =>
          {
-            Util.findParent(doc, '[data-ice="summary"] [href$="#instance-method-method1"]', '[data-ice="target"]',
+            Util.findParent(doc, '[data-ice="summary"] [href$="#instance-classmethod-method1"]', '[data-ice="target"]',
              (doc) =>
             {
                Util.assert.includes(doc, '[data-ice="description"]', 'this is method1.');
             });
 
-            Util.findParent(doc, '[data-ice="summary"] [href$="#instance-method-method2"]', '[data-ice="target"]',
+            Util.findParent(doc, '[data-ice="summary"] [href$="#instance-classmethod-method2"]', '[data-ice="target"]',
              (doc) =>
             {
                Util.assert.includes(doc, '[data-ice="description"]', 'this is method2.');
             });
 
-            Util.findParent(doc, '[data-ice="summary"] [href$="#instance-method-method3"]', '[data-ice="target"]',
+            Util.findParent(doc, '[data-ice="summary"] [href$="#instance-classmethod-method3"]', '[data-ice="target"]',
              (doc) =>
             {
                Util.assert.includes(doc, '[data-ice="description"]', 'this is method3.');
@@ -38,17 +38,17 @@ testConfig.forEachTarget('html_doc', 'desc', (target) =>
       {
          it('has all sentence desc.', () =>
          {
-            Util.findParent(doc, '[id="instance-method-method1"]', '[data-ice="detail"]', (doc) =>
+            Util.findParent(doc, '[id="instance-classmethod-method1"]', '[data-ice="detail"]', (doc) =>
             {
                Util.assert.includes(doc, '[data-ice="description"]', 'this is method1. this is second line.');
             });
 
-            Util.findParent(doc, '[id="instance-method-method2"]', '[data-ice="detail"]', (doc) =>
+            Util.findParent(doc, '[id="instance-classmethod-method2"]', '[data-ice="detail"]', (doc) =>
             {
                Util.assert.includes(doc, '[data-ice="description"]', 'this is method2. this is second sentence.');
             });
 
-            Util.findParent(doc, '[id="instance-method-method3"]', '[data-ice="detail"]', (doc) =>
+            Util.findParent(doc, '[id="instance-classmethod-method3"]', '[data-ice="detail"]', (doc) =>
             {
                Util.assert.includes(doc, '[data-ice="description"]', 'this is method3. this is second sentence.');
             });

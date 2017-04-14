@@ -14,7 +14,7 @@ testConfig.forEachTarget('html_doc', 'access', (target) =>
          it('has public accessor.', () =>
          {
             Util.find(doc,
-             '[data-ice="summary"] [href="class/test/fixture/package/src/access/Method.js~TestAccessMethod.html#instance-method-method1"]',
+             '[data-ice="summary"] [href="class/test/fixture/package/src/access/Method.js~TestAccessMethod.html#instance-classmethod-method1"]',
               (doc) =>
             {
                doc = doc.parents('[data-ice="target"]');
@@ -25,7 +25,7 @@ testConfig.forEachTarget('html_doc', 'access', (target) =>
          it('has protected accessor.', () =>
          {
             Util.find(doc,
-             '[data-ice="summary"] [href="class/test/fixture/package/src/access/Method.js~TestAccessMethod.html#instance-method-method2"]',
+             '[data-ice="summary"] [href="class/test/fixture/package/src/access/Method.js~TestAccessMethod.html#instance-classmethod-method2"]',
               (doc) =>
             {
                doc = doc.parents('[data-ice="target"]');
@@ -36,7 +36,7 @@ testConfig.forEachTarget('html_doc', 'access', (target) =>
          it('has private accessor.', () =>
          {
             Util.find(doc,
-             '[data-ice="summary"] [href="class/test/fixture/package/src/access/Method.js~TestAccessMethod.html#instance-method-method3"]',
+             '[data-ice="summary"] [href="class/test/fixture/package/src/access/Method.js~TestAccessMethod.html#instance-classmethod-method3"]',
               (doc) =>
             {
                doc = doc.parents('[data-ice="target"]');
@@ -47,7 +47,7 @@ testConfig.forEachTarget('html_doc', 'access', (target) =>
          it('has auto private accessor.', () =>
          {
             Util.find(doc,
-             '[data-ice="summary"] [href="class/test/fixture/package/src/access/Method.js~TestAccessMethod.html#instance-method-_method4"]',
+             '[data-ice="summary"] [href="class/test/fixture/package/src/access/Method.js~TestAccessMethod.html#instance-classmethod-_method4"]',
               (doc) =>
             {
                doc = doc.parents('[data-ice="target"]');
@@ -60,22 +60,22 @@ testConfig.forEachTarget('html_doc', 'access', (target) =>
       {
          it('has public accessor.', () =>
          {
-            Util.assert.includes(doc, '#instance-method-method1', 'public method1()');
+            Util.assert.includes(doc, '#instance-classmethod-method1', 'public method1()');
          });
 
          it('has protected accessor.', () =>
          {
-            Util.assert.includes(doc, '#instance-method-method2', 'protected method2()');
+            Util.assert.includes(doc, '#instance-classmethod-method2', 'protected method2()');
          });
 
          it('has private accessor.', () =>
          {
-            Util.assert.includes(doc, '#instance-method-method3', 'private method3()');
+            Util.assert.includes(doc, '#instance-classmethod-method3', 'private method3()');
          });
 
          it('has auto private accessor.', () =>
          {
-            Util.assert.includes(doc, '#instance-method-_method4', 'private _method4()');
+            Util.assert.includes(doc, '#instance-classmethod-_method4', 'private _method4()');
          });
       });
    });

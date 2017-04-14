@@ -22,7 +22,7 @@ testConfig.forEachTarget('html_doc', 'link', (target) =>
               'TestLinkClass#p1');
 
             Util.assert.includes(doc,
-             '[data-ice="description"] a[href="class/test/fixture/package/src/link/Class.js~TestLinkClass.html#instance-method-method1"]',
+             '[data-ice="description"] a[href="class/test/fixture/package/src/link/Class.js~TestLinkClass.html#instance-classmethod-method1"]',
               'TestLinkClass#method1');
          });
       });

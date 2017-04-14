@@ -83,7 +83,7 @@ testConfig.forEachTarget('html_doc', 'class', (target) =>
                    'public static method1() this is static method1.');
 
                   Util.assert.includes(doc, '[data-ice="target"]:nth-of-type(1) a',
-                   'class/test/fixture/package/src/class/Definition.js~TestClassDefinition.html#static-method-method1',
+                   'class/test/fixture/package/src/class/Definition.js~TestClassDefinition.html#static-classmethod-method1',
                     'href');
                });
             });
@@ -99,7 +99,7 @@ testConfig.forEachTarget('html_doc', 'class', (target) =>
                    'public constructor() this is constructor.');
 
                   Util.assert.includes(doc, '[data-ice="target"]:nth-of-type(1) [data-ice="name"] a',
-                   'class/test/fixture/package/src/class/Definition.js~TestClassDefinition.html#instance-constructor-constructor',
+                   'class/test/fixture/package/src/class/Definition.js~TestClassDefinition.html#instance-classmethod-constructor',
                     'href');
                });
             });
@@ -121,14 +121,14 @@ testConfig.forEachTarget('html_doc', 'class', (target) =>
                    'public get value1: number this is get value1.');
 
                   Util.assert.includes(doc, '[data-ice="target"]:nth-of-type(2) [data-ice="name"] a',
-                   'class/test/fixture/package/src/class/Definition.js~TestClassDefinition.html#instance-get-value1',
+                   'class/test/fixture/package/src/class/Definition.js~TestClassDefinition.html#instance-classmethod-get-value1',
                     'href');
 
                   Util.assert.includes(doc, '[data-ice="target"]:nth-of-type(3)',
                    'public set value2: number this is set value2.');
 
                   Util.assert.includes(doc, '[data-ice="target"]:nth-of-type(3) [data-ice="name"] a',
-                   'class/test/fixture/package/src/class/Definition.js~TestClassDefinition.html#instance-set-value2',
+                   'class/test/fixture/package/src/class/Definition.js~TestClassDefinition.html#instance-classmethod-set-value2',
                     'href');
                });
             });
@@ -143,7 +143,7 @@ testConfig.forEachTarget('html_doc', 'class', (target) =>
                   Util.assert.includes(doc, '[data-ice="target"]:nth-of-type(1)', 'public method1() this is method1.');
 
                   Util.assert.includes(doc, '[data-ice="target"]:nth-of-type(1) [data-ice="name"] a',
-                   'class/test/fixture/package/src/class/Definition.js~TestClassDefinition.html#instance-method-method1',
+                   'class/test/fixture/package/src/class/Definition.js~TestClassDefinition.html#instance-classmethod-method1',
                     'href');
                });
             });
@@ -171,7 +171,7 @@ testConfig.forEachTarget('html_doc', 'class', (target) =>
             {
                Util.find(doc, '[data-ice="detail"]:nth-of-type(1)', (doc) =>
                {
-                  Util.assert.includes(doc, '#static-method-method1', 'public static method1()');
+                  Util.assert.includes(doc, '#static-classmethod-method1', 'public static method1()');
                   Util.assert.includes(doc, '[data-ice="description"]', 'this is static method1.');
                });
             });
@@ -189,14 +189,14 @@ testConfig.forEachTarget('html_doc', 'class', (target) =>
 
                Util.find(doc, '[data-ice="detail"]:nth-of-type(2)', (doc) =>
                {
-                  Util.assert.includes(doc, '#instance-get-value1', 'public get value1: number');
-                  Util.assert.includes(doc, '#instance-get-value1 + [data-ice="description"]', 'this is get value1.');
+                  Util.assert.includes(doc, '#instance-classmethod-get-value1', 'public get value1: number');
+                  Util.assert.includes(doc, '#instance-classmethod-get-value1 + [data-ice="description"]', 'this is get value1.');
                });
 
                Util.find(doc, '[data-ice="detail"]:nth-of-type(3)', (doc) =>
                {
-                  Util.assert.includes(doc, '#instance-set-value2', 'public set value2: number');
-                  Util.assert.includes(doc, '#instance-set-value2 + [data-ice="description"]', 'this is set value2.');
+                  Util.assert.includes(doc, '#instance-classmethod-set-value2', 'public set value2: number');
+                  Util.assert.includes(doc, '#instance-classmethod-set-value2 + [data-ice="description"]', 'this is set value2.');
                });
             });
          });
@@ -207,9 +207,9 @@ testConfig.forEachTarget('html_doc', 'class', (target) =>
             {
                Util.find(doc, '[data-ice="detail"]:nth-of-type(1)', (doc) =>
                {
-                  Util.assert.includes(doc, '#instance-constructor-constructor', 'public constructor()');
+                  Util.assert.includes(doc, '#instance-classmethod-constructor', 'public constructor()');
 
-                  Util.assert.includes(doc, '#instance-constructor-constructor + [data-ice="description"]',
+                  Util.assert.includes(doc, '#instance-classmethod-constructor + [data-ice="description"]',
                    'this is constructor.');
                });
             });
@@ -221,9 +221,9 @@ testConfig.forEachTarget('html_doc', 'class', (target) =>
             {
                Util.find(doc, '[data-ice="detail"]:nth-of-type(1)', (doc) =>
                {
-                  Util.assert.includes(doc, '#instance-method-method1', 'public method1()');
+                  Util.assert.includes(doc, '#instance-classmethod-method1', 'public method1()');
 
-                  Util.assert.includes(doc, '#instance-method-method1 ~ [data-ice="description"]', 'this is method1.');
+                  Util.assert.includes(doc, '#instance-classmethod-method1 ~ [data-ice="description"]', 'this is method1.');
                });
             });
          });

@@ -18,7 +18,7 @@ testConfig.forEachTarget('html_doc', 'since', (target) =>
       {
          it('has since at constructor.', () =>
          {
-            Util.findParent(doc, '[href$="#instance-constructor-constructor"]', '[data-ice="target"]', (doc) =>
+            Util.findParent(doc, '[href$="#instance-classmethod-constructor"]', '[data-ice="target"]', (doc) =>
             {
                Util.assert.includes(doc, '[data-ice="since"]', 'since 1.2.3');
             });
@@ -34,7 +34,7 @@ testConfig.forEachTarget('html_doc', 'since', (target) =>
 
          it('has since at method.', () =>
          {
-            Util.findParent(doc, '[href$="#instance-method-method1"]', '[data-ice="target"]', (doc) =>
+            Util.findParent(doc, '[href$="#instance-classmethod-method1"]', '[data-ice="target"]', (doc) =>
             {
                Util.assert.includes(doc, '[data-ice="since"]', 'since 1.2.3');
             });
@@ -45,7 +45,7 @@ testConfig.forEachTarget('html_doc', 'since', (target) =>
       {
          it('has since at constructor.', () =>
          {
-            Util.findParent(doc, '[id="instance-constructor-constructor"]', '[data-ice="detail"]', (doc) =>
+            Util.findParent(doc, '[id="instance-classmethod-constructor"]', '[data-ice="detail"]', (doc) =>
             {
                Util.assert.includes(doc, '[data-ice="since"]', 'since 1.2.3');
             });
@@ -61,7 +61,7 @@ testConfig.forEachTarget('html_doc', 'since', (target) =>
 
          it('has since at method.', () =>
          {
-            Util.findParent(doc, '[id="instance-method-method1"]', '[data-ice="detail"]', (doc) =>
+            Util.findParent(doc, '[id="instance-classmethod-method1"]', '[data-ice="detail"]', (doc) =>
             {
                Util.assert.includes(doc, '[data-ice="since"]', 'since 1.2.3');
             });

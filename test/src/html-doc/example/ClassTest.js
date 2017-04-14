@@ -25,7 +25,7 @@ testConfig.forEachTarget('html_doc', 'example', (target) =>
       {
          it('has example.', () =>
          {
-            Util.findParent(doc, '[id="instance-constructor-constructor"]', '[data-ice="detail"]', (doc) =>
+            Util.findParent(doc, '[id="instance-classmethod-constructor"]', '[data-ice="detail"]', (doc) =>
             {
                Util.assert.includes(doc, '[data-ice="exampleDoc"]', 'const foo = 123;');
             });
@@ -35,7 +35,7 @@ testConfig.forEachTarget('html_doc', 'example', (target) =>
                Util.assert.includes(doc, '[data-ice="exampleDoc"]', 'const foo = 123;');
             });
 
-            Util.findParent(doc, '[id="instance-method-method1"]', '[data-ice="detail"]', (doc) =>
+            Util.findParent(doc, '[id="instance-classmethod-method1"]', '[data-ice="detail"]', (doc) =>
             {
                Util.assert.includes(doc, '[data-ice="exampleDoc"]', 'const foo = 123;');
             });

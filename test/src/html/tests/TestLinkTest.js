@@ -24,7 +24,7 @@ testConfig.forEachTarget('html', 'test', (target) =>
 
       it('has link of test at constructor', () =>
       {
-         Util.findParent(doc, '#instance-constructor-constructor', '[data-ice="detail"]', (doc) =>
+         Util.findParent(doc, '#instance-classmethod-constructor', '[data-ice="detail"]', (doc) =>
          {
             Util.assert.multiIncludes(doc, '[data-ice="test"] a', [
                'Use describe style mocha interface Use it style mocha interface',
@@ -56,7 +56,7 @@ testConfig.forEachTarget('html', 'test', (target) =>
 
       it('has link of test at method', () =>
       {
-         Util.findParent(doc, '#instance-method-method1', '[data-ice="detail"]', (doc) =>
+         Util.findParent(doc, '#instance-classmethod-method1', '[data-ice="detail"]', (doc) =>
          {
             Util.assert.multiIncludes(doc, '[data-ice="test"] a', [
                'Use describe style mocha interface Use context style mocha interface',

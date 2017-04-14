@@ -14,17 +14,17 @@ testConfig.forEachTarget('html_doc', 'duplication', (target) =>
       {
          it('has setter/getter/method.', () =>
          {
-            Util.findParent(doc, '[data-ice="summary"] [href$="#instance-set-value"]', '[data-ice="target"]', (doc) =>
+            Util.findParent(doc, '[data-ice="summary"] [href$="#instance-classmethod-set-value"]', '[data-ice="target"]', (doc) =>
             {
                Util.assert.includes(doc, null, 'public set value: number');
             });
 
-            Util.findParent(doc, '[data-ice="summary"] [href$="#instance-get-value"]', '[data-ice="target"]', (doc) =>
+            Util.findParent(doc, '[data-ice="summary"] [href$="#instance-classmethod-get-value"]', '[data-ice="target"]', (doc) =>
             {
                Util.assert.includes(doc, null, 'public get value: number');
             });
 
-            Util.findParent(doc, '[data-ice="summary"] [href$="#instance-method-onClick"]', '[data-ice="target"]',
+            Util.findParent(doc, '[data-ice="summary"] [href$="#instance-classmethod-onClick"]', '[data-ice="target"]',
              (doc) =>
             {
                Util.assert.includes(doc, null, 'public onClick(p: number)');
@@ -36,17 +36,17 @@ testConfig.forEachTarget('html_doc', 'duplication', (target) =>
       {
          it('has setter/getter/method.', () =>
          {
-            Util.findParent(doc, '[id="instance-set-value"]', '[data-ice="detail"]', (doc) =>
+            Util.findParent(doc, '[id="instance-classmethod-set-value"]', '[data-ice="detail"]', (doc) =>
             {
                Util.assert.includes(doc, null, 'public set value: number');
             });
 
-            Util.findParent(doc, '[id="instance-get-value"]', '[data-ice="detail"]', (doc) =>
+            Util.findParent(doc, '[id="instance-classmethod-get-value"]', '[data-ice="detail"]', (doc) =>
             {
                Util.assert.includes(doc, null, 'public get value: number');
             });
 
-            Util.findParent(doc, '[id="instance-method-onClick"]', '[data-ice="detail"]', (doc) =>
+            Util.findParent(doc, '[id="instance-classmethod-onClick"]', '[data-ice="detail"]', (doc) =>
             {
                Util.assert.includes(doc, null, 'public onClick(p: number)');
             });

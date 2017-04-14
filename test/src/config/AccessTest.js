@@ -62,19 +62,19 @@ testConfig.forEachTarget('config', 'access', (target) =>
 
             it('have public method', () =>
             {
-               Util.assert.includes(doc, '#instance-method-method1', 'public method1()');
+               Util.assert.includes(doc, '#instance-classmethod-method1', 'public method1()');
             });
 
             it('have protected method', () =>
             {
-               Util.assert.includes(doc, '#instance-method-method2', 'protected method2()');
+               Util.assert.includes(doc, '#instance-classmethod-method2', 'protected method2()');
             });
 
             it('does not have private method', () =>
             {
                Util.assert.throws(() =>
                {
-                  Util.assert.includes(doc, '#instance-method-method3', 'private method3()');
+                  Util.assert.includes(doc, '#instance-classmethod-method3', 'private method3()');
                });
             });
 
@@ -82,7 +82,7 @@ testConfig.forEachTarget('config', 'access', (target) =>
             {
                Util.assert.throws(() =>
                {
-                  Util.assert.includes(doc, '#instance-method-_method4', 'private _method4()');
+                  Util.assert.includes(doc, '#instance-classmethod-_method4', 'private _method4()');
                });
             });
          });

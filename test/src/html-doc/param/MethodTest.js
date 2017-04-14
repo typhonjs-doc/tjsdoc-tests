@@ -13,7 +13,7 @@ testConfig.forEachTarget('html_doc', 'param', (target) =>
       {
          it('has desc', () =>
          {
-            Util.findParent(doc, '[data-ice="summary"] [href$="#instance-method-method1"]', '[data-ice="target"]',
+            Util.findParent(doc, '[data-ice="summary"] [href$="#instance-classmethod-method1"]', '[data-ice="target"]',
              (doc) =>
             {
                Util.assert.includes(doc, null, 'public method1(p1: number, p2: TestClassDefinition)');
@@ -25,7 +25,7 @@ testConfig.forEachTarget('html_doc', 'param', (target) =>
       {
          it('has desc.', () =>
          {
-            Util.findParent(doc, '[id="instance-method-method1"]', '[data-ice="detail"]', (doc) =>
+            Util.findParent(doc, '[id="instance-classmethod-method1"]', '[data-ice="detail"]', (doc) =>
             {
                Util.assert.includes(doc, 'h3', 'public method1(p1: number, p2: TestClassDefinition)');
 

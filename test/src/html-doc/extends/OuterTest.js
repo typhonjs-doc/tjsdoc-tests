@@ -35,7 +35,7 @@ testConfig.forEachTarget('html_doc', 'extends', (target) =>
             Util.assert.includes(doc, 'thead a',
              'class/test/fixture/package/src/extends/Builtin.js~TestExtendsBuiltin.html', 'href');
 
-            Util.assert.includes(doc, 'a[href$="#instance-method-method1"]', 'method1');
+            Util.assert.includes(doc, 'a[href$="#instance-classmethod-method1"]', 'method1');
          });
       });
    });

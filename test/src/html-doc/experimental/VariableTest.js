@@ -16,7 +16,7 @@ testConfig.forEachTarget('html_doc', 'experimental', (target) =>
             Util.findParent(doc, '[data-ice="summary"] [href$="#static-variable-testExperimentalVariable"]',
              '[data-ice="target"]', (doc) =>
             {
-               Util.assert.includes(doc, '[data-ice="experimental"]', 'this variable is experimental.');
+               Util.assert.includes(doc, '[data-ice="experimental"]', 'Experimental');
             });
          });
       });
@@ -27,7 +27,7 @@ testConfig.forEachTarget('html_doc', 'experimental', (target) =>
          {
             Util.findParent(doc, '[id="static-variable-testExperimentalVariable"]', '[data-ice="detail"]', (doc) =>
             {
-               Util.assert.includes(doc, '[data-ice="experimental"]', 'this variable is experimental.');
+               Util.assert.includes(doc, '[data-ice="experimental"]', 'Experimental');
             });
          });
       });

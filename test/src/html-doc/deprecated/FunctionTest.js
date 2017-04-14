@@ -17,7 +17,7 @@ testConfig.forEachTarget('html_doc', 'deprecated', (target) =>
              (doc) =>
             {
                doc = doc.parents('[data-ice="target"]');
-               Util.assert.includes(doc, '[data-ice="deprecated"]', 'this function was deprecated.');
+               Util.assert.includes(doc, '[data-ice="deprecated"]', 'Deprecated');
             });
          });
       });
@@ -29,7 +29,7 @@ testConfig.forEachTarget('html_doc', 'deprecated', (target) =>
             Util.find(doc, '[id="static-function-testDeprecatedFunction"]', (doc) =>
             {
                doc = doc.parents('[data-ice="detail"]');
-               Util.assert.includes(doc, '[data-ice="deprecated"]', 'this function was deprecated.');
+               Util.assert.includes(doc, '[data-ice="deprecated"]', 'Deprecated');
             });
          });
       });

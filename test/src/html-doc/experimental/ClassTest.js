@@ -14,8 +14,7 @@ testConfig.forEachTarget('html_doc', 'experimental', (target) =>
       {
          it('has desc.', () =>
          {
-            Util.assert.includes(doc, '.self-detail [data-ice="experimental"]',
-             'this class is experimental. this is experimental');
+            Util.assert.includes(doc, '.self-detail [data-ice="experimental"]', 'Experimental: this is experimental');
          });
       });
 
@@ -26,13 +25,13 @@ testConfig.forEachTarget('html_doc', 'experimental', (target) =>
             Util.findParent(doc, '[data-ice="summary"] [href$="#instance-member-p1"]', '[data-ice="target"]',
              (doc) =>
             {
-               Util.assert.includes(doc, '[data-ice="experimental"]', 'this member is experimental.');
+               Util.assert.includes(doc, '[data-ice="experimental"]', 'Experimental');
             });
 
-            Util.findParent(doc, '[data-ice="summary"] [href$="#instance-method-method1"]', '[data-ice="target"]',
+            Util.findParent(doc, '[data-ice="summary"] [href$="#instance-classmethod-method1"]', '[data-ice="target"]',
              (doc) =>
             {
-               Util.assert.includes(doc, '[data-ice="experimental"]', 'this method is experimental.');
+               Util.assert.includes(doc, '[data-ice="experimental"]', 'Experimental');
             });
          });
       });
@@ -43,12 +42,12 @@ testConfig.forEachTarget('html_doc', 'experimental', (target) =>
          {
             Util.findParent(doc, '[id="instance-member-p1"]', '[data-ice="detail"]', (doc) =>
             {
-               Util.assert.includes(doc, '[data-ice="experimental"]', 'this member is experimental.');
+               Util.assert.includes(doc, '[data-ice="experimental"]', 'Experimental');
             });
 
-            Util.findParent(doc, '[id="instance-method-method1"]', '[data-ice="detail"]', (doc) =>
+            Util.findParent(doc, '[id="instance-classmethod-method1"]', '[data-ice="detail"]', (doc) =>
             {
-               Util.assert.includes(doc, '[data-ice="experimental"]', 'this method is experimental.');
+               Util.assert.includes(doc, '[data-ice="experimental"]', 'Experimental');
             });
          });
       });

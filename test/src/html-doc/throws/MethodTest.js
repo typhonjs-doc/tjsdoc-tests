@@ -11,7 +11,7 @@ testConfig.forEachTarget('html_doc', 'throws', (target) =>
 
       it('has throws.', () =>
       {
-         Util.findParent(doc, '[id="instance-method-method1"]', '[data-ice="detail"]', (doc) =>
+         Util.findParent(doc, '[id="instance-classmethod-method1"]', '[data-ice="detail"]', (doc) =>
          {
             Util.assert.includes(doc, 'tr[data-ice="throw"]:nth-child(1)',
              'TestThrowsMethodError1 throw error if foo.');

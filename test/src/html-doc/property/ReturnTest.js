@@ -13,7 +13,7 @@ testConfig.forEachTarget('html_doc', 'property', (target) =>
       {
          it('has desc.', () =>
          {
-            Util.findParent(doc, '[id="instance-method-method1"]', '[data-ice="detail"]', (doc) =>
+            Util.findParent(doc, '[id="instance-classmethod-method1"]', '[data-ice="detail"]', (doc) =>
             {
                Util.assert.includes(doc, '[data-ice="returnProperties"] tbody tr:nth-child(1)',
                 'x1 number this is x1 of return value.');

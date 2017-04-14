@@ -55,9 +55,9 @@ testConfig.forEachTarget('html', 'search', (target) =>
 
       it('has method index', () =>
       {
-         Util.assert.deepEqual(find('class/test/fixture/package/src/desc/Class.js~TestDescClass.html#instance-method-method1'), [
+         Util.assert.deepEqual(find('class/test/fixture/package/src/desc/Class.js~TestDescClass.html#instance-classmethod-method1'), [
             'testdescclass#method1',
-            'class/test/fixture/package/src/desc/Class.js~TestDescClass.html#instance-method-method1',
+            'class/test/fixture/package/src/desc/Class.js~TestDescClass.html#instance-classmethod-method1',
             '<span>TestDescClass#method1</span> <span class=\"search-result-import-path\">test/fixture/package/src/desc/Class.js</span>',
             'method'
          ]);
