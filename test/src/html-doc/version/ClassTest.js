@@ -23,7 +23,7 @@ testConfig.forEachTarget('html_doc', 'version', (target) =>
          {
             Util.assert.includes(doc, '[data-ice="constructorSummary"] [data-ice="version"]', '1.2.3');
 
-            Util.findParent(doc, '[data-ice="summary"] [href$="#instance-member-p1"]', '[data-ice="target"]', (doc) =>
+            Util.findParent(doc, '[data-ice="summary"] [href$="#instance-classmember-p1"]', '[data-ice="target"]', (doc) =>
             {
                Util.assert.includes(doc, '[data-ice="version"]', '1.2.3');
             });
@@ -45,7 +45,7 @@ testConfig.forEachTarget('html_doc', 'version', (target) =>
                Util.assert.includes(doc, '[data-ice="version"]', '1.2.3');
             });
 
-            Util.findParent(doc, '[id="instance-member-p1"]', '[data-ice="detail"]', (doc) =>
+            Util.findParent(doc, '[id="instance-classmember-p1"]', '[data-ice="detail"]', (doc) =>
             {
                Util.assert.includes(doc, '[data-ice="version"]', '1.2.3');
             });

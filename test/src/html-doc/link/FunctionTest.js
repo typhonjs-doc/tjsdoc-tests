@@ -18,7 +18,7 @@ testConfig.forEachTarget('html_doc', 'link', (target) =>
               'TestLinkClass');
 
             Util.assert.includes(doc,
-             '[data-ice="description"] a[href="class/test/fixture/package/src/link/Class.js~TestLinkClass.html#instance-member-p1"]',
+             '[data-ice="description"] a[href="class/test/fixture/package/src/link/Class.js~TestLinkClass.html#instance-classmember-p1"]',
               'TestLinkClass#p1');
 
             Util.assert.includes(doc,

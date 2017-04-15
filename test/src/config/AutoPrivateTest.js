@@ -39,7 +39,7 @@ testConfig.forEachTarget('config', 'autoPrivate', (target) =>
       {
          const doc = readDoc('class/test/fixture/package/src/access/Property.js~TestAccessProperty.html');
 
-         Util.assert.includes(doc, '#instance-member-_p4', 'public _p4: number');
+         Util.assert.includes(doc, '#instance-classmember-_p4', 'public _p4: number');
       });
 
       it('treat _function as public', () =>

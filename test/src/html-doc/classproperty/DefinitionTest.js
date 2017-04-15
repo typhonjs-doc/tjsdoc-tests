@@ -23,7 +23,7 @@ testConfig.forEachTarget('html_doc', 'classProperty', (target) =>
                    'public static p1: number this is static p1.');
 
                   Util.assert.includes(doc, '[data-ice="target"]:nth-of-type(1) [data-ice="name"] a',
-                   'class/test/fixture/package/src/classproperty/Definition.js~TestClassPropertyDefinition.html#static-member-p1',
+                   'class/test/fixture/package/src/classproperty/Definition.js~TestClassPropertyDefinition.html#static-classproperty-p1',
                     'href');
                });
             });
@@ -38,7 +38,7 @@ testConfig.forEachTarget('html_doc', 'classProperty', (target) =>
                   Util.assert.includes(doc, '[data-ice="target"]:nth-of-type(1)', 'public p1: number this is p1.');
 
                   Util.assert.includes(doc, '[data-ice="target"]:nth-of-type(1) [data-ice="name"] a',
-                   'class/test/fixture/package/src/classproperty/Definition.js~TestClassPropertyDefinition.html#instance-member-p1',
+                   'class/test/fixture/package/src/classproperty/Definition.js~TestClassPropertyDefinition.html#instance-classproperty-p1',
                     'href');
                });
             });
@@ -54,7 +54,7 @@ testConfig.forEachTarget('html_doc', 'classProperty', (target) =>
             {
                Util.find(doc, '[data-ice="detail"]:nth-of-type(1)', (doc) =>
                {
-                  Util.assert.includes(doc, '#static-member-p1', 'public static p1: number');
+                  Util.assert.includes(doc, '#static-classproperty-p1', 'public static p1: number');
                   Util.assert.includes(doc, '[data-ice="description"]', 'this is static p1.');
                });
             });
@@ -66,8 +66,8 @@ testConfig.forEachTarget('html_doc', 'classProperty', (target) =>
             {
                Util.find(doc, '[data-ice="detail"]:nth-of-type(1)', (doc) =>
                {
-                  Util.assert.includes(doc, '#instance-member-p1', 'public p1: number');
-                  Util.assert.includes(doc, '#instance-member-p1 + [data-ice="description"]', 'this is p1.');
+                  Util.assert.includes(doc, '#instance-classproperty-p1', 'public p1: number');
+                  Util.assert.includes(doc, '#instance-classproperty-p1 + [data-ice="description"]', 'this is p1.');
                });
             });
          });

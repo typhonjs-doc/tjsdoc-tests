@@ -28,7 +28,7 @@ testConfig.forEachTarget('html_doc', 'link', (target) =>
 
       it('has link from member.', () =>
       {
-         Util.findParent(doc, '[id="instance-member-p1"]', '[data-ice="detail"]', (doc) =>
+         Util.findParent(doc, '[id="instance-classmember-p1"]', '[data-ice="detail"]', (doc) =>
          {
             Util.assert.includes(doc,
              '[data-ice="description"] a[href="function/index.html#static-function-testLinkFunction"]',

@@ -67,7 +67,7 @@ testConfig.forEachTarget('html_doc', 'class', (target) =>
                    'public static p1: number this is static p1.');
 
                   Util.assert.includes(doc, '[data-ice="target"]:nth-of-type(1) [data-ice="name"] a',
-                   'class/test/fixture/package/src/class/Definition.js~TestClassDefinition.html#static-member-p1',
+                   'class/test/fixture/package/src/class/Definition.js~TestClassDefinition.html#static-classmember-p1',
                     'href');
                });
             });
@@ -114,7 +114,7 @@ testConfig.forEachTarget('html_doc', 'class', (target) =>
                   Util.assert.includes(doc, '[data-ice="target"]:nth-of-type(1)', 'public p1: number this is p1.');
 
                   Util.assert.includes(doc, '[data-ice="target"]:nth-of-type(1) [data-ice="name"] a',
-                   'class/test/fixture/package/src/class/Definition.js~TestClassDefinition.html#instance-member-p1',
+                   'class/test/fixture/package/src/class/Definition.js~TestClassDefinition.html#instance-classmember-p1',
                     'href');
 
                   Util.assert.includes(doc, '[data-ice="target"]:nth-of-type(2)',
@@ -159,7 +159,7 @@ testConfig.forEachTarget('html_doc', 'class', (target) =>
             {
                Util.find(doc, '[data-ice="detail"]:nth-of-type(1)', (doc) =>
                {
-                  Util.assert.includes(doc, '#static-member-p1', 'public static p1: number');
+                  Util.assert.includes(doc, '#static-classmember-p1', 'public static p1: number');
                   Util.assert.includes(doc, '[data-ice="description"]', 'this is static p1.');
                });
             });
@@ -183,8 +183,8 @@ testConfig.forEachTarget('html_doc', 'class', (target) =>
             {
                Util.find(doc, '[data-ice="detail"]:nth-of-type(1)', (doc) =>
                {
-                  Util.assert.includes(doc, '#instance-member-p1', 'public p1: number');
-                  Util.assert.includes(doc, '#instance-member-p1 + [data-ice="description"]', 'this is p1.');
+                  Util.assert.includes(doc, '#instance-classmember-p1', 'public p1: number');
+                  Util.assert.includes(doc, '#instance-classmember-p1 + [data-ice="description"]', 'this is p1.');
                });
 
                Util.find(doc, '[data-ice="detail"]:nth-of-type(2)', (doc) =>

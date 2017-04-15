@@ -24,7 +24,7 @@ testConfig.forEachTarget('html_doc', 'desc', (target) =>
             Util.assert.includes(doc, '[data-ice="constructorSummary"] [data-ice="description"]',
              'this is constructor.');
 
-            Util.findParent(doc, '[data-ice="summary"] [href$="#instance-member-p1"]', '[data-ice="target"]',
+            Util.findParent(doc, '[data-ice="summary"] [href$="#instance-classmember-p1"]', '[data-ice="target"]',
              (doc) =>
             {
                Util.assert.includes(doc, '[data-ice="description"]', 'this is p1.');
@@ -47,7 +47,7 @@ testConfig.forEachTarget('html_doc', 'desc', (target) =>
                Util.assert.includes(doc, '[data-ice="description"]', 'this is constructor.');
             });
 
-            Util.findParent(doc, '[id="instance-member-p1"]', '[data-ice="detail"]', (doc) =>
+            Util.findParent(doc, '[id="instance-classmember-p1"]', '[data-ice="detail"]', (doc) =>
             {
                Util.assert.includes(doc, '[data-ice="description"]', 'this is p1.');
             });

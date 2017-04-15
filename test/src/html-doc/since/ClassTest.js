@@ -26,7 +26,7 @@ testConfig.forEachTarget('html_doc', 'since', (target) =>
 
          it('has since at member.', () =>
          {
-            Util.findParent(doc, '[href$="#instance-member-p1"]', '[data-ice="target"]', (doc) =>
+            Util.findParent(doc, '[href$="#instance-classmember-p1"]', '[data-ice="target"]', (doc) =>
             {
                Util.assert.includes(doc, '[data-ice="since"]', 'since 1.2.3');
             });
@@ -53,7 +53,7 @@ testConfig.forEachTarget('html_doc', 'since', (target) =>
 
          it('has since at member.', () =>
          {
-            Util.findParent(doc, '[id="instance-member-p1"]', '[data-ice="detail"]', (doc) =>
+            Util.findParent(doc, '[id="instance-classmember-p1"]', '[data-ice="detail"]', (doc) =>
             {
                Util.assert.includes(doc, '[data-ice="since"]', 'since 1.2.3');
             });

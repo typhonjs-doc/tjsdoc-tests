@@ -30,7 +30,7 @@ testConfig.forEachTarget('html_doc', 'example', (target) =>
                Util.assert.includes(doc, '[data-ice="exampleDoc"]', 'const foo = 123;');
             });
 
-            Util.findParent(doc, '[id="instance-member-p1"]', '[data-ice="detail"]', (doc) =>
+            Util.findParent(doc, '[id="instance-classmember-p1"]', '[data-ice="detail"]', (doc) =>
             {
                Util.assert.includes(doc, '[data-ice="exampleDoc"]', 'const foo = 123;');
             });

@@ -23,7 +23,7 @@ testConfig.forEachTarget('html_doc', 'deprecated', (target) =>
          it('has deprecated message of member and method.', () =>
          {
             Util.find(doc,
-             '[data-ice="summary"] [href="class/test/fixture/package/src/deprecated/Class.js~TestDeprecatedClass.html#instance-member-p1"]',
+             '[data-ice="summary"] [href="class/test/fixture/package/src/deprecated/Class.js~TestDeprecatedClass.html#instance-classmember-p1"]',
               (doc) =>
             {
                doc = doc.parents('[data-ice="target"]');
@@ -44,7 +44,7 @@ testConfig.forEachTarget('html_doc', 'deprecated', (target) =>
       {
          it('has deprecated message of member and method.', () =>
          {
-            Util.find(doc, '[id="instance-member-p1"]', (doc) =>
+            Util.find(doc, '[id="instance-classmember-p1"]', (doc) =>
             {
                doc = doc.parents('[data-ice="detail"]');
 

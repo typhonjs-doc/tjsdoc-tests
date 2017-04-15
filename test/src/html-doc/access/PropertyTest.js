@@ -15,7 +15,7 @@ testConfig.forEachTarget('html_doc', 'access', (target) =>
          it('has public accessor.', () =>
          {
             Util.find(doc,
-             '[data-ice="summary"] [href="class/test/fixture/package/src/access/Property.js~TestAccessProperty.html#instance-member-p1"]',
+             '[data-ice="summary"] [href="class/test/fixture/package/src/access/Property.js~TestAccessProperty.html#instance-classmember-p1"]',
               (doc) =>
             {
                doc = doc.parents('[data-ice="target"]');
@@ -26,7 +26,7 @@ testConfig.forEachTarget('html_doc', 'access', (target) =>
          it('has protected accessor.', () =>
          {
             Util.find(doc,
-             '[data-ice="summary"] [href="class/test/fixture/package/src/access/Property.js~TestAccessProperty.html#instance-member-p2"]',
+             '[data-ice="summary"] [href="class/test/fixture/package/src/access/Property.js~TestAccessProperty.html#instance-classmember-p2"]',
               (doc) =>
             {
                doc = doc.parents('[data-ice="target"]');
@@ -37,7 +37,7 @@ testConfig.forEachTarget('html_doc', 'access', (target) =>
          it('has private accessor.', () =>
          {
             Util.find(doc,
-             '[data-ice="summary"] [href="class/test/fixture/package/src/access/Property.js~TestAccessProperty.html#instance-member-p3"]',
+             '[data-ice="summary"] [href="class/test/fixture/package/src/access/Property.js~TestAccessProperty.html#instance-classmember-p3"]',
               (doc) =>
             {
                doc = doc.parents('[data-ice="target"]');
@@ -48,7 +48,7 @@ testConfig.forEachTarget('html_doc', 'access', (target) =>
          it('has auto private accessor.', () =>
          {
             Util.find(doc,
-             '[data-ice="summary"] [href="class/test/fixture/package/src/access/Property.js~TestAccessProperty.html#instance-member-_p4"]',
+             '[data-ice="summary"] [href="class/test/fixture/package/src/access/Property.js~TestAccessProperty.html#instance-classmember-_p4"]',
               (doc) =>
             {
                doc = doc.parents('[data-ice="target"]');
@@ -61,22 +61,22 @@ testConfig.forEachTarget('html_doc', 'access', (target) =>
       {
          it('has public accessor.', () =>
          {
-            Util.assert.includes(doc, '#instance-member-p1', 'public p1:');
+            Util.assert.includes(doc, '#instance-classmember-p1', 'public p1:');
          });
 
          it('has protected accessor.', () =>
          {
-            Util.assert.includes(doc, '#instance-member-p2', 'protected p2:');
+            Util.assert.includes(doc, '#instance-classmember-p2', 'protected p2:');
          });
 
          it('has private accessor.', () =>
          {
-            Util.assert.includes(doc, '#instance-member-p3', 'private p3:');
+            Util.assert.includes(doc, '#instance-classmember-p3', 'private p3:');
          });
 
          it('has auto private accessor.', () =>
          {
-            Util.assert.includes(doc, '#instance-member-_p4', 'private _p4:');
+            Util.assert.includes(doc, '#instance-classmember-_p4', 'private _p4:');
          });
       });
    });

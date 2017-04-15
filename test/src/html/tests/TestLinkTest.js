@@ -40,7 +40,7 @@ testConfig.forEachTarget('html', 'test', (target) =>
 
       it('has link of test at member', () =>
       {
-         Util.findParent(doc, '#instance-member-p1', '[data-ice="detail"]', (doc) =>
+         Util.findParent(doc, '#instance-classmember-p1', '[data-ice="detail"]', (doc) =>
          {
             Util.assert.multiIncludes(doc, '[data-ice="test"] a', [
                'Use describe style mocha interface Nested describe',

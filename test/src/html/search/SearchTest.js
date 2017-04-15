@@ -39,17 +39,17 @@ testConfig.forEachTarget('html', 'search', (target) =>
             'tjsdoc-test-fixture/test/fixture/package/src/desc/class.js~testdescclass',
             'class/test/fixture/package/src/desc/Class.js~TestDescClass.html',
             '<span>TestDescClass</span> <span class="search-result-import-path">tjsdoc-test-fixture/test/fixture/package/src/desc/Class.js</span>',
-            'class'
+            'ModuleClass'
          ]);
       });
 
       it('has member index', () =>
       {
-         Util.assert.deepEqual(find('class/test/fixture/package/src/desc/Class.js~TestDescClass.html#instance-member-p1'), [
+         Util.assert.deepEqual(find('class/test/fixture/package/src/desc/Class.js~TestDescClass.html#instance-classmember-p1'), [
             'testdescclass#p1',
-            'class/test/fixture/package/src/desc/Class.js~TestDescClass.html#instance-member-p1',
+            'class/test/fixture/package/src/desc/Class.js~TestDescClass.html#instance-classmember-p1',
             '<span>TestDescClass#p1</span> <span class=\"search-result-import-path\">test/fixture/package/src/desc/Class.js</span>',
-            'member'
+            'ClassMember'
          ]);
       });
 
@@ -59,7 +59,7 @@ testConfig.forEachTarget('html', 'search', (target) =>
             'testdescclass#method1',
             'class/test/fixture/package/src/desc/Class.js~TestDescClass.html#instance-classmethod-method1',
             '<span>TestDescClass#method1</span> <span class=\"search-result-import-path\">test/fixture/package/src/desc/Class.js</span>',
-            'method'
+            'ClassMethod'
          ]);
       });
 
@@ -69,7 +69,7 @@ testConfig.forEachTarget('html', 'search', (target) =>
             'tjsdoc-test-fixture/test/fixture/package/src/interface/definition.js~testinterfacedefinition',
             'class/test/fixture/package/src/interface/Definition.js~TestInterfaceDefinition.html',
             '<span>TestInterfaceDefinition</span> <span class="search-result-import-path">tjsdoc-test-fixture/test/fixture/package/src/interface/Definition.js</span>',
-            'class'
+            'ModuleClass'
          ]);
       });
 
@@ -79,7 +79,7 @@ testConfig.forEachTarget('html', 'search', (target) =>
             'tjsdoc-test-fixture/test/fixture/package/src/desc/function.js~testdescfunction',
             'function/index.html#static-function-testDescFunction',
             '<span>testDescFunction</span> <span class="search-result-import-path">tjsdoc-test-fixture/test/fixture/package/src/desc/Function.js</span>',
-            'function'
+            'ModuleFunction'
          ]);
       });
 
@@ -89,7 +89,7 @@ testConfig.forEachTarget('html', 'search', (target) =>
             'tjsdoc-test-fixture/test/fixture/package/src/desc/variable.js~testdescvariable',
             'variable/index.html#static-variable-testDescVariable',
             '<span>testDescVariable</span> <span class="search-result-import-path">tjsdoc-test-fixture/test/fixture/package/src/desc/Variable.js</span>',
-            'variable'
+            'ModuleVariable'
          ]);
       });
 
@@ -99,7 +99,7 @@ testConfig.forEachTarget('html', 'search', (target) =>
             'testtypedefdefinition',
             'typedef/index.html#static-typedef-TestTypedefDefinition',
             'TestTypedefDefinition',
-            'typedef'
+            'VirtualTypedef'
          ]);
       });
 
@@ -109,7 +109,7 @@ testConfig.forEachTarget('html', 'search', (target) =>
             'testexternaldefinition',
             'http://example.com',
             'TestExternalDefinition',
-            'external'
+            'VirtualExternal'
          ]);
       });
 
@@ -119,7 +119,7 @@ testConfig.forEachTarget('html', 'search', (target) =>
             'test/fixture/package/src/desc/class.js',
             'file/test/fixture/package/src/desc/Class.js.html',
             'test/fixture/package/src/desc/Class.js',
-            'file'
+            'ModuleFile'
          ]);
       });
 
@@ -129,7 +129,7 @@ testConfig.forEachTarget('html', 'search', (target) =>
             'test/fixture/package/test/desctest.js',
             'test-file/test/fixture/package/test/DescTest.js.html',
             'test/fixture/package/test/DescTest.js',
-            'testFile'
+            'ModuleTestFile'
          ]);
       });
 
@@ -139,7 +139,7 @@ testConfig.forEachTarget('html', 'search', (target) =>
             'testdescclass test/fixture/package/src/desc/class.js~testdescclass,testdescclass',
             'test-file/test/fixture/package/test/DescTest.js.html#lineNumber2',
             'Use describe style mocha interface',
-            'test'
+            'Test'
          ]);
       });
    });

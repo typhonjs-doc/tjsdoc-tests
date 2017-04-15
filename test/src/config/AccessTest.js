@@ -93,19 +93,19 @@ testConfig.forEachTarget('config', 'access', (target) =>
 
             it('have public member', () =>
             {
-               Util.assert.includes(doc, '#instance-member-p1', 'public p1: number');
+               Util.assert.includes(doc, '#instance-classmember-p1', 'public p1: number');
             });
 
             it('have protected member', () =>
             {
-               Util.assert.includes(doc, '#instance-member-p2', 'protected p2: number');
+               Util.assert.includes(doc, '#instance-classmember-p2', 'protected p2: number');
             });
 
             it('does not have private member', () =>
             {
                Util.assert.throws(() =>
                {
-                  Util.assert.includes(doc, '#instance-member-p3', 'private p3: number');
+                  Util.assert.includes(doc, '#instance-classmember-p3', 'private p3: number');
                });
             });
 
@@ -113,7 +113,7 @@ testConfig.forEachTarget('config', 'access', (target) =>
             {
                Util.assert.throws(() =>
                {
-                  Util.assert.includes(doc, '#instance-member-_p4', 'private _p4: number');
+                  Util.assert.includes(doc, '#instance-classmember-_p4', 'private _p4: number');
                });
             });
          });

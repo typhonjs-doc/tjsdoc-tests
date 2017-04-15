@@ -48,7 +48,7 @@ testConfig.forEachTarget('html', 'test', (target) =>
                Util.assert.includes(doc, null, 'Nested describe TestDescClass#p1 1');
                Util.assert.multiIncludes(doc, 'a', [
                   'test-file/test/fixture/package/test/DescTest.js.html#lineNumber10',
-                  'class/test/fixture/package/src/desc/Class.js~TestDescClass.html#instance-member-p1'
+                  'class/test/fixture/package/src/desc/Class.js~TestDescClass.html#instance-classmember-p1'
                ], 'href');
             });
          });
@@ -133,7 +133,7 @@ testConfig.forEachTarget('html', 'test', (target) =>
                Util.assert.includes(doc, null, 'Nested suite TestDescClass#p1 1');
                Util.assert.multiIncludes(doc, 'a', [
                   'test-file/test/fixture/package/test/DescTest.js.html#lineNumber37',
-                  'class/test/fixture/package/src/desc/Class.js~TestDescClass.html#instance-member-p1'
+                  'class/test/fixture/package/src/desc/Class.js~TestDescClass.html#instance-classmember-p1'
                ], 'href');
             });
          });
