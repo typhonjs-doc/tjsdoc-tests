@@ -13,7 +13,7 @@ testConfig.forEachTarget('html_doc', 'typedef', (target) =>
       {
          it('has desc', () =>
          {
-            Util.findParent(doc, '[data-ice="summary"] [href$="#static-typedef-TestTypedefDefinition"]',
+            Util.findParent(doc, '[data-ice="summary"] [href$="#static-virtualtypedef-TestTypedefDefinition"]',
              '[data-ice="target"]', (doc) =>
             {
                Util.assert.includes(doc, null, 'public TestTypedefDefinition: Object');
@@ -25,7 +25,7 @@ testConfig.forEachTarget('html_doc', 'typedef', (target) =>
       {
          it('has desc.', () =>
          {
-            Util.findParent(doc, '[id="static-typedef-TestTypedefDefinition"]', '[data-ice="detail"]', (doc) =>
+            Util.findParent(doc, '[id="static-virtualtypedef-TestTypedefDefinition"]', '[data-ice="detail"]', (doc) =>
             {
                Util.assert.includes(doc, 'h3', 'public TestTypedefDefinition: Object');
                Util.assert.includes(doc, '.params [data-ice="property"]:nth-child(1)', 'p1 number this is p1.');

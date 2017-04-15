@@ -52,7 +52,7 @@ testConfig.forEachTarget('html', 'identifiers', (target) =>
       it('has typedef summary.', () =>
       {
          Util.findParent(doc,
-          '[data-ice="typedefSummary"] a[href="typedef/index.html#static-typedef-TestTypedefDefinition"]',
+          '[data-ice="typedefSummary"] a[href="typedef/index.html#static-virtualtypedef-TestTypedefDefinition"]',
            '[data-ice="target"]', (doc) =>
          {
             Util.assert.includes(doc, null, 'public TestTypedefDefinition: Object this is TestTypedefDefinition.');

@@ -14,13 +14,13 @@ testConfig.forEachTarget('html_doc', 'type', (target) =>
 
       it('has typedef type.', () =>
       {
-         Util.findParent(doc, '[data-ice="summary"] [href$="#instance-classmethod-method1"]', '[data-ice="target"]', 
+         Util.findParent(doc, '[data-ice="summary"] [href$="#instance-classmethod-method1"]', '[data-ice="target"]',
           (doc) =>
          {
             Util.assert.includes(doc, null, 'method1(p1: TestTypeTypedefInner)');
 
             Util.assert.multiIncludes(doc, '[data-ice="signature"] a', [
-               'typedef/index.html#static-typedef-TestTypeTypedefInner'
+               'typedef/index.html#static-virtualtypedef-TestTypeTypedefInner'
             ], 'href');
          });
       });

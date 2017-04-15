@@ -49,8 +49,9 @@ testConfig.forEachTarget('html', 'nav', (target) =>
 
       it('has typedef.', () =>
       {
-         Util.findParent(doc, '[data-ice="nav"] a[href="typedef/index.html#static-typedef-TestTypedefDefinition"]',
-          '[data-ice="doc"]', (doc) =>
+         Util.findParent(doc,
+          '[data-ice="nav"] a[href="typedef/index.html#static-virtualtypedef-TestTypedefDefinition"]',
+           '[data-ice="doc"]', (doc) =>
          {
             Util.assert.includes(doc, null, 'TestTypedefDefinition');
          });

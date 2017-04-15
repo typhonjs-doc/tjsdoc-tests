@@ -95,9 +95,9 @@ testConfig.forEachTarget('html', 'search', (target) =>
 
       it('has typedef index', () =>
       {
-         Util.assert.deepEqual(find('typedef/index.html#static-typedef-TestTypedefDefinition'), [
+         Util.assert.deepEqual(find('typedef/index.html#static-virtualtypedef-TestTypedefDefinition'), [
             'testtypedefdefinition',
-            'typedef/index.html#static-typedef-TestTypedefDefinition',
+            'typedef/index.html#static-virtualtypedef-TestTypedefDefinition',
             'TestTypedefDefinition',
             'VirtualTypedef'
          ]);
