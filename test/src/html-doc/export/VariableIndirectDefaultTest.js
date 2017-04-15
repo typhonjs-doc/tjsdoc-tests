@@ -11,7 +11,7 @@ testConfig.forEachTarget('html_doc', 'export', (target) =>
 
       it('has default import path with indirect variable definition.', () =>
       {
-         Util.findParent(doc, '[id="static-variable-testExportVariableIndirectDefault"]', '[data-ice="detail"]',
+         Util.findParent(doc, '[id="static-modulevariable-testExportVariableIndirectDefault"]', '[data-ice="detail"]',
           (doc) =>
          {
             Util.assert.includes(doc, '[data-ice="importPath"]',

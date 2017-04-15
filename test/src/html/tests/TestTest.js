@@ -61,7 +61,7 @@ testConfig.forEachTarget('html', 'test', (target) =>
                Util.assert.includes(doc, null, 'Nested it in describe testDescVariable');
                Util.assert.multiIncludes(doc, 'a', [
                   'test-file/test/fixture/package/test/DescTest.js.html#lineNumber13',
-                  'variable/index.html#static-variable-testDescVariable'
+                  'variable/index.html#static-modulevariable-testDescVariable'
                ], 'href');
             });
          });

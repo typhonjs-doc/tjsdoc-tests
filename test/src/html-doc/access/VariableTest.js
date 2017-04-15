@@ -15,7 +15,7 @@ testConfig.forEachTarget('html_doc', 'access', (target) =>
          it('has public accessor.', () =>
          {
             Util.find(doc,
-             '[data-ice="summary"] [href="variable/index.html#static-variable-testAccessVariablePublic"]', (doc) =>
+             '[data-ice="summary"] [href="variable/index.html#static-modulevariable-testAccessVariablePublic"]', (doc) =>
             {
                doc = doc.parents('[data-ice="target"]');
                Util.assert.includes(doc, null, 'public testAccessVariablePublic:');
@@ -25,7 +25,7 @@ testConfig.forEachTarget('html_doc', 'access', (target) =>
          it('has protected accessor.', () =>
          {
             Util.find(doc,
-             '[data-ice="summary"] [href="variable/index.html#static-variable-testAccessVariableProtected"]',
+             '[data-ice="summary"] [href="variable/index.html#static-modulevariable-testAccessVariableProtected"]',
               (doc) =>
             {
                doc = doc.parents('[data-ice="target"]');
@@ -36,7 +36,7 @@ testConfig.forEachTarget('html_doc', 'access', (target) =>
          it('has private accessor.', () =>
          {
             Util.find(doc,
-             '[data-ice="summary"] [href="variable/index.html#static-variable-testAccessVariablePrivate"]', (doc) =>
+             '[data-ice="summary"] [href="variable/index.html#static-modulevariable-testAccessVariablePrivate"]', (doc) =>
             {
                doc = doc.parents('[data-ice="target"]');
                Util.assert.includes(doc, null, 'private testAccessVariablePrivate:');
@@ -46,7 +46,7 @@ testConfig.forEachTarget('html_doc', 'access', (target) =>
          it('has auto private accessor.', () =>
          {
             Util.find(doc,
-             '[data-ice="summary"] [href="variable/index.html#static-variable-_testAccessVariableAutoPrivate"]',
+             '[data-ice="summary"] [href="variable/index.html#static-modulevariable-_testAccessVariableAutoPrivate"]',
               (doc) =>
             {
                doc = doc.parents('[data-ice="target"]');
@@ -60,25 +60,25 @@ testConfig.forEachTarget('html_doc', 'access', (target) =>
       {
          it('has public accessor.', () =>
          {
-            Util.assert.includes(doc, '[data-ice="detail"] #static-variable-testAccessVariablePublic',
+            Util.assert.includes(doc, '[data-ice="detail"] #static-modulevariable-testAccessVariablePublic',
              'public testAccessVariablePublic:');
          });
 
          it('has protected accessor.', () =>
          {
-            Util.assert.includes(doc, '[data-ice="detail"] #static-variable-testAccessVariableProtected',
+            Util.assert.includes(doc, '[data-ice="detail"] #static-modulevariable-testAccessVariableProtected',
              'protected testAccessVariableProtected:');
          });
 
          it('has private accessor.', () =>
          {
-            Util.assert.includes(doc, '[data-ice="detail"] #static-variable-testAccessVariablePrivate',
+            Util.assert.includes(doc, '[data-ice="detail"] #static-modulevariable-testAccessVariablePrivate',
              'private testAccessVariablePrivate:');
          });
 
          it('has auto private accessor.', () =>
          {
-            Util.assert.includes(doc, '[data-ice="detail"] #static-variable-_testAccessVariableAutoPrivate',
+            Util.assert.includes(doc, '[data-ice="detail"] #static-modulevariable-_testAccessVariableAutoPrivate',
              'private _testAccessVariableAutoPrivate:');
          });
       });

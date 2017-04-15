@@ -13,7 +13,7 @@ testConfig.forEachTarget('html_doc', 'variable', (target) =>
       {
          it('has desc', () =>
          {
-            Util.findParent(doc, '[data-ice="summary"] [href$="#static-variable-testVariableArrayPattern1"]',
+            Util.findParent(doc, '[data-ice="summary"] [href$="#static-modulevariable-testVariableArrayPattern1"]',
              '[data-ice="target"]', (doc) =>
             {
                Util.assert.includes(doc, null, 'public testVariableArrayPattern1: number');
@@ -25,7 +25,8 @@ testConfig.forEachTarget('html_doc', 'variable', (target) =>
       {
          it('has desc.', () =>
          {
-            Util.findParent(doc, '[id="static-variable-testVariableArrayPattern1"]', '[data-ice="detail"]', (doc) =>
+            Util.findParent(doc, '[id="static-modulevariable-testVariableArrayPattern1"]', '[data-ice="detail"]',
+             (doc) =>
             {
                Util.assert.includes(doc, 'h3', 'public testVariableArrayPattern1: number');
             });

@@ -11,7 +11,7 @@ testConfig.forEachTarget('html_doc', 'link', (target) =>
 
       it('has link.', () =>
       {
-         Util.findParent(doc, '[id="static-variable-testLinkVariable"]', '[data-ice="detail"]', (doc) =>
+         Util.findParent(doc, '[id="static-modulevariable-testLinkVariable"]', '[data-ice="detail"]', (doc) =>
          {
             Util.assert.includes(doc,
              '[data-ice="description"] a[href="class/test/fixture/package/src/link/Class.js~TestLinkClass.html"]',

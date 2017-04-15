@@ -85,9 +85,9 @@ testConfig.forEachTarget('html', 'search', (target) =>
 
       it('has variable index', () =>
       {
-         Util.assert.deepEqual(find('variable/index.html#static-variable-testDescVariable'), [
+         Util.assert.deepEqual(find('variable/index.html#static-modulevariable-testDescVariable'), [
             'tjsdoc-test-fixture/test/fixture/package/src/desc/variable.js~testdescvariable',
-            'variable/index.html#static-variable-testDescVariable',
+            'variable/index.html#static-modulevariable-testDescVariable',
             '<span>testDescVariable</span> <span class="search-result-import-path">tjsdoc-test-fixture/test/fixture/package/src/desc/Variable.js</span>',
             'ModuleVariable'
          ]);

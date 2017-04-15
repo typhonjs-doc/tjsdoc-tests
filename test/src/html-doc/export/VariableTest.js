@@ -11,7 +11,7 @@ testConfig.forEachTarget('html_doc', 'export', (target) =>
 
       it('has default import path with direct variable definition.', () =>
       {
-         Util.findParent(doc, '[id="static-variable-testExportVariable1"]', '[data-ice="detail"]', (doc) =>
+         Util.findParent(doc, '[id="static-moduleassignment-testExportVariable1"]', '[data-ice="detail"]', (doc) =>
          {
             Util.assert.includes(doc, '[data-ice="importPath"]',
              `import testExportVariable1 from 'tjsdoc-test-fixture/test/fixture/package/src/export/Variable.js'`);
@@ -20,7 +20,7 @@ testConfig.forEachTarget('html_doc', 'export', (target) =>
 
       it('has named import path with direct variable definition.', () =>
       {
-         Util.findParent(doc, '[id="static-variable-testExportVariable2"]', '[data-ice="detail"]', (doc) =>
+         Util.findParent(doc, '[id="static-modulevariable-testExportVariable2"]', '[data-ice="detail"]', (doc) =>
          {
             Util.assert.includes(doc, '[data-ice="importPath"]',
              `import {testExportVariable2} from 'tjsdoc-test-fixture/test/fixture/package/src/export/Variable.js'`);
@@ -29,13 +29,13 @@ testConfig.forEachTarget('html_doc', 'export', (target) =>
 
       it('has named import path with none doc comment', () =>
       {
-         Util.findParent(doc, '[id="static-variable-testExportVariable4"]', '[data-ice="detail"]', (doc) =>
+         Util.findParent(doc, '[id="static-modulevariable-testExportVariable4"]', '[data-ice="detail"]', (doc) =>
          {
             Util.assert.includes(doc, '[data-ice="importPath"]',
              `import {testExportVariable4} from 'tjsdoc-test-fixture/test/fixture/package/src/export/Variable.js'`);
          });
 
-         Util.findParent(doc, '[id="static-variable-testExportVariable5"]', '[data-ice="detail"]', (doc) =>
+         Util.findParent(doc, '[id="static-modulevariable-testExportVariable5"]', '[data-ice="detail"]', (doc) =>
          {
             Util.assert.includes(doc, '[data-ice="importPath"]',
              `import {testExportVariable5} from 'tjsdoc-test-fixture/test/fixture/package/src/export/Variable.js'`);
@@ -44,7 +44,7 @@ testConfig.forEachTarget('html_doc', 'export', (target) =>
 
       it('has named import path with indirect variable definition.', () =>
       {
-         Util.findParent(doc, '[id="static-variable-testExportVariable6"]', '[data-ice="detail"]', (doc) =>
+         Util.findParent(doc, '[id="static-modulevariable-testExportVariable6"]', '[data-ice="detail"]', (doc) =>
          {
             Util.assert.includes(doc, '[data-ice="importPath"]',
              `import {testExportVariable6} from 'tjsdoc-test-fixture/test/fixture/package/src/export/Variable.js'`);
@@ -53,7 +53,7 @@ testConfig.forEachTarget('html_doc', 'export', (target) =>
 
       it('has named import path with unknown type.', () =>
       {
-         Util.findParent(doc, '[id="static-variable-testExportVariable7"]', '[data-ice="detail"]', (doc) =>
+         Util.findParent(doc, '[id="static-modulevariable-testExportVariable7"]', '[data-ice="detail"]', (doc) =>
          {
             Util.assert.includes(doc, '[data-ice="importPath"]',
              `import {testExportVariable7} from 'tjsdoc-test-fixture/test/fixture/package/src/export/Variable.js'`);

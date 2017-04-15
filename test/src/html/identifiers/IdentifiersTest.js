@@ -42,7 +42,7 @@ testConfig.forEachTarget('html', 'identifiers', (target) =>
       it('has variable summary.', () =>
       {
          Util.findParent(doc,
-          '[data-ice="variableSummary"] a[href="variable/index.html#static-variable-testDescVariable"]',
+          '[data-ice="variableSummary"] a[href="variable/index.html#static-modulevariable-testDescVariable"]',
            '[data-ice="target"]', (doc) =>
          {
             Util.assert.includes(doc, null, 'public testDescVariable: number this is testDescVariable.');

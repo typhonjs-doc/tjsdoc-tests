@@ -13,7 +13,7 @@ testConfig.forEachTarget('html_doc', 'version', (target) =>
       {
          it('has version', () =>
          {
-            Util.findParent(doc, '[data-ice="summary"] [href$="#static-variable-testVersionVariable"]',
+            Util.findParent(doc, '[data-ice="summary"] [href$="#static-modulevariable-testVersionVariable"]',
              '[data-ice="target"]', (doc) =>
             {
                Util.assert.includes(doc, '[data-ice="version"]', '1.2.3');
@@ -25,7 +25,7 @@ testConfig.forEachTarget('html_doc', 'version', (target) =>
       {
          it('has desc.', () =>
          {
-            Util.findParent(doc, '[id="static-variable-testVersionVariable"]', '[data-ice="detail"]', (doc) =>
+            Util.findParent(doc, '[id="static-modulevariable-testVersionVariable"]', '[data-ice="detail"]', (doc) =>
             {
                Util.assert.includes(doc, '[data-ice="version"]', '1.2.3');
             });

@@ -160,13 +160,13 @@ testConfig.forEachTarget('config', 'access', (target) =>
 
             it('have public variable', () =>
             {
-               Util.assert.includes(doc, '#static-variable-testAccessVariablePublic',
+               Util.assert.includes(doc, '#static-modulevariable-testAccessVariablePublic',
                 'public testAccessVariablePublic: number');
             });
 
             it('have protected variable', () =>
             {
-               Util.assert.includes(doc, '#static-variable-testAccessVariableProtected',
+               Util.assert.includes(doc, '#static-modulevariable-testAccessVariableProtected',
                 'protected testAccessVariableProtected: number');
             });
 
@@ -174,7 +174,7 @@ testConfig.forEachTarget('config', 'access', (target) =>
             {
                Util.assert.throws(() =>
                {
-                  Util.assert.includes(doc, '#static-variable-testAccessVariablePrivate',
+                  Util.assert.includes(doc, '#static-modulevariable-testAccessVariablePrivate',
                    'private testAccessVariablePrivate: number');
                });
             });
@@ -183,7 +183,7 @@ testConfig.forEachTarget('config', 'access', (target) =>
             {
                Util.assert.throws(() =>
                {
-                  Util.assert.includes(doc, '#static-variable-_testAccessVariableAutoPrivate',
+                  Util.assert.includes(doc, '#static-modulevariable-_testAccessVariableAutoPrivate',
                    'private _testAccessVariableAutoPrivate: number');
                });
             });

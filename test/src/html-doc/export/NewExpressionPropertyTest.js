@@ -22,7 +22,7 @@ testConfig.forEachTarget('html_doc', 'export', (target) =>
 
             Util.assert.includes(doc, 'a', 'testExportNewExpressionProperty');
 
-            Util.assert.includes(doc, 'a', 'variable/index.html#static-variable-testExportNewExpressionProperty',
+            Util.assert.includes(doc, 'a', 'variable/index.html#static-modulevariable-testExportNewExpressionProperty',
              'href');
          });
 
@@ -34,13 +34,13 @@ testConfig.forEachTarget('html_doc', 'export', (target) =>
       {
          const doc = Util.readDoc(target, 'variable/index.html');
 
-         Util.findParent(doc, '[data-ice="summary"] [href$="#static-variable-testExportNewExpressionProperty"]',
+         Util.findParent(doc, '[data-ice="summary"] [href$="#static-modulevariable-testExportNewExpressionProperty"]',
           '[data-ice="target"]', (doc) =>
          {
             Util.assert.includes(doc, null, 'public testExportNewExpressionProperty: TestExportNewExpressionProperty');
          });
 
-         Util.findParent(doc, '#static-variable-testExportNewExpressionProperty', '[data-ice="detail"]', (doc) =>
+         Util.findParent(doc, '#static-modulevariable-testExportNewExpressionProperty', '[data-ice="detail"]', (doc) =>
          {
             Util.assert.includes(doc, 'h3', 'public testExportNewExpressionProperty: TestExportNewExpressionProperty');
 

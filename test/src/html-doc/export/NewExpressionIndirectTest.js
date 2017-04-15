@@ -22,7 +22,7 @@ testConfig.forEachTarget('html_doc', 'export', (target) =>
 
             Util.assert.includes(doc, 'a', 'testExportNewExpressionIndirect');
 
-            Util.assert.includes(doc, 'a', 'variable/index.html#static-variable-testExportNewExpressionIndirect',
+            Util.assert.includes(doc, 'a', 'variable/index.html#static-modulevariable-testExportNewExpressionIndirect',
              'href');
          });
 
@@ -34,13 +34,13 @@ testConfig.forEachTarget('html_doc', 'export', (target) =>
       {
          const doc = Util.readDoc(target, 'variable/index.html');
 
-         Util.findParent(doc, '[data-ice="summary"] [href$="#static-variable-testExportNewExpressionIndirect"]',
+         Util.findParent(doc, '[data-ice="summary"] [href$="#static-modulevariable-testExportNewExpressionIndirect"]',
           '[data-ice="target"]', (doc) =>
          {
             Util.assert.includes(doc, null, 'public testExportNewExpressionIndirect: TestExportNewExpressionIndirect');
          });
 
-         Util.findParent(doc, '#static-variable-testExportNewExpressionIndirect', '[data-ice="detail"]', (doc) =>
+         Util.findParent(doc, '#static-modulevariable-testExportNewExpressionIndirect', '[data-ice="detail"]', (doc) =>
          {
             Util.assert.includes(doc, 'h3', 'public testExportNewExpressionIndirect: TestExportNewExpressionIndirect');
 

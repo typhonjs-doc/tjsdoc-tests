@@ -13,7 +13,7 @@ testConfig.forEachTarget('html_doc', 'desc', (target) =>
       {
          it('has desc', () =>
          {
-            Util.findParent(doc, '[data-ice="summary"] [href$="#static-variable-testDescVariable"]',
+            Util.findParent(doc, '[data-ice="summary"] [href$="#static-modulevariable-testDescVariable"]',
              '[data-ice="target"]', (doc) =>
             {
                Util.assert.includes(doc, '[data-ice="description"]', 'this is testDescVariable.');
@@ -25,7 +25,7 @@ testConfig.forEachTarget('html_doc', 'desc', (target) =>
       {
          it('has desc.', () =>
          {
-            Util.findParent(doc, '[id="static-variable-testDescVariable"]', '[data-ice="detail"]', (doc) =>
+            Util.findParent(doc, '[id="static-modulevariable-testDescVariable"]', '[data-ice="detail"]', (doc) =>
             {
                Util.assert.includes(doc, '[data-ice="description"]', 'this is testDescVariable.');
             });

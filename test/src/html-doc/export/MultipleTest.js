@@ -16,7 +16,7 @@ testConfig.forEachTarget('html_doc', 'export', (target) =>
 
          const doc2 = Util.readDoc(target, 'variable/index.html');
 
-         Util.findParent(doc2, '[id="static-variable-testExportMultiple"]', '[data-ice="detail"]', (doc) =>
+         Util.findParent(doc2, '[id="static-modulevariable-testExportMultiple"]', '[data-ice="detail"]', (doc) =>
          {
             Util.assert.includes(doc, '[data-ice="importPath"]',
              `import {testExportMultiple} from 'tjsdoc-test-fixture/test/fixture/package/src/export/Multiple.js'`);

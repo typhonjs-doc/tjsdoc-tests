@@ -13,7 +13,7 @@ testConfig.forEachTarget('html_doc', 'example', (target) =>
       {
          it('has desc.', () =>
          {
-            Util.findParent(doc, '[id="static-variable-testExampleVariable"]', '[data-ice="detail"]', (doc) =>
+            Util.findParent(doc, '[id="static-modulevariable-testExampleVariable"]', '[data-ice="detail"]', (doc) =>
             {
                Util.assert.includes(doc, '[data-ice="exampleDoc"]', 'const foo = 123;');
             });

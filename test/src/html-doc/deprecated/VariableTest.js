@@ -14,7 +14,7 @@ testConfig.forEachTarget('html_doc', 'deprecated', (target) =>
          it('has deprecated message.', () =>
          {
             Util.find(doc,
-             '[data-ice="summary"] [href="variable/index.html#static-variable-testDeprecatedVariable"]', (doc) =>
+             '[data-ice="summary"] [href="variable/index.html#static-modulevariable-testDeprecatedVariable"]', (doc) =>
             {
                doc = doc.parents('[data-ice="target"]');
                Util.assert.includes(doc, '[data-ice="deprecated"]', 'Deprecated');
@@ -26,7 +26,7 @@ testConfig.forEachTarget('html_doc', 'deprecated', (target) =>
       {
          it('has deprecated message.', () =>
          {
-            Util.find(doc, '[id="static-variable-testDeprecatedVariable"]', (doc) =>
+            Util.find(doc, '[id="static-modulevariable-testDeprecatedVariable"]', (doc) =>
             {
                doc = doc.parents('[data-ice="detail"]');
                Util.assert.includes(doc, '[data-ice="deprecated"]', 'Deprecated');

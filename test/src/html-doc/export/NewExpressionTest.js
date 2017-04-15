@@ -24,7 +24,7 @@ testConfig.forEachTarget('html_doc', 'export', (target) =>
 
                Util.assert.includes(doc, 'a', 'testExportNewExpression');
 
-               Util.assert.includes(doc, 'a', 'variable/index.html#static-variable-testExportNewExpression', 'href');
+               Util.assert.includes(doc, 'a', 'variable/index.html#static-modulevariable-testExportNewExpression', 'href');
             });
 
             // does not have import path because the class is not clear exported.
@@ -35,13 +35,13 @@ testConfig.forEachTarget('html_doc', 'export', (target) =>
          {
             const doc = Util.readDoc(target, 'variable/index.html');
 
-            Util.findParent(doc, '[data-ice="summary"] [href$="#static-variable-testExportNewExpression"]',
+            Util.findParent(doc, '[data-ice="summary"] [href$="#static-modulevariable-testExportNewExpression"]',
              '[data-ice="target"]', (doc) =>
             {
                Util.assert.includes(doc, null, 'public testExportNewExpression: TestExportNewExpression');
             });
 
-            Util.findParent(doc, '#static-variable-testExportNewExpression', '[data-ice="detail"]', (doc) =>
+            Util.findParent(doc, '#static-modulevariable-testExportNewExpression', '[data-ice="detail"]', (doc) =>
             {
                Util.assert.includes(doc, 'h3', 'public testExportNewExpression: TestExportNewExpression');
 
@@ -65,7 +65,7 @@ testConfig.forEachTarget('html_doc', 'export', (target) =>
 
                Util.assert.includes(doc, 'a', 'testExportNewExpression2');
 
-               Util.assert.includes(doc, 'a', 'variable/index.html#static-variable-testExportNewExpression2', 'href');
+               Util.assert.includes(doc, 'a', 'variable/index.html#static-modulevariable-testExportNewExpression2', 'href');
             });
 
             // does not have import path because the class is not clear exported.
@@ -76,13 +76,13 @@ testConfig.forEachTarget('html_doc', 'export', (target) =>
          {
             const doc = Util.readDoc(target, 'variable/index.html');
 
-            Util.findParent(doc, '[data-ice="summary"] [href$="#static-variable-testExportNewExpression2"]',
+            Util.findParent(doc, '[data-ice="summary"] [href$="#static-modulevariable-testExportNewExpression2"]',
              '[data-ice="target"]', (doc) =>
             {
                Util.assert.includes(doc, null, 'public testExportNewExpression2: TestExportNewExpression2');
             });
 
-            Util.findParent(doc, '#static-variable-testExportNewExpression2', '[data-ice="detail"]', (doc) =>
+            Util.findParent(doc, '#static-modulevariable-testExportNewExpression2', '[data-ice="detail"]', (doc) =>
             {
                Util.assert.includes(doc, 'h3', 'public testExportNewExpression2: TestExportNewExpression2');
 

@@ -54,7 +54,7 @@ testConfig.forEachTarget('config', 'autoPrivate', (target) =>
       {
          const doc = readDoc('variable/index.html');
 
-         Util.assert.includes(doc, '#static-variable-_testAccessVariableAutoPrivate',
+         Util.assert.includes(doc, '#static-modulevariable-_testAccessVariableAutoPrivate',
           'public _testAccessVariableAutoPrivate: number');
       });
    });
