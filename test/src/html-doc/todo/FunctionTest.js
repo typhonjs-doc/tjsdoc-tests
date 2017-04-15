@@ -11,7 +11,7 @@ testConfig.forEachTarget('html_doc', 'todo', (target) =>
 
       it('has todo.', () =>
       {
-         Util.findParent(doc, '[id="static-function-testTodoFunction"]', '[data-ice="detail"]', (doc) =>
+         Util.findParent(doc, '[id="static-modulefunction-testTodoFunction"]', '[data-ice="detail"]', (doc) =>
          {
             Util.assert.includes(doc, '[data-ice="todo"]', 'this is todo.');
          });

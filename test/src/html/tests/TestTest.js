@@ -91,7 +91,7 @@ testConfig.forEachTarget('html', 'test', (target) =>
                Util.assert.includes(doc, null, 'Nested it in context testDescFunction');
                Util.assert.multiIncludes(doc, 'a', [
                   'test-file/test/fixture/package/test/DescTest.js.html#lineNumber22',
-                  'function/index.html#static-function-testDescFunction'
+                  'function/index.html#static-modulefunction-testDescFunction'
                ], 'href');
             });
          });

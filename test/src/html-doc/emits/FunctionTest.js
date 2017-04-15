@@ -13,7 +13,7 @@ testConfig.forEachTarget('html_doc', 'emits', (target) =>
       {
          it('has desc.', () =>
          {
-            Util.findParent(doc, '[id="static-function-testEmitsFunction"]', '[data-ice="detail"]', (doc) =>
+            Util.findParent(doc, '[id="static-modulefunction-testEmitsFunction"]', '[data-ice="detail"]', (doc) =>
             {
                Util.assert.includes(doc, '[data-ice="emitName"] [href$="TestEmitsFunctionEvent.html"]',
                 'TestEmitsFunctionEvent');

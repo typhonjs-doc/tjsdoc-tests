@@ -13,7 +13,7 @@ testConfig.forEachTarget('html_doc', 'param', (target) =>
       {
          it('has param.', () =>
          {
-            Util.findParent(doc, '[data-ice="summary"] [href$="#static-function-testParamFunction"]',
+            Util.findParent(doc, '[data-ice="summary"] [href$="#static-modulefunction-testParamFunction"]',
              '[data-ice="target"]', (doc) =>
             {
                Util.assert.includes(doc, null, 'public testParamFunction(p1: number, p2: TestClassDefinition)');
@@ -25,7 +25,7 @@ testConfig.forEachTarget('html_doc', 'param', (target) =>
       {
          it('has param.', () =>
          {
-            Util.findParent(doc, '[id="static-function-testParamFunction"]', '[data-ice="detail"]', (doc) =>
+            Util.findParent(doc, '[id="static-modulefunction-testParamFunction"]', '[data-ice="detail"]', (doc) =>
             {
                Util.assert.includes(doc, 'h3', 'public testParamFunction(p1: number, p2: TestClassDefinition)');
 

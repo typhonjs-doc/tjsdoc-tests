@@ -12,7 +12,7 @@ testConfig.forEachTarget('html_doc', 'link', (target) =>
       it('has link from class.', () =>
       {
          Util.assert.includes(doc,
-          '.self-detail [data-ice="description"] a[href="function/index.html#static-function-testLinkFunction"]',
+          '.self-detail [data-ice="description"] a[href="function/index.html#static-modulefunction-testLinkFunction"]',
            'testLinkFunction');
       });
 
@@ -21,7 +21,7 @@ testConfig.forEachTarget('html_doc', 'link', (target) =>
          Util.findParent(doc, '[id="instance-classmethod-constructor"]', '[data-ice="detail"]', (doc) =>
          {
             Util.assert.includes(doc,
-             '[data-ice="description"] a[href="function/index.html#static-function-testLinkFunction"]',
+             '[data-ice="description"] a[href="function/index.html#static-modulefunction-testLinkFunction"]',
               'testLinkFunction');
          });
       });
@@ -31,7 +31,7 @@ testConfig.forEachTarget('html_doc', 'link', (target) =>
          Util.findParent(doc, '[id="instance-classmember-p1"]', '[data-ice="detail"]', (doc) =>
          {
             Util.assert.includes(doc,
-             '[data-ice="description"] a[href="function/index.html#static-function-testLinkFunction"]',
+             '[data-ice="description"] a[href="function/index.html#static-modulefunction-testLinkFunction"]',
               'testLinkFunction');
          });
       });
@@ -41,7 +41,7 @@ testConfig.forEachTarget('html_doc', 'link', (target) =>
          Util.findParent(doc, '[id="instance-classmethod-method1"]', '[data-ice="detail"]', (doc) =>
          {
             Util.assert.includes(doc,
-             '[data-ice="description"] a[href="function/index.html#static-function-testLinkFunction"]',
+             '[data-ice="description"] a[href="function/index.html#static-modulefunction-testLinkFunction"]',
               'testLinkFunction');
          });
       });

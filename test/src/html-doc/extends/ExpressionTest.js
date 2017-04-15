@@ -25,7 +25,7 @@ testConfig.forEachTarget('html_doc', 'extends', (target) =>
          {
             Util.assert.includes(doc, null, 'testExtendsExpressionInner → TestExtendsExpression');
 
-            Util.assert.includes(doc, 'a[href$="#static-function-testExtendsExpressionInner"]',
+            Util.assert.includes(doc, 'a[href$="#static-modulefunction-testExtendsExpressionInner"]',
              'testExtendsExpressionInner');
          });
       });

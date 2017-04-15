@@ -11,7 +11,8 @@ testConfig.forEachTarget('html_doc', 'export', (target) =>
 
       it('has default import path with assigned function definition.', () =>
       {
-         Util.findParent(doc, '[id="static-function-testExportAssignmentFunction1"]', '[data-ice="detail"]', (doc) =>
+         Util.findParent(doc, '[id="static-modulefunction-testExportAssignmentFunction1"]', '[data-ice="detail"]',
+          (doc) =>
          {
             Util.assert.includes(doc, '[data-ice="importPath"]',
              `import testExportAssignmentFunction1 from 'tjsdoc-test-fixture/test/fixture/package/src/export/AssignmentFunctionExpression.js'`);
@@ -20,7 +21,8 @@ testConfig.forEachTarget('html_doc', 'export', (target) =>
 
       it('has default import path with assigned arrow function definition.', () =>
       {
-         Util.findParent(doc, '[id="static-function-testExportAssignmentArrowFunction1"]', '[data-ice="detail"]', (doc) =>
+         Util.findParent(doc, '[id="static-modulefunction-testExportAssignmentArrowFunction1"]', '[data-ice="detail"]',
+          (doc) =>
          {
             Util.assert.includes(doc, '[data-ice="importPath"]',
              `import testExportAssignmentArrowFunction1 from 'tjsdoc-test-fixture/test/fixture/package/src/export/AssignmentArrowFunctionExpression.js'`);

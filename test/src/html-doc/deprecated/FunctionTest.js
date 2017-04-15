@@ -13,8 +13,8 @@ testConfig.forEachTarget('html_doc', 'deprecated', (target) =>
       {
          it('has deprecated message.', () =>
          {
-            Util.find(doc, '[data-ice="summary"] [href="function/index.html#static-function-testDeprecatedFunction"]',
-             (doc) =>
+            Util.find(doc,
+             '[data-ice="summary"] [href="function/index.html#static-modulefunction-testDeprecatedFunction"]', (doc) =>
             {
                doc = doc.parents('[data-ice="target"]');
                Util.assert.includes(doc, '[data-ice="deprecated"]', 'Deprecated');
@@ -26,7 +26,7 @@ testConfig.forEachTarget('html_doc', 'deprecated', (target) =>
       {
          it('has deprecated message of member and method.', () =>
          {
-            Util.find(doc, '[id="static-function-testDeprecatedFunction"]', (doc) =>
+            Util.find(doc, '[id="static-modulefunction-testDeprecatedFunction"]', (doc) =>
             {
                doc = doc.parents('[data-ice="detail"]');
                Util.assert.includes(doc, '[data-ice="deprecated"]', 'Deprecated');

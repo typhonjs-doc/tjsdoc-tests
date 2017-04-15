@@ -46,7 +46,7 @@ testConfig.forEachTarget('config', 'autoPrivate', (target) =>
       {
          const doc = readDoc('function/index.html');
 
-         Util.assert.includes(doc, '#static-function-_testAccessFunctionAutoPrivate',
+         Util.assert.includes(doc, '#static-modulefunction-_testAccessFunctionAutoPrivate',
           'public _testAccessFunctionAutoPrivate()');
       });
 

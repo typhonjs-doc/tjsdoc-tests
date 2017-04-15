@@ -13,7 +13,7 @@ testConfig.forEachTarget('html_doc', 'export', (target) =>
       {
          it('has desc', () =>
          {
-            Util.findParent(doc, '[data-ice="summary"] [href$="#static-function-AnonymousFunction"]',
+            Util.findParent(doc, '[data-ice="summary"] [href$="#static-modulefunction-AnonymousFunction"]',
              '[data-ice="target"]', (doc) =>
             {
                Util.assert.includes(doc, null, 'public AnonymousFunction()');
@@ -25,7 +25,7 @@ testConfig.forEachTarget('html_doc', 'export', (target) =>
       {
          it('has desc.', () =>
          {
-            Util.findParent(doc, '[id="static-function-AnonymousFunction"]', '[data-ice="detail"]', (doc) =>
+            Util.findParent(doc, '[id="static-modulefunction-AnonymousFunction"]', '[data-ice="detail"]', (doc) =>
             {
                Util.assert.includes(doc, 'h3', 'public AnonymousFunction()');
 

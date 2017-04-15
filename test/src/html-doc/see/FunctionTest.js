@@ -11,7 +11,7 @@ testConfig.forEachTarget('html_doc', 'see', (target) =>
 
       it('has see.', () =>
       {
-         Util.findParent(doc, '[id="static-function-testSeeFunction"]', '[data-ice="detail"]', (doc) =>
+         Util.findParent(doc, '[id="static-modulefunction-testSeeFunction"]', '[data-ice="detail"]', (doc) =>
          {
             Util.assert.includes(doc, '[data-ice="see"] a[href="http://example.com"]', 'http://example.com');
          });

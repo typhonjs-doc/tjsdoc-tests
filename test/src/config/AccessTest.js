@@ -124,13 +124,13 @@ testConfig.forEachTarget('config', 'access', (target) =>
 
             it('have public function', () =>
             {
-               Util.assert.includes(doc, '#static-function-testAccessFunctionPublic',
+               Util.assert.includes(doc, '#static-modulefunction-testAccessFunctionPublic',
                 'public testAccessFunctionPublic()');
             });
 
             it('have protected function', () =>
             {
-               Util.assert.includes(doc, '#static-function-testAccessFunctionProtected',
+               Util.assert.includes(doc, '#static-modulefunction-testAccessFunctionProtected',
                 'protected testAccessFunctionProtected()');
             });
 
@@ -138,7 +138,7 @@ testConfig.forEachTarget('config', 'access', (target) =>
             {
                Util.assert.throws(() =>
                {
-                  Util.assert.includes(doc, '#static-function-testAccessFunctionPrivate',
+                  Util.assert.includes(doc, '#static-modulefunction-testAccessFunctionPrivate',
                    'testAccessFunctionPrivate()');
                });
             });
@@ -147,7 +147,7 @@ testConfig.forEachTarget('config', 'access', (target) =>
             {
                Util.assert.throws(() =>
                {
-                  Util.assert.includes(doc, '#static-function-_testAccessFunctionAutoPrivate',
+                  Util.assert.includes(doc, '#static-modulefunction-_testAccessFunctionAutoPrivate',
                    '_testAccessFunctionAutoPrivate()');
                });
             });

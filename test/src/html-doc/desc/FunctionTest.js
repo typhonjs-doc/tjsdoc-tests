@@ -13,7 +13,7 @@ testConfig.forEachTarget('html_doc', 'desc', (target) =>
       {
          it('has desc', () =>
          {
-            Util.findParent(doc, '[data-ice="summary"] [href$="#static-function-testDescFunction"]',
+            Util.findParent(doc, '[data-ice="summary"] [href$="#static-modulefunction-testDescFunction"]',
              '[data-ice="target"]', (doc) =>
             {
                Util.assert.includes(doc, '[data-ice="description"]', 'this is testDescFunction.');
@@ -25,7 +25,7 @@ testConfig.forEachTarget('html_doc', 'desc', (target) =>
       {
          it('has desc.', () =>
          {
-            Util.findParent(doc, '[id="static-function-testDescFunction"]', '[data-ice="detail"]', (doc) =>
+            Util.findParent(doc, '[id="static-modulefunction-testDescFunction"]', '[data-ice="detail"]', (doc) =>
             {
                Util.assert.includes(doc, '[data-ice="description"]', 'this is testDescFunction.');
             });

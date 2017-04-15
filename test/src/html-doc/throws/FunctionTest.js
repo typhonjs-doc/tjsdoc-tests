@@ -11,7 +11,7 @@ testConfig.forEachTarget('html_doc', 'throws', (target) =>
 
       it('has throws.', () =>
       {
-         Util.findParent(doc, '[id="static-function-testThrowsFunction"]', '[data-ice="detail"]', (doc) =>
+         Util.findParent(doc, '[id="static-modulefunction-testThrowsFunction"]', '[data-ice="detail"]', (doc) =>
          {
             Util.assert.includes(doc,
              '[data-ice="throw"] a[href="class/test/fixture/package/src/throws/Function.js~TestThrowsFunctionError.html"]',

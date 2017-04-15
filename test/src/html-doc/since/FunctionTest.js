@@ -13,7 +13,7 @@ testConfig.forEachTarget('html_doc', 'since', (target) =>
       {
          it('has since.', () =>
          {
-            Util.findParent(doc, '[data-ice="summary"] [href$="#static-function-testSinceFunction"]',
+            Util.findParent(doc, '[data-ice="summary"] [href$="#static-modulefunction-testSinceFunction"]',
              '[data-ice="target"]', (doc) =>
             {
                Util.assert.includes(doc, '[data-ice="since"]', 'since 1.2.3');
@@ -25,7 +25,7 @@ testConfig.forEachTarget('html_doc', 'since', (target) =>
       {
          it('has since.', () =>
          {
-            Util.findParent(doc, '[id="static-function-testSinceFunction"]', '[data-ice="detail"]', (doc) =>
+            Util.findParent(doc, '[id="static-modulefunction-testSinceFunction"]', '[data-ice="detail"]', (doc) =>
             {
                Util.assert.includes(doc, '[data-ice="since"]', 'since 1.2.3');
             });

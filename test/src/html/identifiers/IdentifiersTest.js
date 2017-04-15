@@ -32,7 +32,7 @@ testConfig.forEachTarget('html', 'identifiers', (target) =>
       it('has function summary.', () =>
       {
          Util.findParent(doc,
-          '[data-ice="functionSummary"] a[href="function/index.html#static-function-testDescFunction"]',
+          '[data-ice="functionSummary"] a[href="function/index.html#static-modulefunction-testDescFunction"]',
            '[data-ice="target"]', (doc) =>
          {
             Util.assert.includes(doc, null, 'public testDescFunction() this is testDescFunction.');

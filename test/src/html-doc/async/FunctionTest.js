@@ -13,7 +13,7 @@ testConfig.forEachTarget('html_doc', 'async', (target) =>
       {
          it('has async mark', () =>
          {
-            Util.findParent(doc, '[data-ice="summary"] [href$="#static-function-testAsyncFunction"]',
+            Util.findParent(doc, '[data-ice="summary"] [href$="#static-modulefunction-testAsyncFunction"]',
              '[data-ice="target"]', (doc) =>
             {
                Util.assert.includes(doc, null, 'public async testAsyncFunction()');
@@ -25,7 +25,7 @@ testConfig.forEachTarget('html_doc', 'async', (target) =>
       {
          it('has async mark.', () =>
          {
-            Util.findParent(doc, '[id="static-function-testAsyncFunction"]', '[data-ice="detail"]', (doc) =>
+            Util.findParent(doc, '[id="static-modulefunction-testAsyncFunction"]', '[data-ice="detail"]', (doc) =>
             {
                Util.assert.includes(doc, 'h3', 'public async testAsyncFunction()');
             });

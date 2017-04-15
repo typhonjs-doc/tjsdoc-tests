@@ -75,9 +75,9 @@ testConfig.forEachTarget('html', 'search', (target) =>
 
       it('has function index', () =>
       {
-         Util.assert.deepEqual(find('function/index.html#static-function-testDescFunction'), [
+         Util.assert.deepEqual(find('function/index.html#static-modulefunction-testDescFunction'), [
             'tjsdoc-test-fixture/test/fixture/package/src/desc/function.js~testdescfunction',
-            'function/index.html#static-function-testDescFunction',
+            'function/index.html#static-modulefunction-testDescFunction',
             '<span>testDescFunction</span> <span class="search-result-import-path">tjsdoc-test-fixture/test/fixture/package/src/desc/Function.js</span>',
             'ModuleFunction'
          ]);

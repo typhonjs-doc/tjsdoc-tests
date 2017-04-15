@@ -13,7 +13,7 @@ testConfig.forEachTarget('html_doc', 'generator', (target) =>
       {
          it('has generator mark', () =>
          {
-            Util.findParent(doc, '[data-ice="summary"] [href$="#static-function-testGeneratorFunction"]',
+            Util.findParent(doc, '[data-ice="summary"] [href$="#static-modulefunction-testGeneratorFunction"]',
              '[data-ice="target"]', (doc) =>
             {
                Util.assert.includes(doc, null, 'public * testGeneratorFunction()');
@@ -25,7 +25,7 @@ testConfig.forEachTarget('html_doc', 'generator', (target) =>
       {
          it('has generator mark.', () =>
          {
-            Util.findParent(doc, '[id="static-function-testGeneratorFunction"]', '[data-ice="detail"]', (doc) =>
+            Util.findParent(doc, '[id="static-modulefunction-testGeneratorFunction"]', '[data-ice="detail"]', (doc) =>
             {
                Util.assert.includes(doc, 'h3', 'public * testGeneratorFunction()');
             });

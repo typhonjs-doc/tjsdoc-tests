@@ -31,7 +31,7 @@ testConfig.forEachTarget('html', 'nav', (target) =>
 
       it('has function.', () =>
       {
-         Util.findParent(doc, '[data-ice="nav"] a[href="function/index.html#static-function-testDescFunction"]',
+         Util.findParent(doc, '[data-ice="nav"] a[href="function/index.html#static-modulefunction-testDescFunction"]',
           '[data-ice="doc"]', (doc) =>
          {
             Util.assert.includes(doc, null, 'testDescFunction');

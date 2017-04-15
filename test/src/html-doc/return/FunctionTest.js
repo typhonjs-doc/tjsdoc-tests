@@ -15,7 +15,7 @@ testConfig.forEachTarget('html_doc', 'return', (target) =>
          {
             it('has return.', () =>
             {
-               Util.findParent(doc, '[data-ice="summary"] [href$="#static-function-testReturnFunction1"]',
+               Util.findParent(doc, '[data-ice="summary"] [href$="#static-modulefunction-testReturnFunction1"]',
                 '[data-ice="target"]', (doc) =>
                {
                   Util.assert.includes(doc, null, 'public testReturnFunction1(): TestClassDefinition');
@@ -27,7 +27,7 @@ testConfig.forEachTarget('html_doc', 'return', (target) =>
          {
             it('has return.', () =>
             {
-               Util.findParent(doc, '[id="static-function-testReturnFunction1"]', '[data-ice="detail"]', (doc) =>
+               Util.findParent(doc, '[id="static-modulefunction-testReturnFunction1"]', '[data-ice="detail"]', (doc) =>
                {
                   Util.assert.includes(doc, 'h3', 'public testReturnFunction1(): TestClassDefinition');
 
@@ -47,7 +47,7 @@ testConfig.forEachTarget('html_doc', 'return', (target) =>
          {
             it('has return.', () =>
             {
-               Util.findParent(doc, '[data-ice="summary"] [href$="#static-function-testReturnFunction2"]',
+               Util.findParent(doc, '[data-ice="summary"] [href$="#static-modulefunction-testReturnFunction2"]',
                 '[data-ice="target"]', (doc) =>
                {
                   Util.assert.includes(doc, null, 'public testReturnFunction2(): number');
@@ -59,7 +59,7 @@ testConfig.forEachTarget('html_doc', 'return', (target) =>
          {
             it('has return.', () =>
             {
-               Util.findParent(doc, '[id="static-function-testReturnFunction2"]', '[data-ice="detail"]', (doc) =>
+               Util.findParent(doc, '[id="static-modulefunction-testReturnFunction2"]', '[data-ice="detail"]', (doc) =>
                {
                   Util.assert.includes(doc, 'h3', 'public testReturnFunction2(): number');
 

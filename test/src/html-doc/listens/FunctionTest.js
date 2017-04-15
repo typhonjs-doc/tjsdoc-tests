@@ -11,7 +11,7 @@ testConfig.forEachTarget('html_doc', 'listens', (target) =>
 
       it('has listens.', () =>
       {
-         Util.findParent(doc, '[id="static-function-testListensFunction"]', '[data-ice="detail"]', (doc) =>
+         Util.findParent(doc, '[id="static-modulefunction-testListensFunction"]', '[data-ice="detail"]', (doc) =>
          {
             Util.assert.includes(doc,
              '[data-ice="listen"] a[href="class/test/fixture/package/src/listens/Function.js~TestListensFunctionEvent.html"]',
