@@ -15,7 +15,7 @@ testConfig.forEachTarget('runtime_common', 'docDB', (target) =>
    {
       it('has undocument tag.', () =>
       {
-         const docDB = new DocDB(Util.readJSON(target, 'docData.json'));
+         const docDB = new DocDB({ docData: Util.readJSON(target, 'docData.json') });
 
          const doc = docDB.find({ name: 'TestUndocumentDefinition', undocument: true })[0];
 

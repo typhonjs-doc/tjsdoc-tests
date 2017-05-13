@@ -9,7 +9,7 @@ testConfig.forEachTarget('runtime_common', 'docDB', (target) =>
    /** @test {AbstractDoc#@_known} */
    describe(`test known tags (${target.name}):`, () =>
    {
-      const docDB = new DocDB(Util.readJSON(target, 'docData.json'));
+      const docDB = new DocDB({ docData: Util.readJSON(target, 'docData.json') });
 
       it('has known tags (@abstract / TestAbstractDefinition#method1).', () =>
       {
