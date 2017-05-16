@@ -12,7 +12,7 @@ const s_DOC_DATA = JSON.parse(`[
 ]`);
 
 // eslint-disable-next-line comma-spacing
-const s_TEST_OUTPUT = ["\n\u001b[33m==================================\u001b[0m","\u001b[33mLintDocLogger warnings:\u001b[0m","\u001b[33m==================================\u001b[0m","\n\u001b[33mwarning: signature mismatch: method1 test/fixture/package/src/lint/Invalid.js#6\u001b[32m\n7|    /**\n8|     * this is method1.\n9|     * @param {number} x\n10|     */\n11|    method1(p) {}\u001b[0m'","\n\u001b[33mwarning: signature mismatch: method2 test/fixture/package/src/lint/Invalid.js#12\u001b[32m\n13|    /**\n14|     * this is method2.\n15|     * @param {number} x1\n16|     * @param {number[]} x2\n17|     * @param {Object} x3\n18|     */\n19|    method2(p1 = 10, p2 = [1, 2, 3], p3 = { foo: 1, bar: 2 }) {}\u001b[0m'","\n\u001b[33mwarning: signature mismatch: method3 test/fixture/package/src/lint/Invalid.js#20\u001b[32m\n21|    /**\n22|     * this is method3.\n23|     * @param {number[]} x\n24|     */\n25|    method3(...p) {}\u001b[0m'","\n\u001b[33mwarning: signature mismatch: method4 test/fixture/package/src/lint/Invalid.js#26\u001b[32m\n27|    /**\n28|     * this is method4.\n29|     * @param {Object} o\n30|     */\n31|    method4({ p1, p2 }, { p3, p4 }) {}\u001b[0m'"];
+const s_TEST_OUTPUT = ["\n================================================","\u001b[33mLintDocLogger warnings:\u001b[0m","================================================","\n\u001b[33mwarning: signature mismatch: method1 test/fixture/package/src/lint/Invalid.js#6\u001b[32m\n7|    /**\n8|     * this is method1.\n9|     * @param {number} x\n10|     */\n11|    method1(p) {}\u001b[0m'","\n\u001b[33mwarning: signature mismatch: method2 test/fixture/package/src/lint/Invalid.js#12\u001b[32m\n13|    /**\n14|     * this is method2.\n15|     * @param {number} x1\n16|     * @param {number[]} x2\n17|     * @param {Object} x3\n18|     */\n19|    method2(p1 = 10, p2 = [1, 2, 3], p3 = { foo: 1, bar: 2 }) {}\u001b[0m'","\n\u001b[33mwarning: signature mismatch: method3 test/fixture/package/src/lint/Invalid.js#20\u001b[32m\n21|    /**\n22|     * this is method3.\n23|     * @param {number[]} x\n24|     */\n25|    method3(...p) {}\u001b[0m'","\n\u001b[33mwarning: signature mismatch: method4 test/fixture/package/src/lint/Invalid.js#26\u001b[32m\n27|    /**\n28|     * this is method4.\n29|     * @param {Object} o\n30|     */\n31|    method4({ p1, p2 }, { p3, p4 }) {}\u001b[0m'"];
 
 testConfig.forEachTarget('runtime_common', 'utils', (target) =>
 {
@@ -49,7 +49,7 @@ testConfig.forEachTarget('runtime_common', 'utils', (target) =>
 
          for (const docObject of s_DOC_DATA)
          {
-            pluginManager.invokeSyncEvent('onHandleDocObject', void 0, { docObject });
+            pluginManager.invokeSyncEvent('onHandleDocObject', void 0, { docObject, mode: 'generate' });
          }
 
          // Invoke LintDocLogger
