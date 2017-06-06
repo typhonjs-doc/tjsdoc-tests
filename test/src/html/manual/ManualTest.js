@@ -44,12 +44,9 @@ testConfig.forEachTarget('html', 'manual', (target) =>
                Util.assert.includes(doc, '[data-ice="manual"]:nth-of-type(8)',
                 'Example Minimum Config Integration Test Code Into Documentation');
 
-               Util.assert.includes(doc, '[data-ice="manual"]:nth-of-type(9)',
-                'Reference Class Interface Function Variable Typedef External');
+               Util.assert.includes(doc, '[data-ice="manual"]:nth-of-type(9)', 'FAQ Goal');
 
-               Util.assert.includes(doc, '[data-ice="manual"]:nth-of-type(10)', 'FAQ Goal');
-
-               Util.assert.includes(doc, '[data-ice="manual"]:nth-of-type(11)', 'Changelog 0.0.1');
+               Util.assert.includes(doc, '[data-ice="manual"]:nth-of-type(10)', 'Changelog 0.0.1');
 
                // overview
                Util.find(doc, '[data-ice="manual"]:nth-of-type(1)', (doc) =>
@@ -155,38 +152,14 @@ testConfig.forEachTarget('html', 'manual', (target) =>
                    'manual/example/example.html#integration-test-code-into-documentation', 'href');
                });
 
-               // reference
-               Util.find(doc, '[data-ice="manual"]:nth-of-type(9)', (doc) =>
-               {
-                  Util.assert.includes(doc, '[data-ice="manualNav"]:nth-of-type(1) a', 'identifiers.html', 'href');
-
-                  Util.assert.includes(doc, '[data-ice="manualNav"]:nth-of-type(2) a', 'identifiers.html#class',
-                   'href');
-
-                  Util.assert.includes(doc, '[data-ice="manualNav"]:nth-of-type(3) a', 'identifiers.html#interface',
-                   'href');
-
-                  Util.assert.includes(doc, '[data-ice="manualNav"]:nth-of-type(4) a', 'identifiers.html#function',
-                   'href');
-
-                  Util.assert.includes(doc, '[data-ice="manualNav"]:nth-of-type(5) a', 'identifiers.html#variable',
-                   'href');
-
-                  Util.assert.includes(doc, '[data-ice="manualNav"]:nth-of-type(6) a', 'identifiers.html#typedef',
-                   'href');
-
-                  Util.assert.includes(doc, '[data-ice="manualNav"]:nth-of-type(7) a', 'identifiers.html#external',
-                   'href');
-               });
-
                // faq
-               Util.find(doc, '[data-ice="manual"]:nth-of-type(10)', (doc) =>
+               Util.find(doc, '[data-ice="manual"]:nth-of-type(9)', (doc) =>
                {
                   Util.assert.includes(doc, '[data-ice="manualNav"]:nth-of-type(1) a', 'manual/faq/faq.html', 'href');
                });
 
                // changelog
-               Util.find(doc, '[data-ice="manual"]:nth-of-type(11)', (doc) =>
+               Util.find(doc, '[data-ice="manual"]:nth-of-type(10)', (doc) =>
                {
                   Util.assert.includes(doc, '[data-ice="manualNav"]:nth-of-type(1) a',
                    'manual/changelog/CHANGELOG.html', 'href');
@@ -284,18 +257,9 @@ testConfig.forEachTarget('html', 'manual', (target) =>
             });
          });
 
-         it('has reference heading tags', () =>
-         {
-            Util.find(doc, '.manual-card-wrap:nth-of-type(10)', (doc) =>
-            {
-               Util.assert.includes(doc, 'h1[data-ice="label"]', 'Reference');
-               Util.assert.includes(doc, '.manual-card > a', 'identifiers.html', 'href');
-            });
-         });
-
          it('has faq heading tags', () =>
          {
-            Util.find(doc, '.manual-card-wrap:nth-of-type(11)', (doc) =>
+            Util.find(doc, '.manual-card-wrap:nth-of-type(10)', (doc) =>
             {
                Util.assert.includes(doc, 'h1[data-ice="label"]', 'FAQ');
                Util.assert.includes(doc, '.manual-card > a', 'manual/faq/faq.html', 'href');
@@ -304,7 +268,7 @@ testConfig.forEachTarget('html', 'manual', (target) =>
 
          it('has changelog heading tags', () =>
          {
-            Util.find(doc, '.manual-card-wrap:nth-of-type(12)', (doc) =>
+            Util.find(doc, '.manual-card-wrap:nth-of-type(11)', (doc) =>
             {
                Util.assert.includes(doc, 'h1[data-ice="label"]', 'Changelog');
                Util.assert.includes(doc, '.manual-card > a', 'manual/changelog/CHANGELOG.html', 'href');
