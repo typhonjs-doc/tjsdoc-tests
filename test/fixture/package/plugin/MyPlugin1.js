@@ -45,7 +45,7 @@ export function onStart(ev)
 export function onHandleConfig(ev)
 {
    callInfo.handlerNames.onHandleConfig = ['MyPlugin1'];
-   ev.data.config.title = 'Modified Config';
+   ev.data.mainConfig.title = 'Modified Config';
 }
 
 /**
