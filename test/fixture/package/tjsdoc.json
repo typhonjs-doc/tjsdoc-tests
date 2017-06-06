@@ -29,23 +29,23 @@
          "installation": [
             "./test/fixture/package/manual/installation.md"
          ],
+         "tutorial": [
+            "./test/fixture/package/manual/tutorial.md"
+         ],
          "usage": [
             "./test/fixture/package/manual/usage1.md",
             "./test/fixture/package/manual/usage2.md"
          ],
-         "tutorial": [
-            "./test/fixture/package/manual/tutorial.md"
-         ],
          "configuration": [
             "./test/fixture/package/manual/configuration.md"
-         ],
-         "example": [
-            "./test/fixture/package/manual/example.md"
          ],
          "advanced": [
             "./test/fixture/package/manual/advanced.md"
          ],
-         "faq": [
+         "example": [
+            "./test/fixture/package/manual/example.md"
+         ],
+         "FAQ": [
             "./test/fixture/package/manual/faq.md"
          ],
          "changelog": [
