@@ -103,6 +103,7 @@ const config =
          identifiers: true,
          index: true,
          manual: true,
+         menu: true,
          nav: true,
          search: true,
          test: true

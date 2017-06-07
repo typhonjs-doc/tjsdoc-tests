@@ -2,21 +2,13 @@ import Util       from 'tjsdoc-test-utils';
 
 import testConfig from '../../testConfig.js';
 
-testConfig.forEachTarget('html', 'manual', (target) =>
+testConfig.forEachTarget('html', 'menu', (target) =>
 {
    /** @test {ManualDocBuilder} */
    describe(`test manual (${target.name}):`, () =>
    {
       describe('test navigation', () =>
       {
-         it('has manual link in header', () =>
-         {
-            const doc = Util.readDoc(target, 'index.html');
-
-            Util.assert.includes(doc, '[data-ice="manualHeaderLink"]', 'Manual');
-            Util.assert.includes(doc, '[data-ice="manualHeaderLink"]', './manual/index.html', 'href');
-         });
-
          /** @test {ManualDocBuilder#_buildManualNav} */
          it('has manual navigation', () =>
          {
