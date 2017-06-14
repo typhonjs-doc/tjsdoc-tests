@@ -34,7 +34,7 @@ testConfig.forEachTarget('config', 'plugins', (target) =>
          Util.assert.includes(doc, '.navigation',
           'MyClass_ModifiedCode_ModifiedAST_ModifiedDoc_ModifiedDB_ModifiedHTML');
 
-         Util.assert.includes(doc, 'head meta[name="x-from-plugin"]', 'fileName:', 'content');
+         Util.assert.includes(doc, 'head meta[name="x-from-plugin"]', 'filePath:', 'content');
       });
 
       /* eslint-disable global-require */

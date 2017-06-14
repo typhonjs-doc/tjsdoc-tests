@@ -135,15 +135,15 @@ export function onHandleWriteFile(ev)
 {
    callInfo.handlerNames.onHandleWriteFile = ['MyPlugin1'];
 
-   if (!ev.data.fileName.endsWith('html')) { return; }
+   if (!ev.data.filePath.endsWith('html')) { return; }
 
    ev.data.fileData = ev.data.fileData.replace('MyClass_ModifiedCode_ModifiedAST_ModifiedDoc_ModifiedDB',
     'MyClass_ModifiedCode_ModifiedAST_ModifiedDoc_ModifiedDB_ModifiedHTML');
 
-   // insert ev.data.fileName into <head />
+   // insert ev.data.filePath into <head />
    ev.data.fileData = ev.data.fileData.replace(
       '</head>',
-      `<meta name="x-from-plugin" content="fileName:${ev.data.fileName}" />\n</head>`
+      `<meta name="x-from-plugin" content="filePath:${ev.data.filePath}" />\n</head>`
    );
 }
 
