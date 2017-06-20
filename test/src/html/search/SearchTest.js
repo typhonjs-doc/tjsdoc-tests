@@ -6,7 +6,7 @@ testConfig.forEachTarget('html', 'search', (target) =>
 {
    describe(`test search (${target.name}):`, () =>
    {
-      const searchIndexJS = Util.readFile(target, 'script/search_index.js').toString();
+      const searchIndexJS = Util.readFile(target, 'scripts/search_index.js').toString();
 
       const searchIndexJSON = searchIndexJS.replace('window.tjsdocSearchIndex = ', '');
 
