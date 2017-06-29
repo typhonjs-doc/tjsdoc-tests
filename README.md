@@ -1,4 +1,4 @@
-# tjsdoc-tests-runtime
-Provides shared testing resources utilized across various runtime repos.
+# tjsdoc-tests-ecmascript
+Provides shared Javascript testing resources for TJSDoc utilized across various repos.
 
-Eventually all runtime tests found in [tjsdoc](https://github.com/typhonjs-doc/tjsdoc) will be moved here.
+For essential information pertaining to TJSDoc please refer to [tjsdoc](https://github.com/typhonjs-node-tjsdoc/tjsdoc).
