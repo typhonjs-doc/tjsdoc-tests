@@ -7,7 +7,12 @@ testConfig.forEachTarget('html_doc', 'external', (target) =>
    /** @test {ExternalDoc#@_name} */
    describe(`TestExternalDefinition (${target.name}):`, () =>
    {
-      const doc = Util.readDoc(target, 'index.html');
+      let doc;
+
+      before(() =>
+      {
+         doc = Util.readDoc(target, 'index.html');
+      });
 
       it('has external document.', () =>
       {

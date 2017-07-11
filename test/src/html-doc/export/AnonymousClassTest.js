@@ -7,7 +7,12 @@ testConfig.forEachTarget('html_doc', 'export', (target) =>
    /** @test {ClassDoc#@_name} */
    describe(`TestExportAnonymousClass (${target.name}):`, () =>
    {
-      const doc = Util.readDoc(target, 'class/test/fixture/package/src/export/AnonymousClass.js~AnonymousClass.html');
+      let doc;
+
+      before(() =>
+      {
+         doc = Util.readDoc(target, 'class/test/fixture/package/src/export/AnonymousClass.js~AnonymousClass.html');
+      });
 
       describe('in self detail', () =>
       {

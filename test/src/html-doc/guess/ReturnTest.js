@@ -7,7 +7,12 @@ testConfig.forEachTarget('html_doc', 'guess', (target) =>
    /** @test {ParamParser#guessReturn} */
    describe(`TestGuessReturn (${target.name}):`, () =>
    {
-      const doc = Util.readDoc(target, 'class/test/fixture/package/src/Guess/Return.js~TestGuessReturn.html');
+      let doc;
+
+      before(() =>
+      {
+         doc = Util.readDoc(target, 'class/test/fixture/package/src/Guess/Return.js~TestGuessReturn.html');
+      });
 
       describe('in summary', () =>
       {

@@ -11,7 +11,10 @@ testConfig.forEachTarget('config', 'access', (target) =>
       /** @test {DocResolver#_resolveAccess} */
       describe(`test config.access: ["public", "protected"] (${target.name}):`, () =>
       {
-         Util.invoke(target, './test/fixture/config/tjsdoc-access.json', { silent: testConfig.consoleSilent });
+         before(async () =>
+         {
+            await Util.invoke(target, './test/fixture/config/tjsdoc-access.json', { silent: testConfig.consoleSilent });
+         });
 
          /**
           * Helper function to change the directory when invoking `_readDoc`.
@@ -58,7 +61,12 @@ testConfig.forEachTarget('config', 'access', (target) =>
 
          describe('method', () =>
          {
-            const doc = readDoc('class/test/fixture/package/src/access/Method.js~TestAccessMethod.html');
+            let doc;
+
+            before(() =>
+            {
+               doc = readDoc('class/test/fixture/package/src/access/Method.js~TestAccessMethod.html');
+            });
 
             it('have public method', () =>
             {
@@ -89,7 +97,12 @@ testConfig.forEachTarget('config', 'access', (target) =>
 
          describe('member', () =>
          {
-            const doc = readDoc('class/test/fixture/package/src/access/Property.js~TestAccessProperty.html');
+            let doc;
+
+            before(() =>
+            {
+               doc = readDoc('class/test/fixture/package/src/access/Property.js~TestAccessProperty.html');
+            });
 
             it('have public member', () =>
             {
@@ -120,7 +133,12 @@ testConfig.forEachTarget('config', 'access', (target) =>
 
          describe('function', () =>
          {
-            const doc = readDoc('function/index.html');
+            let doc;
+
+            before(() =>
+            {
+               doc = readDoc('function/index.html');
+            });
 
             it('have public function', () =>
             {
@@ -156,7 +174,12 @@ testConfig.forEachTarget('config', 'access', (target) =>
 
          describe('variable', () =>
          {
-            const doc = readDoc('variable/index.html');
+            let doc;
+
+            before(() =>
+            {
+               doc = readDoc('variable/index.html');
+            });
 
             it('have public variable', () =>
             {

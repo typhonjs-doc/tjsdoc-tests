@@ -7,7 +7,11 @@ testConfig.forEachTarget('config', 'scripts', (target) =>
    /** @test {DocBuilder#_buildLayoutDoc} */
    describe(`test config.publisherOptions.scripts: ["./test/fixture/scripts/custom.js"] (${target.name}):`, () =>
    {
-      Util.invoke(target, './test/fixture/config/tjsdoc-publisherScripts.json', { silent: testConfig.consoleSilent });
+      before(async () =>
+      {
+         await Util.invoke(target, './test/fixture/config/tjsdoc-publisherScripts.json',
+          { silent: testConfig.consoleSilent });
+      });
 
       it('has custom script', () =>
       {

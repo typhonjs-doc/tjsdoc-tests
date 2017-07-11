@@ -7,7 +7,12 @@ testConfig.forEachTarget('html_doc', 'access', (target) =>
    /** @test {ClassDocBuilder#_buildClassDoc} */
    describe(`TestAccessMethod (${target.name}):`, () =>
    {
-      const doc = Util.readDoc(target, 'class/test/fixture/package/src/access/Method.js~TestAccessMethod.html');
+      let doc;
+
+      before(() =>
+      {
+         doc = Util.readDoc(target, 'class/test/fixture/package/src/access/Method.js~TestAccessMethod.html');
+      });
 
       describe('in summary:', () =>
       {

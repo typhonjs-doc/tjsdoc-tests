@@ -7,8 +7,13 @@ testConfig.forEachTarget('html_doc', 'classProperty', (target) =>
    /** @test {ClassDocBuilder} */
    describe(`TestClassPropertyDefinition (${target.name}):`, () =>
    {
-      const doc = Util.readDoc(target,
-       'class/test/fixture/package/src/classproperty/Definition.js~TestClassPropertyDefinition.html');
+      let doc;
+
+      before(() =>
+      {
+         doc = Util.readDoc(target,
+          'class/test/fixture/package/src/classproperty/Definition.js~TestClassPropertyDefinition.html');
+      });
 
       /** @test {ClassDocBuilder#_buildClassDoc} */
       describe('in summary', () =>

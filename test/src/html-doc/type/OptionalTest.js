@@ -10,7 +10,12 @@ testConfig.forEachTarget('html_doc', 'type', (target) =>
     */
    describe(`TestTypeOptional (${target.name}):`, () =>
    {
-      const doc = Util.readDoc(target, 'class/test/fixture/package/src/type/Optional.js~TestTypeOptional.html');
+      let doc;
+
+      before(() =>
+      {
+         doc = Util.readDoc(target, 'class/test/fixture/package/src/type/Optional.js~TestTypeOptional.html');
+      });
 
       it('has optional attribute.', () =>
       {

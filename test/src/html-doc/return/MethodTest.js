@@ -7,7 +7,12 @@ testConfig.forEachTarget('html_doc', 'return', (target) =>
    /** @test {MethodDoc#@return} */
    describe(`TestReturnMethod (${target.name}):`, () =>
    {
-      const doc = Util.readDoc(target, 'class/test/fixture/package/src/Return/Method.js~TestReturnMethod.html');
+      let doc;
+
+      before(() =>
+      {
+         doc = Util.readDoc(target, 'class/test/fixture/package/src/Return/Method.js~TestReturnMethod.html');
+      });
 
       describe('in summary', () =>
       {

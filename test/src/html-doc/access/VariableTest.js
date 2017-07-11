@@ -7,7 +7,12 @@ testConfig.forEachTarget('html_doc', 'access', (target) =>
    /** @test {SingleDocBuilder} */
    describe(`TestAccessVariable (${target.name}):`, () =>
    {
-      const doc = Util.readDoc(target, 'variable/index.html');
+      let doc;
+
+      before(() =>
+      {
+         doc = Util.readDoc(target, 'variable/index.html');
+      });
 
       /** @test {SingleDocBuilder#_buildSingleDoc} */
       describe('in summary: ', () =>

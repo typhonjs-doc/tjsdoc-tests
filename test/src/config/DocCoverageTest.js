@@ -7,7 +7,11 @@ testConfig.forEachTarget('config', 'docCoverage', (target) =>
    /** @test {CoverageBuilder} */
    describe(`test config.docCoverage: false (${target.name}):`, () =>
    {
-      Util.invoke(target, './test/fixture/config/tjsdoc-docCoverage.json', { silent: testConfig.consoleSilent });
+      before(async () =>
+      {
+         await Util.invoke(target, './test/fixture/config/tjsdoc-docCoverage.json',
+          { silent: testConfig.consoleSilent });
+      });
 
       it('does not have doc coverage', () =>
       {

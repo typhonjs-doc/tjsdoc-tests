@@ -7,7 +7,12 @@ testConfig.forEachTarget('html_doc', 'version', (target) =>
    /** @test {AbstractDoc#@version} */
    describe(`testVersionVariable (${target.name}):`, () =>
    {
-      const doc = Util.readDoc(target, 'variable/index.html');
+      let doc;
+
+      before(() =>
+      {
+         doc = Util.readDoc(target, 'variable/index.html');
+      });
 
       describe('in summary', () =>
       {

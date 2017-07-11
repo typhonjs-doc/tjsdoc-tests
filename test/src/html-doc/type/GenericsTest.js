@@ -10,11 +10,16 @@ testConfig.forEachTarget('html_doc', 'type', (target) =>
     */
    describe(`TestTypeGenerics (${target.name}):`, () =>
    {
-      const doc = Util.readDoc(target, 'class/test/fixture/package/src/type/Generics.js~TestTypeGenerics.html');
+      let doc;
+
+      before(() =>
+      {
+         doc = Util.readDoc(target, 'class/test/fixture/package/src/type/Generics.js~TestTypeGenerics.html');
+      });
 
       it('has generics type.', () =>
       {
-         Util.findParent(doc, '[data-ice="summary"] [href$="#instance-classmethod-method1"]', '[data-ice="target"]', 
+         Util.findParent(doc, '[data-ice="summary"] [href$="#instance-classmethod-method1"]', '[data-ice="target"]',
           (doc) =>
          {
             Util.assert.includes(doc, null,

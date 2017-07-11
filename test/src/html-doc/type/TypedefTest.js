@@ -10,7 +10,12 @@ testConfig.forEachTarget('html_doc', 'type', (target) =>
     */
    describe(`TestTypeTypedef (${target.name}):`, () =>
    {
-      const doc = Util.readDoc(target, 'class/test/fixture/package/src/type/Typedef.js~TestTypeTypedef.html');
+      let doc;
+
+      before(() =>
+      {
+         doc = Util.readDoc(target, 'class/test/fixture/package/src/type/Typedef.js~TestTypeTypedef.html');
+      });
 
       it('has typedef type.', () =>
       {

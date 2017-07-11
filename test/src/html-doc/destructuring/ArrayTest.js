@@ -7,8 +7,13 @@ testConfig.forEachTarget('html_doc', 'destructuring', (target) =>
    /** @test {AbstractDoc#@param} */
    describe(`TestDestructuringArray (${target.name}):`, () =>
    {
-      const doc = Util.readDoc(target,
-       'class/test/fixture/package/src/Destructuring/Array.js~TestDestructuringArray.html');
+      let doc;
+
+      before(() =>
+      {
+         doc = Util.readDoc(target,
+          'class/test/fixture/package/src/Destructuring/Array.js~TestDestructuringArray.html');
+      });
 
       describe('in summary', () =>
       {

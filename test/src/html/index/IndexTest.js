@@ -7,7 +7,12 @@ testConfig.forEachTarget('html', 'index', (target) =>
    /** @test {IndexDocBuilder} */
    describe(`test index (${target.name}):`, () =>
    {
-      const doc = Util.readDoc(target, 'index.html');
+      let doc;
+
+      before(() =>
+      {
+         doc = Util.readDoc(target, 'index.html');
+      });
 
       it('has README.md', () =>
       {

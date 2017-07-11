@@ -7,7 +7,12 @@ testConfig.forEachTarget('html_doc', 'ignore', (target) =>
    /** @test {DocResolver#_resolveIgnore */
    describe(`testIgnoreFunction (${target.name}):`, () =>
    {
-      const doc = Util.readDoc(target, 'function/index.html');
+      let doc;
+
+      before(() =>
+      {
+         doc = Util.readDoc(target, 'function/index.html');
+      });
 
       it('is not documented.', () =>
       {

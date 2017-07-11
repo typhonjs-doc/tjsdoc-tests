@@ -7,7 +7,12 @@ testConfig.forEachTarget('html_doc', 'param', (target) =>
    /** @test {FunctionDoc#@param} */
    describe(`testParamFunction (${target.name}):`, () =>
    {
-      const doc = Util.readDoc(target, 'function/index.html');
+      let doc;
+
+      before(() =>
+      {
+         doc = Util.readDoc(target, 'function/index.html');
+      });
 
       describe('in summary', () =>
       {

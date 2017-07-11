@@ -10,8 +10,13 @@ testConfig.forEachTarget('html_doc', 'decorator', (target) =>
     */
    describe(`TestDecoratorDefinition (${target.name}):`, () =>
    {
-      const doc = Util.readDoc(target,
-       'class/test/fixture/package/src/Decorator/Definition.js~TestDecoratorDefinition.html');
+      let doc;
+
+      before(() =>
+      {
+         doc = Util.readDoc(target,
+          'class/test/fixture/package/src/Decorator/Definition.js~TestDecoratorDefinition.html');
+      });
 
       it('has decorator at class.', () =>
       {

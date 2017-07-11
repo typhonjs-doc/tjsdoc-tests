@@ -9,11 +9,16 @@ testConfig.forEachTarget('html', 'menu', (target) =>
    {
       describe('test navigation', () =>
       {
+         let doc;
+
+         before(() =>
+         {
+            doc = Util.readDoc(target, 'manual/index.html');
+         });
+
          /** @test {ManualDocBuilder#_buildManualNav} */
          it('has manual navigation', () =>
          {
-            const doc = Util.readDoc(target, 'manual/index.html');
-
             Util.find(doc, '[data-ice="nav"]', (doc) =>
             {
                Util.assert.includes(doc, '[data-ice="manual"]:nth-of-type(1)',
@@ -166,7 +171,12 @@ testConfig.forEachTarget('html', 'menu', (target) =>
       /** @test {ManualDocBuilder#_buildManualIndex} */
       describe('test each heading tags', () =>
       {
-         const doc = Util.readDoc(target, 'manual/index.html');
+         let doc;
+
+         before(() =>
+         {
+            doc = Util.readDoc(target, 'manual/index.html');
+         });
 
          it('has overview heading tags', () =>
          {

@@ -7,7 +7,12 @@ testConfig.forEachTarget('html_doc', 'computed', (target) =>
    /** @test {MethodDoc#@_name} */
    describe(`TestComputedMethod (${target.name}):`, () =>
    {
-      const doc = Util.readDoc(target, 'class/test/fixture/package/src/computed/Method.js~TestComputedMethod.html');
+      let doc;
+
+      before(() =>
+      {
+         doc = Util.readDoc(target, 'class/test/fixture/package/src/computed/Method.js~TestComputedMethod.html');
+      });
 
       describe('in summary:', () =>
       {

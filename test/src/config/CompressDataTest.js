@@ -7,7 +7,11 @@ testConfig.forEachTarget('config', 'compressData', (target) =>
    /** @test {publish} */
    describe(`test compressData / outputASTData / config.outputDocData: true (${target.name}):`, () =>
    {
-      Util.invoke(target, './test/fixture/config/tjsdoc-compressData.json', { silent: testConfig.consoleSilent });
+      before(async () =>
+      {
+         await Util.invoke(target, './test/fixture/config/tjsdoc-compressData.json',
+          { silent: testConfig.consoleSilent });
+      });
 
       it('compresses as AST and docData.json', (done) =>
       {

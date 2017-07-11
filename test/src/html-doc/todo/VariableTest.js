@@ -7,7 +7,12 @@ testConfig.forEachTarget('html_doc', 'todo', (target) =>
    /** @test {AbstractDoc#@todo} */
    describe(`testTodoVariable (${target.name}):`, () =>
    {
-      const doc = Util.readDoc(target, 'variable/index.html');
+      let doc;
+
+      before(() =>
+      {
+         doc = Util.readDoc(target, 'variable/index.html');
+      });
 
       it('has see.', () =>
       {

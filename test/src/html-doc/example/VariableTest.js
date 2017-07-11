@@ -7,7 +7,12 @@ testConfig.forEachTarget('html_doc', 'example', (target) =>
    /** @test {AbstractDoc#@example} */
    describe(`testExampleVariable (${target.name}):`, () =>
    {
-      const doc = Util.readDoc(target, 'variable/index.html');
+      let doc;
+
+      before(() =>
+      {
+         doc = Util.readDoc(target, 'variable/index.html');
+      });
 
       describe('in details', () =>
       {

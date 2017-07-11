@@ -12,8 +12,13 @@ testConfig.forEachTarget('html_doc', 'extends', (target) =>
    {
       describe('TestExtendsDeepSquare', () =>
       {
-         const doc = Util.readDoc(target,
-          'class/test/fixture/package/src/extends/Deep.js~TestExtendsDeepSquare.html');
+         let doc;
+
+         before(() =>
+         {
+            doc = Util.readDoc(target,
+             'class/test/fixture/package/src/extends/Deep.js~TestExtendsDeepSquare.html');
+         });
 
          it('has extends chain.', () =>
          {
@@ -80,8 +85,13 @@ testConfig.forEachTarget('html_doc', 'extends', (target) =>
 
       describe('TestExtendsDeepRectangle', () =>
       {
-         const doc = Util.readDoc(target,
-          'class/test/fixture/package/src/extends/Deep.js~TestExtendsDeepRectangle.html');
+         let doc;
+
+         before(() =>
+         {
+            doc = Util.readDoc(target,
+             'class/test/fixture/package/src/extends/Deep.js~TestExtendsDeepRectangle.html');
+         });
 
          it('has direct subclass.', () =>
          {
@@ -96,7 +106,12 @@ testConfig.forEachTarget('html_doc', 'extends', (target) =>
 
       describe('TestExtendsDeepShape', () =>
       {
-         const doc = Util.readDoc(target, 'class/test/fixture/package/src/extends/Deep.js~TestExtendsDeepShape.html');
+         let doc;
+
+         before(() =>
+         {
+            doc = Util.readDoc(target, 'class/test/fixture/package/src/extends/Deep.js~TestExtendsDeepShape.html');
+         });
 
          it('has direct subclass.', () =>
          {

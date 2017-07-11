@@ -7,7 +7,12 @@ testConfig.forEachTarget('html_doc', 'since', (target) =>
    /** @test {AbstractDoc#@since} */
    describe(`TestSinceClass (${target.name}):`, () =>
    {
-      const doc = Util.readDoc(target, 'class/test/fixture/package/src/Since/Class.js~TestSinceClass.html');
+      let doc;
+
+      before(() =>
+      {
+         doc = Util.readDoc(target, 'class/test/fixture/package/src/Since/Class.js~TestSinceClass.html');
+      });
 
       it('has since at class.', () =>
       {

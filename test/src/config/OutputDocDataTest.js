@@ -7,7 +7,11 @@ testConfig.forEachTarget('config', 'outputDocData', (target) =>
    /** @test {publish} */
    describe(`test config.outputDocData: true (${target.name}):`, () =>
    {
-      Util.invoke(target, './test/fixture/config/tjsdoc-outputDocData.json', { silent: testConfig.consoleSilent });
+      before(async () =>
+      {
+         await Util.invoke(target, './test/fixture/config/tjsdoc-outputDocData.json',
+          { silent: testConfig.consoleSilent });
+      });
 
       it('outputs ast data.', () =>
       {

@@ -7,7 +7,12 @@ testConfig.forEachTarget('html', 'test', (target) =>
    /** @test {ClassDocBuilder} */
    describe(`test link of test (${target.name}):`, () =>
    {
-      const doc = Util.readDoc(target, 'class/test/fixture/package/src/desc/Class.js~TestDescClass.html');
+      let doc;
+
+      before(() =>
+      {
+         doc = Util.readDoc(target, 'class/test/fixture/package/src/desc/Class.js~TestDescClass.html');
+      });
 
       it('has link of test at class', () =>
       {

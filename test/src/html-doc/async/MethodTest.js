@@ -7,7 +7,12 @@ testConfig.forEachTarget('html_doc', 'async', (target) =>
    /** @test {MethodDoc#_$async} */
    describe(`TestAsyncMethod (${target.name}):`, () =>
    {
-      const doc = Util.readDoc(target, 'class/test/fixture/package/src/Async/Method.js~TestAsyncMethod.html');
+      let doc;
+
+      before(() =>
+      {
+         doc = Util.readDoc(target, 'class/test/fixture/package/src/Async/Method.js~TestAsyncMethod.html');
+      });
 
       describe('in summary', () =>
       {

@@ -10,7 +10,12 @@ testConfig.forEachTarget('html_doc', 'type', (target) =>
     */
    describe(`TestTypeClass (${target.name}):`, () =>
    {
-      const doc = Util.readDoc(target, 'class/test/fixture/package/src/type/Class.js~TestTypeClass.html');
+      let doc;
+
+      before(() =>
+      {
+         doc = Util.readDoc(target, 'class/test/fixture/package/src/type/Class.js~TestTypeClass.html');
+      });
 
       it('has class type.', () =>
       {

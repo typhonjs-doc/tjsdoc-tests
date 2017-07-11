@@ -7,7 +7,12 @@ testConfig.forEachTarget('html_doc', 'jsx', (target) =>
    /** @test {ESParser} */
    describe(`TestJSXDefinition (${target.name}):`, () =>
    {
-      const doc = Util.readDoc(target, 'class/test/fixture/package/src/JSX/Definition.js~TestJSXDefinition.html');
+      let doc;
+
+      before(() =>
+      {
+         doc = Util.readDoc(target, 'class/test/fixture/package/src/JSX/Definition.js~TestJSXDefinition.html');
+      });
 
       describe('in self detail', () =>
       {

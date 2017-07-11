@@ -7,8 +7,13 @@ testConfig.forEachTarget('html_doc', 'desc', (target) =>
    /** @test {AbstractDoc#@desc} */
    describe(`TestDescMultiLine (${target.name}):`, () =>
    {
-      const doc = Util.readDoc(target,
-       'class/test/fixture/package/src/desc/MultiLine.js~TestDescMultiLine.html');
+      let doc;
+
+      before(() =>
+      {
+         doc = Util.readDoc(target,
+          'class/test/fixture/package/src/desc/MultiLine.js~TestDescMultiLine.html');
+      });
 
       describe('in summary', () =>
       {

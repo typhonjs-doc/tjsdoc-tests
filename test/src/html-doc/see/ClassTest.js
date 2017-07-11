@@ -7,7 +7,12 @@ testConfig.forEachTarget('html_doc', 'see', (target) =>
    /** @test {AbstractDoc#@see} */
    describe(`TestSeeClass (${target.name}):`, () =>
    {
-      const doc = Util.readDoc(target, 'class/test/fixture/package/src/See/Class.js~TestSeeClass.html');
+      let doc;
+
+      before(() =>
+      {
+         doc = Util.readDoc(target, 'class/test/fixture/package/src/See/Class.js~TestSeeClass.html');
+      });
 
       it('has see from class.', () =>
       {

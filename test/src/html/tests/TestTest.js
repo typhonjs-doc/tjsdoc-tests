@@ -10,7 +10,12 @@ testConfig.forEachTarget('html', 'test', (target) =>
     */
    describe(`test integration of test (${target.name}):`, () =>
    {
-      const doc = Util.readDoc(target, 'test.html').find('[data-ice="tests"]');
+      let doc;
+
+      before(() =>
+      {
+         doc = Util.readDoc(target, 'test.html').find('[data-ice="tests"]');
+      });
 
       describe('describe/it style', () =>
       {

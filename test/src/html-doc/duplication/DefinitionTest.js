@@ -7,8 +7,13 @@ testConfig.forEachTarget('html_doc', 'duplication', (target) =>
    /** @test {DocResolver#_resolveDuplication} */
    describe(`TestDuplicationDefinition (${target.name}):`, () =>
    {
-      const doc = Util.readDoc(target,
-       'class/test/fixture/package/src/Duplication/Definition.js~TestDuplicationDefinition.html');
+      let doc;
+
+      before(() =>
+      {
+         doc = Util.readDoc(target,
+          'class/test/fixture/package/src/Duplication/Definition.js~TestDuplicationDefinition.html');
+      });
 
       describe('in summary', () =>
       {

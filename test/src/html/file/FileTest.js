@@ -7,7 +7,12 @@ testConfig.forEachTarget('html', 'file', (target) =>
    /** @test {FileDocBuilder} */
    describe(`test source code file (${target.name}):`, () =>
    {
-      const doc = Util.readDoc(target, 'file/test/fixture/package/src/desc/Class.js.html');
+      let doc;
+
+      before(() =>
+      {
+         doc = Util.readDoc(target, 'file/test/fixture/package/src/desc/Class.js.html');
+      });
 
       it('does not have source code.', () =>
       {

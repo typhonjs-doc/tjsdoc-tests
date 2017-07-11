@@ -7,7 +7,12 @@ testConfig.forEachTarget('html_doc', 'export', (target) =>
    /** @test {FunctionDoc#@_name} */
    describe(`test export arrow function (${target.name}):`, () =>
    {
-      const doc = Util.readDoc(target, 'function/index.html');
+      let doc;
+
+      before(() =>
+      {
+         doc = Util.readDoc(target, 'function/index.html');
+      });
 
       it('has default import path with direct arrow function definition.', () =>
       {

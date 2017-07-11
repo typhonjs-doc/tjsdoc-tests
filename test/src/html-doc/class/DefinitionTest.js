@@ -7,8 +7,13 @@ testConfig.forEachTarget('html_doc', 'class', (target) =>
    /** @test {ClassDocBuilder} */
    describe(`TestClassDefinition (${target.name}):`, () =>
    {
-      const doc = Util.readDoc(target,
-       'class/test/fixture/package/src/class/Definition.js~TestClassDefinition.html');
+      let doc;
+
+      before(() =>
+      {
+         doc = Util.readDoc(target,
+          'class/test/fixture/package/src/class/Definition.js~TestClassDefinition.html');
+      });
 
       /** @test {DocBuilder#_getTitle} */
       describe('in title:', () =>

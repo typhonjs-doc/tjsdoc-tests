@@ -7,6 +7,6 @@ module.exports =
    'includes': ['desc/.*\\.js$'],
    'index': './test/fixture/package/README.md',
    'package': './test/fixture/package/package.json',
-   'runtime': path.resolve('./tjsdoc-babylon/src/TJSDocBabylon.js'),
-   'publisher': path.resolve('./tjsdoc-publisher-static-html/src/Publisher.js')
+   'runtime': path.resolve('../tjsdoc-babylon/src/TJSDocBabylon.js'),
+   'publisher': path.resolve('../tjsdoc-publisher-static-html/src/Publisher.js')
 };

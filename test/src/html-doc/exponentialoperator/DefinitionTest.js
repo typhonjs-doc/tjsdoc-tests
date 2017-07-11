@@ -7,8 +7,13 @@ testConfig.forEachTarget('html_doc', 'exponentialOperator', (target) =>
    /** @test {ESParser} */
    describe(`TestExponentiationOperatorDefinition (${target.name}):`, () =>
    {
-      const doc = Util.readDoc(target,
-       'class/test/fixture/package/src/ExponentiationOperator/Definition.js~TestExponentiationOperatorDefinition.html');
+      let doc;
+
+      before(() =>
+      {
+         doc = Util.readDoc(target,
+          'class/test/fixture/package/src/ExponentiationOperator/Definition.js~TestExponentiationOperatorDefinition.html');
+      });
 
       describe('in self detail', () =>
       {

@@ -10,11 +10,16 @@ testConfig.forEachTarget('html_doc', 'type', (target) =>
     */
    describe(`TestTypeRecord (${target.name}):`, () =>
    {
-      const doc = Util.readDoc(target, 'class/test/fixture/package/src/type/Record.js~TestTypeRecord.html');
+      let doc;
+
+      before(() =>
+      {
+         doc = Util.readDoc(target, 'class/test/fixture/package/src/type/Record.js~TestTypeRecord.html');
+      });
 
       it('has record type.', () =>
       {
-         Util.findParent(doc, '[data-ice="summary"] [href$="#instance-classmethod-method1"]', '[data-ice="target"]', 
+         Util.findParent(doc, '[data-ice="summary"] [href$="#instance-classmethod-method1"]', '[data-ice="target"]',
           (doc) =>
          {
             Util.assert.includes(doc, null, 'method1(p1: {x1: number, x2: string})');

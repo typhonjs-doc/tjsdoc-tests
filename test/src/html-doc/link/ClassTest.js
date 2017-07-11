@@ -7,7 +7,12 @@ testConfig.forEachTarget('html_doc', 'link', (target) =>
    /** @test {DocResolver#_resolveLink} */
    describe(`TestLinkClass (${target.name}):`, () =>
    {
-      const doc = Util.readDoc(target, 'class/test/fixture/package/src/link/Class.js~TestLinkClass.html');
+      let doc;
+
+      before(() =>
+      {
+         doc = Util.readDoc(target, 'class/test/fixture/package/src/link/Class.js~TestLinkClass.html');
+      });
 
       it('has link from class.', () =>
       {

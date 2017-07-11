@@ -6,11 +6,14 @@ testConfig.forEachTarget('html', 'search', (target) =>
 {
    describe(`test search (${target.name}):`, () =>
    {
-      const searchIndexJS = Util.readFile(target, 'scripts/search_index.js').toString();
+      let searchIndex;
 
-      const searchIndexJSON = searchIndexJS.replace('window.tjsdocSearchIndex = ', '');
-
-      const searchIndex = JSON.parse(searchIndexJSON);
+      before(() =>
+      {
+         const searchIndexJS = Util.readFile(target, 'scripts/search_index.js').toString();
+         const searchIndexJSON = searchIndexJS.replace('window.tjsdocSearchIndex = ', '');
+         searchIndex = JSON.parse(searchIndexJSON);
+      });
 
       /**
        * Finds and URL in the search index JSON.

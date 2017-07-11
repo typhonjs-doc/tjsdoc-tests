@@ -7,7 +7,12 @@ testConfig.forEachTarget('html_doc', 'emits', (target) =>
    /** @test {AbstractDoc#@emits} */
    describe(`TestEmitsMethod (${target.name}):`, () =>
    {
-      const doc = Util.readDoc(target, 'class/test/fixture/package/src/emits/Method.js~TestEmitsMethod.html');
+      let doc;
+
+      before(() =>
+      {
+         doc = Util.readDoc(target, 'class/test/fixture/package/src/emits/Method.js~TestEmitsMethod.html');
+      });
 
       describe('in details', () =>
       {

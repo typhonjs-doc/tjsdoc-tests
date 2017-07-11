@@ -7,7 +7,12 @@ testConfig.forEachTarget('html_doc', 'listens', (target) =>
    /** @test {AbstractDoc#@listens} */
    describe(`TestListensMethod (${target.name}):`, () =>
    {
-      const doc = Util.readDoc(target, 'class/test/fixture/package/src/listens/Method.js~TestListensMethod.html');
+      let doc;
+
+      before(() =>
+      {
+         doc = Util.readDoc(target, 'class/test/fixture/package/src/listens/Method.js~TestListensMethod.html');
+      });
 
       it('has listens.', () =>
       {

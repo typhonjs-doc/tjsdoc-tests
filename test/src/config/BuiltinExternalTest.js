@@ -6,7 +6,11 @@ testConfig.forEachTarget('config', 'builtinExternal', (target) =>
 {
    describe(`test config.builtinVirtual: false (${target.name}):`, () =>
    {
-      Util.invoke(target, './test/fixture/config/tjsdoc-builtinVirtual.json', { silent: testConfig.consoleSilent });
+      before(async () =>
+      {
+         await Util.invoke(target, './test/fixture/config/tjsdoc-builtinVirtual.json',
+          { silent: testConfig.consoleSilent });
+      });
 
       it('does not have builtin external link', () =>
       {

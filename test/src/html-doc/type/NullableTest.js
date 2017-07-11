@@ -10,7 +10,12 @@ testConfig.forEachTarget('html_doc', 'type', (target) =>
     */
    describe(`TestTypeNullable (${target.name}):`, () =>
    {
-      const doc = Util.readDoc(target, 'class/test/fixture/package/src/type/Nullable.js~TypeTestNullable.html');
+      let doc;
+
+      before(() =>
+      {
+         doc = Util.readDoc(target, 'class/test/fixture/package/src/type/Nullable.js~TypeTestNullable.html');
+      });
 
       it('has nullable value.', () =>
       {

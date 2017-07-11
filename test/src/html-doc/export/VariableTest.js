@@ -7,7 +7,12 @@ testConfig.forEachTarget('html_doc', 'export', (target) =>
    /** @test {VariableDoc#@_name} */
    describe(`test export variable (${target.name}):`, () =>
    {
-      const doc = Util.readDoc(target, 'variable/index.html');
+      let doc;
+
+      before(() =>
+      {
+         doc = Util.readDoc(target, 'variable/index.html');
+      });
 
       it('has default import path with direct variable definition.', () =>
       {

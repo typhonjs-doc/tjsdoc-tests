@@ -10,7 +10,12 @@ testConfig.forEachTarget('html_doc', 'export', (target) =>
     */
    describe(`TestExportDefault (${target.name}):`, () =>
    {
-      const doc = Util.readDoc(target, 'class/test/fixture/package/src/export/Default.js~TestExportDefault.html');
+      let doc;
+
+      before(() =>
+      {
+         doc = Util.readDoc(target, 'class/test/fixture/package/src/export/Default.js~TestExportDefault.html');
+      });
 
       it('has default import path.', () =>
       {

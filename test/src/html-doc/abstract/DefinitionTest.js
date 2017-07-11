@@ -7,8 +7,13 @@ testConfig.forEachTarget('html_doc', 'abstract', (target) =>
    /** @test {DocBuilder} */
    describe(`TestAbstractDefinition (${target.name}):`, () =>
    {
-      const doc = Util.readDoc(target,
-       'class/test/fixture/package/src/abstract/Definition.js~TestAbstractDefinition.html');
+      let doc;
+
+      before(() =>
+      {
+         doc = Util.readDoc(target,
+          'class/test/fixture/package/src/abstract/Definition.js~TestAbstractDefinition.html');
+      });
 
       /** @test {DocBuilder#_buildSummaryDoc} */
       it('has abstract method in summary.', () =>

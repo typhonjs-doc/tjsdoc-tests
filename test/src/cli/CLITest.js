@@ -32,10 +32,10 @@ testConfig.forEachTarget('cli', 'cli', (target) =>
             cli = typeof CLIClass.default === 'function' ? new CLIClass.default(argv) : new CLIClass(argv);
          });
 
-         it('can execute with config file.', () =>
+         it('can execute with config file.', async () =>
          {
             if (testConfig.consoleSilent) { Util.consoleLogSilent(true); }
-            cli.exec();
+            await cli.exec();
             if (testConfig.consoleSilent) { Util.consoleLogSilent(false); }
          });
 

@@ -7,7 +7,12 @@ testConfig.forEachTarget('html', 'nav', (target) =>
    /** @test {DocBuilder#_buildNavDoc} */
    describe(`test navigation (${target.name}):`, () =>
    {
-      const doc = Util.readDoc(target, 'index.html');
+      let doc;
+
+      before(() =>
+      {
+         doc = Util.readDoc(target, 'index.html');
+      });
 
       it('has class', () =>
       {

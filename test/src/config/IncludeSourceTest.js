@@ -7,7 +7,11 @@ testConfig.forEachTarget('config', 'includeSource', (target) =>
    /** @test {publish} */
    describe(`test config.includeSource: false (${target.name}):`, () =>
    {
-      Util.invoke(target, './test/fixture/config/tjsdoc-includeSource.json', { silent: testConfig.consoleSilent });
+      before(async () =>
+      {
+         await Util.invoke(target, './test/fixture/config/tjsdoc-includeSource.json',
+          { silent: testConfig.consoleSilent });
+      });
 
       it('has source code.', () =>
       {

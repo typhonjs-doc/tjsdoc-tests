@@ -11,8 +11,13 @@ testConfig.forEachTarget('html_doc', 'undocument', (target) =>
     */
    describe(`TestUndocumentDefinition (${target.name}):`, () =>
    {
-      const doc = Util.readDoc(target,
-       'class/test/fixture/package/src/Undocument/Definition.js~TestUndocumentDefinition.html');
+      let doc;
+
+      before(() =>
+      {
+         doc = Util.readDoc(target,
+          'class/test/fixture/package/src/Undocument/Definition.js~TestUndocumentDefinition.html');
+      });
 
       it('is exist', () =>
       {

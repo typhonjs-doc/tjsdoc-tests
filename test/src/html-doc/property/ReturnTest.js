@@ -7,7 +7,12 @@ testConfig.forEachTarget('html_doc', 'property', (target) =>
    /** @test {AbstractDoc#@property} */
    describe(`TestPropertyReturn (${target.name}):`, () =>
    {
-      const doc = Util.readDoc(target, 'class/test/fixture/package/src/Property/Return.js~TestPropertyReturn.html');
+      let doc;
+
+      before(() =>
+      {
+         doc = Util.readDoc(target, 'class/test/fixture/package/src/Property/Return.js~TestPropertyReturn.html');
+      });
 
       describe('in details', () =>
       {

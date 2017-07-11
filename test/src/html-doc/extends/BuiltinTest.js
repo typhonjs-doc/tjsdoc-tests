@@ -7,7 +7,12 @@ testConfig.forEachTarget('html_doc', 'extends', (target) =>
    /** @test {ClassDoc#@extends} */
    describe(`TestExtendsBuiltin (${target.name}):`, () =>
    {
-      const doc = Util.readDoc(target, 'class/test/fixture/package/src/extends/Builtin.js~TestExtendsBuiltin.html');
+      let doc;
+
+      before(() =>
+      {
+         doc = Util.readDoc(target, 'class/test/fixture/package/src/extends/Builtin.js~TestExtendsBuiltin.html');
+      });
 
       it('has extends chain.', () =>
       {

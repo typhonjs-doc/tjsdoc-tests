@@ -7,7 +7,12 @@ testConfig.forEachTarget('html_doc', 'ignore', (target) =>
    /** @test {DocResolver#_resolveIgnore */
    describe(`testIgnoreVariable (${target.name}):`, () =>
    {
-      const doc = Util.readDoc(target, 'variable/index.html');
+      let doc;
+
+      before(() =>
+      {
+         doc = Util.readDoc(target, 'variable/index.html');
+      });
 
       it('is not documented.', () =>
       {

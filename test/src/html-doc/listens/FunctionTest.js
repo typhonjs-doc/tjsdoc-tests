@@ -7,7 +7,12 @@ testConfig.forEachTarget('html_doc', 'listens', (target) =>
    /** @test {AbstractDoc#@listens} */
    describe(`testListensFunction (${target.name}):`, () =>
    {
-      const doc = Util.readDoc(target, 'function/index.html');
+      let doc;
+
+      before(() =>
+      {
+         doc = Util.readDoc(target, 'function/index.html');
+      });
 
       it('has listens.', () =>
       {

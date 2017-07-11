@@ -7,8 +7,13 @@ testConfig.forEachTarget('html_doc', 'abstract', (target) =>
    /** @test {DocBuilder} */
    describe(`TestAbstractOverride (${target.name}):`, () =>
    {
-      const doc = Util.readDoc(target,
-       'class/test/fixture/package/src/abstract/Override.js~TestAbstractOverride.html');
+      let doc;
+
+      before(() =>
+      {
+         doc = Util.readDoc(target,
+          'class/test/fixture/package/src/abstract/Override.js~TestAbstractOverride.html');
+      });
 
       /** @test {DocBuilder#_buildOverrideMethod} */
       it('has override description in summary.', () =>

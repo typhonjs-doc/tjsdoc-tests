@@ -7,7 +7,12 @@ testConfig.forEachTarget('html', 'identifiers', (target) =>
    /** @test {IdentifiersDocBuilder} */
    describe(`test identifiers (${target.name}):`, () =>
    {
-      const doc = Util.readDoc(target, 'identifiers.html');
+      let doc;
+
+      before(() =>
+      {
+         doc = Util.readDoc(target, 'identifiers.html');
+      });
 
       it('has class summary.', () =>
       {

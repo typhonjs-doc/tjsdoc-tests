@@ -18,7 +18,12 @@ testConfig.forEachTarget('html_doc', 'ignore', (target) =>
 
       describe('TestIgnoreClass2', () =>
       {
-         const doc = Util.readDoc(target, 'class/test/fixture/package/src/Ignore/Class.js~TestIgnoreClass2.html');
+         let doc;
+
+         before(() =>
+         {
+            doc = Util.readDoc(target, 'class/test/fixture/package/src/Ignore/Class.js~TestIgnoreClass2.html');
+         });
 
          it('does not have ignored member.', () =>
          {

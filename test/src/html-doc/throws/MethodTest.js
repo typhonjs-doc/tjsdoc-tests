@@ -7,7 +7,12 @@ testConfig.forEachTarget('html_doc', 'throws', (target) =>
    /** @test {AbstractDoc#@throws} */
    describe(`TestThrowsMethod (${target}):`, () =>
    {
-      const doc = Util.readDoc(target, 'class/test/fixture/package/src/throws/Method.js~TestThrowsMethod.html');
+      let doc;
+
+      before(() =>
+      {
+         doc = Util.readDoc(target, 'class/test/fixture/package/src/throws/Method.js~TestThrowsMethod.html');
+      });
 
       it('has throws.', () =>
       {

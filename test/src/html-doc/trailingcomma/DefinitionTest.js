@@ -7,8 +7,13 @@ testConfig.forEachTarget('html_doc', 'trailingComma', (target) =>
    /** @test {ESParser} */
    describe(`TestTrailingCommaDefinition (${target.name}):`, () =>
    {
-      const doc = Util.readDoc(target,
-       'class/test/fixture/package/src/TrailingComma/Definition.js~TestTrailingCommaDefinition.html');
+      let doc;
+
+      before(() =>
+      {
+         doc = Util.readDoc(target,
+          'class/test/fixture/package/src/TrailingComma/Definition.js~TestTrailingCommaDefinition.html');
+      });
 
       describe('in self detail', () =>
       {

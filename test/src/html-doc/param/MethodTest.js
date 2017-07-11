@@ -7,7 +7,12 @@ testConfig.forEachTarget('html_doc', 'param', (target) =>
    /** @test {AbstractDoc#@desc} */
    describe(`TestParamMethod (${target.name}):`, () =>
    {
-      const doc = Util.readDoc(target, 'class/test/fixture/package/src/Param/Method.js~TestParamMethod.html');
+      let doc;
+
+      before(() =>
+      {
+         doc = Util.readDoc(target, 'class/test/fixture/package/src/Param/Method.js~TestParamMethod.html');
+      });
 
       describe('in summary', () =>
       {

@@ -7,7 +7,12 @@ testConfig.forEachTarget('html_doc', 'desc', (target) =>
    /** @test {AbstractDoc#@desc} */
    describe(`TestDescMarkdown (${target.name}):`, () =>
    {
-      const doc = Util.readDoc(target, 'class/test/fixture/package/src/desc/Markdown.js~TestDescMarkdown.html');
+      let doc;
+
+      before(() =>
+      {
+         doc = Util.readDoc(target, 'class/test/fixture/package/src/desc/Markdown.js~TestDescMarkdown.html');
+      });
 
       describe('in self detail', () =>
       {

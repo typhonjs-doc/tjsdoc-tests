@@ -10,8 +10,13 @@ testConfig.forEachTarget('html_doc', 'extends', (target) =>
     */
    describe(`TestExtendsMixin (${target.name}):`, () =>
    {
-      const doc = Util.readDoc(target,
-       'class/test/fixture/package/src/extends/MixinExplicit.js~TextExplicitMixin.html');
+      let doc;
+
+      before(() =>
+      {
+         doc = Util.readDoc(target,
+          'class/test/fixture/package/src/extends/MixinExplicit.js~TextExplicitMixin.html');
+      });
 
       it('has extends chain.', () =>
       {

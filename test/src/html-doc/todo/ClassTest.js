@@ -7,7 +7,12 @@ testConfig.forEachTarget('html_doc', 'todo', (target) =>
    /** @test {AbstractDoc#@todo} */
    describe(`TestTodoClass (${target.name}):`, () =>
    {
-      const doc = Util.readDoc(target, 'class/test/fixture/package/src/Todo/Class.js~TestTodoClass.html');
+      let doc;
+
+      before(() =>
+      {
+         doc = Util.readDoc(target, 'class/test/fixture/package/src/Todo/Class.js~TestTodoClass.html');
+      });
 
       it('has todo at class.', () =>
       {

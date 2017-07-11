@@ -7,7 +7,12 @@ testConfig.forEachTarget('html_doc', 'generator', (target) =>
    /** @test {AbstractDoc#@_generator} */
    describe(`TestGeneratorMethod (${target.name}):`, () =>
    {
-      const doc = Util.readDoc(target, 'class/test/fixture/package/src/Generator/Method.js~TestGeneratorMethod.html');
+      let doc;
+
+      before(() =>
+      {
+         doc = Util.readDoc(target, 'class/test/fixture/package/src/Generator/Method.js~TestGeneratorMethod.html');
+      });
 
       describe('in summary', () =>
       {

@@ -7,7 +7,12 @@ testConfig.forEachTarget('html_doc', 'guess', (target) =>
    /** @test {ParamParser#guessParam} */
    describe(`TestGuessProperty (${target.name}):`, () =>
    {
-      const doc = Util.readDoc(target, 'class/test/fixture/package/src/Guess/Property.js~TestGuessProperty.html');
+      let doc;
+
+      before(() =>
+      {
+         doc = Util.readDoc(target, 'class/test/fixture/package/src/Guess/Property.js~TestGuessProperty.html');
+      });
 
       describe('in summary', () =>
       {

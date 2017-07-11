@@ -7,7 +7,11 @@ testConfig.forEachTarget('config', 'unexportIdentifier', (target) =>
    /** @test {DocResolver#_resolveUnexportIdentifier} */
    describe(`test config.unexportIdentifier: true (${target.name}):`, () =>
    {
-      Util.invoke(target, './test/fixture/config/tjsdoc-unexportIdentifier.json', { silent: testConfig.consoleSilent });
+      before(async () =>
+      {
+         await Util.invoke(target, './test/fixture/config/tjsdoc-unexportIdentifier.json',
+          { silent: testConfig.consoleSilent });
+      });
 
       /**
        * Helper function to change the directory when invoking `_readDoc`.

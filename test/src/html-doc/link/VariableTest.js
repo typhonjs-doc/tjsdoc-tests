@@ -7,7 +7,12 @@ testConfig.forEachTarget('html_doc', 'link', (target) =>
    /** @test {DocResolver#_resolveLink} */
    describe(`testLinkVariable (${target.name}):`, () =>
    {
-      const doc = Util.readDoc(target, 'variable/index.html');
+      let doc;
+
+      before(() =>
+      {
+         doc = Util.readDoc(target, 'variable/index.html');
+      });
 
       it('has link.', () =>
       {

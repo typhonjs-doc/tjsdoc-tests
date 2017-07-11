@@ -7,7 +7,12 @@ testConfig.forEachTarget('html_doc', 'deprecated', (target) =>
    /** @test {AbstractDoc#@deprecated} */
    describe(`testDeprecatedVariable (${target.name}):`, () =>
    {
-      const doc = Util.readDoc(target, 'variable/index.html');
+      let doc;
+
+      before(() =>
+      {
+         doc = Util.readDoc(target, 'variable/index.html');
+      });
 
       describe('in summary', () =>
       {

@@ -7,8 +7,13 @@ testConfig.forEachTarget('html_doc', 'extends', (target) =>
    /** @test {ClassDoc#@extends} */
    describe(`TestExtendsExpression (${target.name}):`, () =>
    {
-      const doc = Util.readDoc(target,
-       'class/test/fixture/package/src/extends/Expression.js~TestExtendsExpression.html');
+      let doc;
+
+      before(() =>
+      {
+         doc = Util.readDoc(target,
+          'class/test/fixture/package/src/extends/Expression.js~TestExtendsExpression.html');
+      });
 
       it('has expression extends.', () =>
       {

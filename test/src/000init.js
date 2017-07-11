@@ -5,6 +5,9 @@ import testConfig from './testConfig.js';
 import path       from 'path';
 import process    from 'process';
 
+// Only load one instance of `babel-polyfill`.
+if (!global._babelPolyfill) { require('babel-polyfill'); }
+
 process.chdir(path.resolve(__dirname, '../..'));
 
 console.log(`emptying destination: ${testConfig.emptyDest}`);
@@ -17,12 +20,20 @@ if (testConfig.emptyDest)
    fs.emptyDirSync('./test/fixture/dest-cli/ecmascript/');
 }
 
+// console.error = () => {};
+
 if (testConfig.generateMain)
 {
-   testConfig.forEachTarget((target) =>
+   describe('', () =>
    {
-      console.log(`generating main test (${target.name}):`);
+      it('', async () =>
+      {
+         await testConfig.forEachTargetAsync(async (target) =>
+         {
+            console.log(`generating main test (${target.name}):`);
 
-      Util.invoke(target, './test/fixture/package/tjsdoc.json', { silent: false });
+            await Util.invoke(target, './test/fixture/package/tjsdoc.json', { silent: false });
+         });
+      });
    });
 }

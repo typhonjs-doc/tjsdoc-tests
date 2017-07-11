@@ -7,11 +7,15 @@ testConfig.forEachTarget('config', 'emptyDestination', (target) =>
    /** @test {publish} */
    describe(`test config.emptyDestination: true (${target.name}):`, () =>
    {
-      // Write a dummy data file to verify that empty destination works before invoking TJSDoc.
-      Util.ensureDir(target, 'tjsdoc-emptyDestination');
-      Util.writeFile(target, 'tjsdoc-emptyDestination', 'DUMMY_DATA', 'DUMMY_DATA');
+      before(async () =>
+      {
+         // Write a dummy data file to verify that empty destination works before invoking TJSDoc.
+         Util.ensureDir(target, 'tjsdoc-emptyDestination');
+         Util.writeFile(target, 'tjsdoc-emptyDestination', 'DUMMY_DATA', 'DUMMY_DATA');
 
-      Util.invoke(target, './test/fixture/config/tjsdoc-emptyDestination.json', { silent: testConfig.consoleSilent });
+         await Util.invoke(target, './test/fixture/config/tjsdoc-emptyDestination.json',
+          { silent: testConfig.consoleSilent });
+      });
 
       it('destination emptied.', () =>
       {

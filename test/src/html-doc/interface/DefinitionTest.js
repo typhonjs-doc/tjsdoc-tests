@@ -7,8 +7,13 @@ testConfig.forEachTarget('html_doc', 'interface', (target) =>
    /** @test {ClassDoc#@interface} */
    describe(`TestInterfaceDefinition (${target.name}):`, () =>
    {
-      const doc = Util.readDoc(target,
-       'class/test/fixture/package/src/interface/Definition.js~TestInterfaceDefinition.html');
+      let doc;
+
+      before(() =>
+      {
+         doc = Util.readDoc(target,
+          'class/test/fixture/package/src/interface/Definition.js~TestInterfaceDefinition.html');
+      });
 
       it('has interface mark.', () =>
       {

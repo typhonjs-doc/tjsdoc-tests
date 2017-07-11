@@ -7,7 +7,12 @@ testConfig.forEachTarget('html_doc', 'version', (target) =>
    /** @test {AbstractDoc#@version} */
    describe(`TestVersionClass (${target.name}):`, () =>
    {
-      const doc = Util.readDoc(target, 'class/test/fixture/package/src/Version/Class.js~TestVersionClass.html');
+      let doc;
+
+      before(() =>
+      {
+         doc = Util.readDoc(target, 'class/test/fixture/package/src/Version/Class.js~TestVersionClass.html');
+      });
 
       describe('in self detail', () =>
       {

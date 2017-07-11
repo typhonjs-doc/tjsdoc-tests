@@ -7,7 +7,12 @@ testConfig.forEachTarget('html_doc', 'typedef', (target) =>
    /** @test {TypedefDoc} */
    describe(`TestTypedefDefinition (${target.name}):`, () =>
    {
-      const doc = Util.readDoc(target, 'typedef/index.html');
+      let doc;
+
+      before(() =>
+      {
+         doc = Util.readDoc(target, 'typedef/index.html');
+      });
 
       describe('in summary', () =>
       {

@@ -7,8 +7,13 @@ testConfig.forEachTarget('html', 'coverage', (target) =>
    /** @test {CoverageBuilder} */
    describe(`test coverage (${target.name}):`, () =>
    {
-      const doc = Util.readDoc(target, 'source.html');
-      const badge = Util.readFile(target, 'badge.svg').toString();
+      let badge, doc;
+
+      before(() =>
+      {
+         badge = Util.readFile(target, 'badge.svg').toString();
+         doc = Util.readDoc(target, 'source.html');
+      });
 
       it('has coverage summary', () =>
       {
