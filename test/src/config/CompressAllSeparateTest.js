@@ -14,11 +14,11 @@ testConfig.forEachTarget('config', 'compressAllSeparate', (target) =>
           { silent: testConfig.consoleSilent });
       });
 
-      it('compresses all output, AST and doc data separately', (done) =>
+      it('compresses all output, AST and doc data separately', () =>
       {
          // Must set a timeout so that `archive` NPM module may finalize and close file.
-         setTimeout(() =>
-         {
+         // setTimeout(() =>
+         // {
             const entries = Util.readDir(target, 'tjsdoc-compressAllSeparate');
 
             // Make sure there are exactly 3 entries with compressed docs, ast, and doc data.
@@ -26,9 +26,9 @@ testConfig.forEachTarget('config', 'compressAllSeparate', (target) =>
             Util.assert.isAtLeast(entries.indexOf('ast.tar.gz'), 0);
             Util.assert.isAtLeast(entries.indexOf('docs.tar.gz'), 0);
             Util.assert.isAtLeast(entries.indexOf('docData.tar.gz'), 0);
-
-            done();
-         }, 1000);
+         //
+         //    done();
+         // }, 1000);
       });
    });
 });

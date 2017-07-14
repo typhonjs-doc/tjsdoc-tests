@@ -20,11 +20,11 @@ testConfig.forEachTarget('runtime_common', 'utils', (target) =>
 
       let testCode1, testCode2, testCode3, testFile1, testFile2, testFile3;
 
-      before(() =>
+      before(async () =>
       {
          pluginManager = new PluginManager({ eventbus: testEventbus });
 
-         pluginManager.add({ name: target.runtime });
+         await pluginManager.addAsync({ name: target.runtime });
 
          testEventbus.on('log:error', (err) => output.push(err.message));
          testEventbus.on('log:error:raw', (message) => output.push(message));
@@ -39,7 +39,7 @@ testConfig.forEachTarget('runtime_common', 'utils', (target) =>
          testFile3 = { filePath: "./test/fixture/package/src/invalid/DocSyntax.js", node: { type: "FunctionDeclaration", start: 72, end: 108, loc: { start: { line: 5, column: 0 }, end: { line: 5, column: 36 } }, leadingComments: [{ type: "CommentBlock", value: " eslint-disable valid-jsdoc, no-unused-vars ", start: 0, end: 48, loc: { start: { line: 1, column: 0 }, end: { line: 1, column: 48 } } }, { type: "CommentBlock", value: "*\n * @param {} p\n ", start: 49, end: 71, loc: { start: { line: 2, column: 0 }, end: { line: 4, column: 3 } } }] } };
       });
 
-      after(() => { pluginManager.destroy(); testEventbus.off(); });
+      after(async () => { await pluginManager.destroyAsync(); testEventbus.off(); });
 
       it('throws on no data', () =>
       {

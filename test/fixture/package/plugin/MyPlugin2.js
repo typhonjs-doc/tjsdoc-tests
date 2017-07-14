@@ -1,27 +1,11 @@
 import { callInfo } from './MyPlugin1.js';
 
 /**
- * Tracks that `onPreGenerate` has been invoked from `MyPlugin2`
+ * Tracks that `onHandleAST` has been invoked from `MyPlugin2`.
  */
-export function onPreGenerate()
+export function onHandleAST()
 {
-   callInfo.handlerNames.onPreGenerate.push('MyPlugin2');
-}
-
-/**
- * Tracks that `onStart` has been invoked from `MyPlugin2`.
- */
-export function onStart()
-{
-   callInfo.handlerNames.onStart.push('MyPlugin2');
-}
-
-/**
- * Tracks that `onHandleConfig` has been invoked from `MyPlugin2`.
- */
-export function onHandleConfig()
-{
-   callInfo.handlerNames.onHandleConfig.push('MyPlugin2');
+   callInfo.handlerNames.onHandleAST.push('MyPlugin2');
 }
 
 /**
@@ -41,11 +25,19 @@ export function onHandleCodeParser()
 }
 
 /**
- * Tracks that `onHandleAST` has been invoked from `MyPlugin2`.
+ * Tracks that `onHandleConfigAsync` has been invoked from `MyPlugin2`.
  */
-export function onHandleAST()
+export function onHandleConfigAsync()
 {
-   callInfo.handlerNames.onHandleAST.push('MyPlugin2');
+   callInfo.handlerNames.onHandleConfigAsync.push('MyPlugin2');
+}
+
+/**
+ * Tracks that `onHandleDocDBAsync` has been invoked from `MyPlugin2`.
+ */
+export function onHandleDocDBAsync()
+{
+   callInfo.handlerNames.onHandleDocDBAsync.push('MyPlugin2');
 }
 
 /**
@@ -60,11 +52,43 @@ export function onHandleDocObject()
 }
 
 /**
- * Tracks that `onHandleDocDB` has been invoked from `MyPlugin2`.
+ * Tracks that `onHandlePostPublishAsync` has been invoked from `MyPlugin2`.
  */
-export function onHandleDocDB()
+export function onHandlePostPublishAsync()
 {
-   callInfo.handlerNames.onHandleDocDB.push('MyPlugin2');
+   callInfo.handlerNames.onHandlePostPublishAsync.push('MyPlugin2');
+}
+
+/**
+ * Tracks that `onHandlePrePublishAsync` has been invoked from `MyPlugin2`.
+ */
+export function onHandlePrePublishAsync()
+{
+   callInfo.handlerNames.onHandlePrePublishAsync.push('MyPlugin2');
+}
+
+/**
+ * Tracks that `onHandlePublishAsync` has been invoked from `MyPlugin2`.
+ */
+export function onHandlePublishAsync()
+{
+   callInfo.handlerNames.onHandlePublishAsync.push('MyPlugin2');
+}
+
+/**
+ * Tracks that `onHandleSearchIndexAsync` has been invoked from `MyPlugin2`.
+ */
+export function onHandleSearchIndexAsync()
+{
+   callInfo.handlerNames.onHandleSearchIndexAsync.push('MyPlugin2');
+}
+
+/**
+ * Tracks that `onHandleVirtualAsync` has been invoked from `MyPlugin2`.
+ */
+export function onHandleVirtualAsync()
+{
+   callInfo.handlerNames.onHandleVirtualAsync.push('MyPlugin2');
 }
 
 /**
@@ -76,33 +100,33 @@ export function onHandleWriteFile()
 }
 
 /**
- * Tracks that `onHandleVirtual` has been invoked from `MyPlugin2`.
+ * Tracks that `onRuntimeCompleteAsync` has been invoked from `MyPlugin2`.
  */
-export function onHandleVirtual()
+export function onRuntimeCompleteAsync()
 {
-   callInfo.handlerNames.onHandleVirtual.push('MyPlugin2');
+   callInfo.handlerNames.onRuntimeCompleteAsync.push('MyPlugin2');
 }
 
 /**
- * Tracks that `onHandleSearchIndex` has been invoked from `MyPlugin2`.
+ * Tracks that `onRuntimePreGenerateAsync` has been invoked from `MyPlugin2`
  */
-export function onHandleSearchIndex()
+export function onRuntimePreGenerateAsync()
 {
-   callInfo.handlerNames.onHandleSearchIndex.push('MyPlugin2');
+   callInfo.handlerNames.onRuntimePreGenerateAsync.push('MyPlugin2');
 }
 
 /**
- * Tracks that `onComplete` has been invoked from `MyPlugin2`.
+ * Tracks that `onRuntimeShutdownAsync` has been invoked from `MyPlugin2`.
  */
-export function onComplete()
+export function onRuntimeShutdownAsync()
 {
-   callInfo.handlerNames.onComplete.push('MyPlugin2');
+   callInfo.handlerNames.onRuntimeShutdownAsync.push('MyPlugin2');
 }
 
 /**
- * Tracks that `onShutdown` has been invoked from `MyPlugin2`.
+ * Tracks that `onRuntimeStartAsync` has been invoked from `MyPlugin2`.
  */
-export function onShutdown()
+export function onRuntimeStartAsync()
 {
-   callInfo.handlerNames.onShutdown.push('MyPlugin2');
+   callInfo.handlerNames.onRuntimeStartAsync.push('MyPlugin2');
 }

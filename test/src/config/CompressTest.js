@@ -12,19 +12,19 @@ testConfig.forEachTarget('config', 'compress', (target) =>
          await Util.invoke(target, './test/fixture/config/tjsdoc-compress.json', { silent: testConfig.consoleSilent });
       });
 
-      it('compresses as docs.tar.gz', (done) =>
+      it('compresses as docs.tar.gz', () =>
       {
          // Must set a timeout so that `archive` NPM module may finalize and close file.
-         setTimeout(() =>
-         {
+         // setTimeout(() =>
+         // {
             const entries = Util.readDir(target, 'tjsdoc-compress');
 
             // Make sure there is only 1 entry.
             Util.assert.lengthOf(entries, 1);
             Util.assert.strictEqual(entries[0], 'docs.tar.gz');
-
-            done();
-         }, 1000);
+         //
+         //    done();
+         // }, 1000);
       });
    });
 });

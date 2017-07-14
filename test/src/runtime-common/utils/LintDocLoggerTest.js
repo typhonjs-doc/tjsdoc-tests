@@ -27,18 +27,18 @@ testConfig.forEachTarget('runtime_common', 'utils', (target) =>
       const mainConfig = { _dirPath: path.resolve('.'), docLint: true };
       const packageObj = {};
 
-      before(() =>
+      before(async () =>
       {
          pluginManager = new PluginManager({ eventbus: testEventbus });
 
          // Add Babylon and common runtime.
-         pluginManager.add({ name: target.runtime });
+         await pluginManager.addAsync({ name: target.runtime });
 
-         pluginManager.invokeSyncEvent('onPreGenerate', void 0, { mainConfig, packageObj });
-         pluginManager.invokeSyncEvent('onStart', void 0, { mainConfig, packageObj });
+         await pluginManager.invokeAsyncEvent('onRuntimePreGenerateAsync', void 0, { mainConfig, packageObj });
+         await pluginManager.invokeAsyncEvent('onRuntimeStartAsync', void 0, { mainConfig, packageObj });
       });
 
-      after(() => { pluginManager.destroy(); testEventbus.off(); });
+      after(async () => { await pluginManager.destroyAsync(); testEventbus.off(); });
 
       it('has results', () =>
       {

@@ -13,19 +13,19 @@ testConfig.forEachTarget('config', 'compressZip', (target) =>
           { silent: testConfig.consoleSilent });
       });
 
-      it('compresses as docs.zip', (done) =>
+      it('compresses as docs.zip', () =>
       {
          // Must set a timeout so that `archive` NPM module may finalize and close file.
-         setTimeout(() =>
-         {
+         // setTimeout(() =>
+         // {
             const entries = Util.readDir(target, 'tjsdoc-compressZip');
 
             // Make sure there is only 1 entry.
             Util.assert.lengthOf(entries, 1);
             Util.assert.strictEqual(entries[0], 'docs.zip');
-
-            done();
-         }, 1000);
+         //
+         //    done();
+         // }, 1000);
       });
    });
 });

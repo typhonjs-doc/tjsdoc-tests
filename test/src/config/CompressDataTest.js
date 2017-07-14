@@ -13,20 +13,20 @@ testConfig.forEachTarget('config', 'compressData', (target) =>
           { silent: testConfig.consoleSilent });
       });
 
-      it('compresses as AST and docData.json', (done) =>
+      it('compresses as AST and docData.json', () =>
       {
          // Must set a timeout so that `archive` NPM module may finalize and close file.
-         setTimeout(() =>
-         {
+         // setTimeout(() =>
+         // {
             const entries = Util.readDir(target, 'tjsdoc-compressData');
 
             // Make sure there are multiple files / directories and compressed ast and doc data.
             Util.assert.isAtLeast(entries.length, 8);
             Util.assert.isAtLeast(entries.indexOf('ast.tar.gz'), 0);
             Util.assert.isAtLeast(entries.indexOf('docData.tar.gz'), 0);
-
-            done();
-         }, 1000);
+         //
+         //    done();
+         // }, 1000);
       });
    });
 });

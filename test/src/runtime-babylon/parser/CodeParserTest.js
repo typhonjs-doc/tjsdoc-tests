@@ -12,14 +12,14 @@ testConfig.forEachTarget('runtime_babylon', 'parser', (target) =>
    {
       let pluginManager;
 
-      before(() =>
+      before(async () =>
       {
          pluginManager = new PluginManager({ eventbus: testEventbus });
 
-         pluginManager.add({ name: target.runtime });
+         await pluginManager.addAsync({ name: target.runtime });
       });
 
-      after(() => { pluginManager.destroy(); testEventbus.off(); });
+      after(async () => { await pluginManager.destroyAsync(); testEventbus.off(); });
 
       it('can parse "do expressions"', () =>
       {

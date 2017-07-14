@@ -17,35 +17,16 @@ function parser(code)
 }
 
 /**
- * Tracks that `onPreGenerate` has been invoked from `MyPlugin1`
- */
-export function onPreGenerate()
-{
-   callInfo.handlerNames.onPreGenerate = ['MyPlugin1'];
-}
-
-/**
- * Tracks that `onStart` has been invoked from `MyPlugin1` and stores plugin options.
+ * Tracks that `onHandleAST` has been invoked from `MyPlugin1`.
+ *
+ * Performs basic AST modification.
  *
  * @param {object} ev - Plugin event
  */
-export function onStart(ev)
+export function onHandleAST(ev)
 {
-   callInfo.handlerNames.onStart = ['MyPlugin1'];
-   callInfo.pluginOptions = ev.pluginOptions;
-}
-
-/**
- * Tracks that `onHandleConfig` has been invoked from `MyPlugin1`.
- *
- * Modifies the config for testing.
- *
- * @param {object} ev - Plugin event
- */
-export function onHandleConfig(ev)
-{
-   callInfo.handlerNames.onHandleConfig = ['MyPlugin1'];
-   ev.data.mainConfig.title = 'Modified Config';
+   callInfo.handlerNames.onHandleAST = ['MyPlugin1'];
+   ev.data.ast.program.body[0].declaration.id.name += '_ModifiedAST';
 }
 
 /**
@@ -76,16 +57,33 @@ export function onHandleCodeParser(ev)
 }
 
 /**
- * Tracks that `onHandleAST` has been invoked from `MyPlugin1`.
+ * Tracks that `onHandleConfigAsync` has been invoked from `MyPlugin1`.
  *
- * Performs basic AST modification.
+ * Modifies the config for testing.
  *
  * @param {object} ev - Plugin event
  */
-export function onHandleAST(ev)
+export function onHandleConfigAsync(ev)
 {
-   callInfo.handlerNames.onHandleAST = ['MyPlugin1'];
-   ev.data.ast.program.body[0].declaration.id.name += '_ModifiedAST';
+   callInfo.handlerNames.onHandleConfigAsync = ['MyPlugin1'];
+   ev.data.mainConfig.title = 'Modified Config';
+}
+
+/**
+ * Tracks that `onHandleDocDBAsync` has been invoked from `MyPlugin1`.
+ *
+ * Performs basic doc DB modification.
+ *
+ * @param {object} ev - Plugin event
+ */
+export function onHandleDocDBAsync(ev)
+{
+   callInfo.handlerNames.onHandleDocDBAsync = ['MyPlugin1'];
+
+   ev.data.docDB.query({ name: 'MyClass_ModifiedCode_ModifiedAST_ModifiedDoc' }).update(function()
+   {
+      this.name = 'MyClass_ModifiedCode_ModifiedAST_ModifiedDoc_ModifiedDB'; return this;
+   });
 }
 
 /**
@@ -108,20 +106,43 @@ export function onHandleDocObject(ev)
 }
 
 /**
- * Tracks that `onHandleDocDB` has been invoked from `MyPlugin1`.
- *
- * Performs basic doc DB modification.
- *
- * @param {object} ev - Plugin event
+ * Tracks that `onHandlePostPublishAsync` has been invoked from `MyPlugin1`.
  */
-export function onHandleDocDB(ev)
+export function onHandlePostPublishAsync()
 {
-   callInfo.handlerNames.onHandleDocDB = ['MyPlugin1'];
+   callInfo.handlerNames.onHandlePostPublishAsync = ['MyPlugin1'];
+}
 
-   ev.data.docDB.query({ name: 'MyClass_ModifiedCode_ModifiedAST_ModifiedDoc' }).update(function()
-   {
-      this.name = 'MyClass_ModifiedCode_ModifiedAST_ModifiedDoc_ModifiedDB'; return this;
-   });
+/**
+ * Tracks that `onHandlePrePublishAsync` has been invoked from `MyPlugin1`.
+ */
+export function onHandlePrePublishAsync()
+{
+   callInfo.handlerNames.onHandlePrePublishAsync = ['MyPlugin1'];
+}
+
+/**
+ * Tracks that `onHandlePublishAsync` has been invoked from `MyPlugin1`.
+ */
+export function onHandlePublishAsync()
+{
+   callInfo.handlerNames.onHandlePublishAsync = ['MyPlugin1'];
+}
+
+/**
+ * Tracks that `onHandleSearchIndexAsync` has been invoked from `MyPlugin1`.
+ */
+export function onHandleSearchIndexAsync()
+{
+   callInfo.handlerNames.onHandleSearchIndexAsync = ['MyPlugin1'];
+}
+
+/**
+ * Tracks that `onHandleVirtualAsync` has been invoked from `MyPlugin1`.
+ */
+export function onHandleVirtualAsync()
+{
+   callInfo.handlerNames.onHandleVirtualAsync = ['MyPlugin1'];
 }
 
 /**
@@ -148,34 +169,36 @@ export function onHandleWriteFile(ev)
 }
 
 /**
- * Tracks that `onHandleVirtual` has been invoked from `MyPlugin1`.
+ * Tracks that `onRuntimeCompleteAsync` has been invoked from `MyPlugin1`.
  */
-export function onHandleVirtual()
+export function onRuntimeCompleteAsync()
 {
-   callInfo.handlerNames.onHandleVirtual = ['MyPlugin1'];
+   callInfo.handlerNames.onRuntimeCompleteAsync = ['MyPlugin1'];
 }
 
 /**
- * Tracks that `onHandleSearchIndex` has been invoked from `MyPlugin1`.
+ * Tracks that `onRuntimePreGenerateAsync` has been invoked from `MyPlugin1`
  */
-export function onHandleSearchIndex()
+export function onRuntimePreGenerateAsync()
 {
-   callInfo.handlerNames.onHandleSearchIndex = ['MyPlugin1'];
+   callInfo.handlerNames.onRuntimePreGenerateAsync = ['MyPlugin1'];
 }
 
 /**
- * Tracks that `onComplete` has been invoked from `MyPlugin1`.
+ * Tracks that `onRuntimeShutdownAsync` has been invoked from `MyPlugin1`
  */
-export function onComplete()
+export function onRuntimeShutdownAsync()
 {
-   callInfo.handlerNames.onComplete = ['MyPlugin1'];
+   callInfo.handlerNames.onRuntimeShutdownAsync = ['MyPlugin1'];
 }
 
 /**
- * Tracks that `onShutdown` has been invoked from `MyPlugin1`
+ * Tracks that `onRuntimeStartAsync` has been invoked from `MyPlugin1` and stores plugin options.
+ *
+ * @param {object} ev - Plugin event
  */
-export function onShutdown()
+export function onRuntimeStartAsync(ev)
 {
-   callInfo.handlerNames.onShutdown = ['MyPlugin1'];
+   callInfo.handlerNames.onRuntimeStartAsync = ['MyPlugin1'];
+   callInfo.pluginOptions = ev.pluginOptions;
 }
-
