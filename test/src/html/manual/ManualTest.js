@@ -285,9 +285,9 @@ testConfig.forEachTarget('html', 'menu', (target) =>
          {
             const doc = Util.readDoc(target, 'manual/overview/overview.html');
 
-            Util.assert.includes(doc, '.github-markdown h1', 'Overview');
+            Util.assert.includes(doc, '.markdown h1', 'Overview');
 
-            Util.assert.includes(doc, '.github-markdown [data-ice="content"]',
+            Util.assert.includes(doc, '.markdown [data-ice="content"]',
              'TJSDoc is a documentation generator for JavaScript (ES6+) & Typescript.');
          });
 
@@ -295,56 +295,56 @@ testConfig.forEachTarget('html', 'menu', (target) =>
          {
             const doc = Util.readDoc(target, 'manual/installation/installation.html');
 
-            Util.assert.includes(doc, '.github-markdown h1', 'Installation');
-            Util.assert.includes(doc, '.github-markdown [data-ice="content"]', 'npm install tjsdoc');
+            Util.assert.includes(doc, '.markdown h1', 'Installation');
+            Util.assert.includes(doc, '.markdown [data-ice="content"]', 'npm install tjsdoc');
          });
 
          it('has usage', () =>
          {
             const doc = Util.readDoc(target, 'manual/usage/usage1.html');
 
-            Util.assert.includes(doc, '.github-markdown h1:nth-of-type(1)', 'Usage');
-            Util.assert.includes(doc, '.github-markdown [data-ice="content"]', 'tjsdoc -c .tjsdocrc');
+            Util.assert.includes(doc, '.markdown h1:nth-of-type(1)', 'Usage');
+            Util.assert.includes(doc, '.markdown [data-ice="content"]', 'tjsdoc -c .tjsdocrc');
          });
 
          it('has tutorial', () =>
          {
             const doc = Util.readDoc(target, 'manual/tutorial/tutorial.html');
 
-            Util.assert.includes(doc, '.github-markdown h1', 'Tutorial');
-            Util.assert.includes(doc, '.github-markdown [data-ice="content"]', 'this is tutorial');
+            Util.assert.includes(doc, '.markdown h1', 'Tutorial');
+            Util.assert.includes(doc, '.markdown [data-ice="content"]', 'this is tutorial');
          });
 
          it('has configuration', () =>
          {
             const doc = Util.readDoc(target, 'manual/configuration/configuration.html');
 
-            Util.assert.includes(doc, '.github-markdown h1', 'Configuration');
-            Util.assert.includes(doc, '.github-markdown [data-ice="content"]', 'this is configuration');
+            Util.assert.includes(doc, '.markdown h1', 'Configuration');
+            Util.assert.includes(doc, '.markdown [data-ice="content"]', 'this is configuration');
          });
 
          it('has example', () =>
          {
             const doc = Util.readDoc(target, 'manual/example/example.html');
 
-            Util.assert.includes(doc, '.github-markdown h1', 'Example');
-            Util.assert.includes(doc, '.github-markdown [data-ice="content"] h2:nth-of-type(1)', 'Minimum Config');
+            Util.assert.includes(doc, '.markdown h1', 'Example');
+            Util.assert.includes(doc, '.markdown [data-ice="content"] h2:nth-of-type(1)', 'Minimum Config');
          });
 
          it('has faq', () =>
          {
             const doc = Util.readDoc(target, 'manual/faq/faq.html');
 
-            Util.assert.includes(doc, '.github-markdown h1', 'FAQ');
-            Util.assert.includes(doc, '.github-markdown [data-ice="content"]', 'TJSDoc has several goals:');
+            Util.assert.includes(doc, '.markdown h1', 'FAQ');
+            Util.assert.includes(doc, '.markdown [data-ice="content"]', 'TJSDoc has several goals:');
          });
 
          it('has changelog', () =>
          {
             const doc = Util.readDoc(target, 'manual/changelog/CHANGELOG.html');
 
-            Util.assert.includes(doc, '.github-markdown h1', 'Changelog');
-            Util.assert.includes(doc, '.github-markdown [data-ice="content"] h2:nth-of-type(1)', '0.0.1');
+            Util.assert.includes(doc, '.markdown h1', 'Changelog');
+            Util.assert.includes(doc, '.markdown [data-ice="content"] h2:nth-of-type(1)', '0.0.1');
          });
       });
    });
