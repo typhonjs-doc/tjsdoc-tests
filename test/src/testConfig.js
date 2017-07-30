@@ -24,6 +24,7 @@ const config =
    {
       cli: true,
       config: true,
+      config_raw_data: true,
       html: true,
       html_doc: true,
       runtime_babylon: true,
@@ -71,6 +72,18 @@ const config =
          test: true,
          undocumentIdentifier: true,
          unexportIdentifier: true
+      }
+   },
+
+   // Enables specific raw data config tests.
+   config_raw_data:
+   {
+      tests:
+      {
+         compactData: true,
+         compressData: true,
+         outputASTData: true,
+         outputDocData: true
       }
    },
 

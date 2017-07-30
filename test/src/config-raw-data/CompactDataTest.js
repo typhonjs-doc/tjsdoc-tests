@@ -2,7 +2,7 @@ import Util       from 'tjsdoc-test-utils';
 
 import testConfig from '../testConfig.js';
 
-testConfig.forEachTarget('config', 'compactData', (target) =>
+testConfig.forEachTarget('config_raw_data', 'compactData', (target) =>
 {
    /** @test {publish} */
    describe(`test compactData / outputASTData / outputDocData: true (${target.name}):`, () =>
@@ -13,7 +13,7 @@ testConfig.forEachTarget('config', 'compactData', (target) =>
           { silent: testConfig.consoleSilent });
       });
 
-      it('does have ast data.', () =>
+      it('does have ast / doc data.', () =>
       {
          Util.assert.doesNotThrow(() =>
          {

@@ -2,7 +2,7 @@ import Util       from 'tjsdoc-test-utils';
 
 import testConfig from '../testConfig.js';
 
-testConfig.forEachTarget('config', 'outputASTData', (target) =>
+testConfig.forEachTarget('config_raw_data', 'outputASTData', (target) =>
 {
    /** @test {publish} */
    describe(`test config.outputASTData: true (${target.name}):`, () =>
