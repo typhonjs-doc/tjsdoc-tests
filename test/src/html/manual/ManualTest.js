@@ -162,7 +162,7 @@ testConfig.forEachTarget('html', 'menu', (target) =>
                    'manual/changelog/CHANGELOG.html', 'href');
 
                   Util.assert.includes(doc, '[data-ice="manualNav"]:nth-of-type(2) a',
-                   'manual/changelog/CHANGELOG.html#0-0-1', 'href');
+                   'manual/changelog/CHANGELOG.html#001', 'href');
                });
             });
          });

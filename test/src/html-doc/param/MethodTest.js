@@ -34,11 +34,15 @@ testConfig.forEachTarget('html_doc', 'param', (target) =>
             {
                Util.assert.includes(doc, 'h3', 'public method1(p1: number, p2: TestClassDefinition)');
 
-               Util.assert.includes(doc, '.params tbody tr:nth-child(1)', 'p1 number this is p1.');
+               Util.assert.includes(doc, 'div.bordered-div-row:nth-child(1) [data-ice="name"]', 'p1');
+               Util.assert.includes(doc, 'div.bordered-div-row:nth-child(1) [data-ice="type"]', 'number');
+               Util.assert.includes(doc, 'div.bordered-div-row:nth-child(1) [data-ice="description"]', 'this is p1.');
 
-               Util.assert.includes(doc, '.params tbody tr:nth-child(2)', 'p2 TestClassDefinition this is p2.');
+               Util.assert.includes(doc, 'div.bordered-div-row:nth-child(2) [data-ice="name"]', 'p2');
+               Util.assert.includes(doc, 'div.bordered-div-row:nth-child(2) [data-ice="type"]', 'TestClassDefinition');
+               Util.assert.includes(doc, 'div.bordered-div-row:nth-child(2) [data-ice="description"]', 'this is p2.');
 
-               Util.assert.includes(doc, '.params tbody tr:nth-child(2) a',
+               Util.assert.includes(doc, 'div.bordered-div-row:nth-child(2) [data-ice="type"] a',
                 'class/test/fixture/package/src/class/Definition.js~TestClassDefinition.html', 'href');
             });
          });

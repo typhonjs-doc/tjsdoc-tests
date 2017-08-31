@@ -34,8 +34,13 @@ testConfig.forEachTarget('html_doc', 'type', (target) =>
       {
          Util.findParent(doc, '[id="instance-classmethod-method1"]', '[data-ice="detail"]', (doc) =>
          {
-            Util.assert.includes(doc, '.params [data-ice="property"]:nth-child(1)', 'p1 Object this is object p1.');
-            Util.assert.includes(doc, '.params [data-ice="property"]:nth-child(2)', 'p1.x1 number this is number x1.');
+            Util.assert.includes(doc, 'div.bordered-div-row:nth-child(1) [data-ice="name"]', 'p1');
+            Util.assert.includes(doc, 'div.bordered-div-row:nth-child(1) [data-ice="type"]', 'Object');
+            Util.assert.includes(doc, 'div.bordered-div-row:nth-child(1) [data-ice="description"]', 'this is object p1.');
+
+            Util.assert.includes(doc, 'div.bordered-div-row:nth-child(2) [data-ice="name"]', 'p1.x1');
+            Util.assert.includes(doc, 'div.bordered-div-row:nth-child(2) [data-ice="type"]', 'number');
+            Util.assert.includes(doc, 'div.bordered-div-row:nth-child(2) [data-ice="description"]', 'this is number x1.');
          });
       });
    });

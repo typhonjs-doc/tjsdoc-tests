@@ -21,8 +21,9 @@ testConfig.forEachTarget('html_doc', 'type', (target) =>
       {
          Util.findParent(doc, '[id="instance-classmethod-method1"]', '[data-ice="detail"]', (doc) =>
          {
-            Util.assert.includes(doc, '.params [data-ice="property"]:nth-child(1)', 'nullable: true');
-            Util.assert.includes(doc, '.params [data-ice="property"]:nth-child(2)', 'nullable: false');
+            Util.assert.includes(doc, 'div.bordered-div-row:nth-child(1) [data-ice="attributes"]', 'nullable: true');
+
+            Util.assert.includes(doc, 'div.bordered-div-row:nth-child(2) [data-ice="attributes"]', 'nullable: false');
          });
       });
    });

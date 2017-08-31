@@ -21,8 +21,11 @@ testConfig.forEachTarget('html_doc', 'type', (target) =>
       {
          Util.findParent(doc, '[id="instance-classmethod-method1"]', '[data-ice="detail"]', (doc) =>
          {
-            Util.assert.includes(doc, '.params [data-ice="property"]:nth-child(1)', 'optional default: 123');
-            Util.assert.includes(doc, '.params [data-ice="property"]:nth-child(2)', 'optional default: []');
+            Util.assert.includes(doc, 'div.bordered-div-row:nth-child(1) [data-ice="attributes"]',
+             'optional default: 123');
+
+            Util.assert.includes(doc, 'div.bordered-div-row:nth-child(2) [data-ice="attributes"]',
+             'optional default: []');
          });
       });
 
@@ -30,7 +33,8 @@ testConfig.forEachTarget('html_doc', 'type', (target) =>
       {
          Util.findParent(doc, '[id="instance-classmethod-method2"]', '[data-ice="detail"]', (doc) =>
          {
-            Util.assert.includes(doc, '.params [data-ice="property"]:nth-child(1)', 'optional default: new Foo()');
+            Util.assert.includes(doc, 'div.bordered-div-row:nth-child(1) [data-ice="attributes"]',
+             'optional default: new Foo()');
          });
       });
    });

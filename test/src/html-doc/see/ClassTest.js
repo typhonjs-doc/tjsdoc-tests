@@ -16,7 +16,7 @@ testConfig.forEachTarget('html_doc', 'see', (target) =>
 
       it('has see from class.', () =>
       {
-         Util.find(doc, '.self-detail [data-ice="see"]', (doc) =>
+         Util.find(doc, '.self-detail [data-ice="seeWrapper"]', (doc) =>
          {
             Util.assert.includes(doc, 'a[href="http://foo.example.com"]', 'http://foo.example.com');
             Util.assert.includes(doc, 'a[href="http://bar.example.com"]', 'http://bar.example.com');

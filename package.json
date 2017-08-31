@@ -21,12 +21,12 @@
   "dependencies": {
     "babel-polyfill": "^6.0.0",
     "backbone-esnext-eventbus": "^0.3.0",
-    "typhonjs-plugin-manager": "^0.1.0",
+    "typhonjs-plugin-manager": "^0.2.0",
     "tjsdoc-test-utils": "git+https://git@github.com/typhonjs-node-tjsdoc/tjsdoc-test-utils.git"
   },
   "devDependencies": {
     "typhonjs-config-eslint": "^0.5.0",
-    "typhonjs-npm-build-test": "^0.6.0"
+    "typhonjs-npm-build-test": "^0.7.0"
   },
   "scripts": {
     "eslint": "eslint .",

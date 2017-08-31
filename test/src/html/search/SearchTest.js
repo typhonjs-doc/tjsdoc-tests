@@ -39,7 +39,7 @@ testConfig.forEachTarget('html', 'search', (target) =>
       it('has class index', () =>
       {
          Util.assert.deepEqual(find('class/test/fixture/package/src/desc/Class.js~TestDescClass.html'), [
-            'tjsdoc-test-fixture/test/fixture/package/src/desc/class.js~testdescclass',
+            'testdescclass',
             'class/test/fixture/package/src/desc/Class.js~TestDescClass.html',
             '<span>TestDescClass</span> <span class="search-result-import-path">tjsdoc-test-fixture/test/fixture/package/src/desc/Class.js</span>',
             'ModuleClass'
@@ -49,7 +49,7 @@ testConfig.forEachTarget('html', 'search', (target) =>
       it('has member index', () =>
       {
          Util.assert.deepEqual(find('class/test/fixture/package/src/desc/Class.js~TestDescClass.html#instance-classmember-p1'), [
-            'testdescclass#p1',
+            'p1',
             'class/test/fixture/package/src/desc/Class.js~TestDescClass.html#instance-classmember-p1',
             '<span>TestDescClass#p1</span> <span class=\"search-result-import-path\">test/fixture/package/src/desc/Class.js</span>',
             'ClassMember'
@@ -59,7 +59,7 @@ testConfig.forEachTarget('html', 'search', (target) =>
       it('has method index', () =>
       {
          Util.assert.deepEqual(find('class/test/fixture/package/src/desc/Class.js~TestDescClass.html#instance-classmethod-method1'), [
-            'testdescclass#method1',
+            'method1',
             'class/test/fixture/package/src/desc/Class.js~TestDescClass.html#instance-classmethod-method1',
             '<span>TestDescClass#method1</span> <span class=\"search-result-import-path\">test/fixture/package/src/desc/Class.js</span>',
             'ClassMethod'
@@ -69,7 +69,7 @@ testConfig.forEachTarget('html', 'search', (target) =>
       it('has interface index', () =>
       {
          Util.assert.deepEqual(find('class/test/fixture/package/src/interface/Definition.js~TestInterfaceDefinition.html'), [
-            'tjsdoc-test-fixture/test/fixture/package/src/interface/definition.js~testinterfacedefinition',
+            'testinterfacedefinition',
             'class/test/fixture/package/src/interface/Definition.js~TestInterfaceDefinition.html',
             '<span>TestInterfaceDefinition</span> <span class="search-result-import-path">tjsdoc-test-fixture/test/fixture/package/src/interface/Definition.js</span>',
             'ModuleClass'
@@ -79,7 +79,7 @@ testConfig.forEachTarget('html', 'search', (target) =>
       it('has function index', () =>
       {
          Util.assert.deepEqual(find('function/index.html#static-modulefunction-testDescFunction'), [
-            'tjsdoc-test-fixture/test/fixture/package/src/desc/function.js~testdescfunction',
+            'testdescfunction',
             'function/index.html#static-modulefunction-testDescFunction',
             '<span>testDescFunction</span> <span class="search-result-import-path">tjsdoc-test-fixture/test/fixture/package/src/desc/Function.js</span>',
             'ModuleFunction'
@@ -89,7 +89,7 @@ testConfig.forEachTarget('html', 'search', (target) =>
       it('has variable index', () =>
       {
          Util.assert.deepEqual(find('variable/index.html#static-modulevariable-testDescVariable'), [
-            'tjsdoc-test-fixture/test/fixture/package/src/desc/variable.js~testdescvariable',
+            'testdescvariable',
             'variable/index.html#static-modulevariable-testDescVariable',
             '<span>testDescVariable</span> <span class="search-result-import-path">tjsdoc-test-fixture/test/fixture/package/src/desc/Variable.js</span>',
             'ModuleVariable'

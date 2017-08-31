@@ -40,18 +40,30 @@ testConfig.forEachTarget('html_doc', 'return', (target) =>
             {
                Util.assert.includes(doc, 'h3', 'public method1(): number');
 
-               Util.assert.includes(doc, '[data-ice="returnParams"] tbody tr', 'number this is return value.');
+               // Util.assert.includes(doc, '[data-ice="returnParams"] tbody tr', 'number this is return value.');
+
+               Util.assert.includes(doc,
+                '[data-ice="returnParams"] div.bordered-div-row:nth-child(1) [data-ice="returnType"]',
+                 'number');
+               Util.assert.includes(doc,
+                '[data-ice="returnParams"] div.bordered-div-row:nth-child(1) [data-ice="returnDescription"]',
+                 'this is return value.');
             });
 
             Util.findParent(doc, '[id="instance-classmethod-method2"]', '[data-ice="detail"]', (doc) =>
             {
                Util.assert.includes(doc, 'h3', 'public method2(): TestClassDefinition');
 
-               Util.assert.includes(doc, '[data-ice="returnParams"] tbody tr',
-                'TestClassDefinition this is return value.');
+               Util.assert.includes(doc,
+                '[data-ice="returnParams"] div.bordered-div-row:nth-child(1) [data-ice="returnType"]',
+                 'TestClassDefinition');
+               Util.assert.includes(doc,
+                '[data-ice="returnParams"] div.bordered-div-row:nth-child(1) [data-ice="returnDescription"]',
+                 'this is return value.');
 
-               Util.assert.includes(doc, '[data-ice="returnParams"] tbody tr a',
-                'class/test/fixture/package/src/class/Definition.js~TestClassDefinition.html', 'href');
+               Util.assert.includes(doc,
+                '[data-ice="returnParams"] div.bordered-div-row:nth-child(1) [data-ice="returnType"] a',
+                 'class/test/fixture/package/src/class/Definition.js~TestClassDefinition.html', 'href');
             });
          });
       });

@@ -33,7 +33,10 @@ testConfig.forEachTarget('html_doc', 'typedef', (target) =>
             Util.findParent(doc, '[id="static-virtualtypedef-TestTypedefDefinition"]', '[data-ice="detail"]', (doc) =>
             {
                Util.assert.includes(doc, 'h3', 'public TestTypedefDefinition: Object');
-               Util.assert.includes(doc, '.params [data-ice="property"]:nth-child(1)', 'p1 number this is p1.');
+
+               Util.assert.includes(doc, 'div.bordered-div-row:nth-child(1) [data-ice="name"]', 'p1');
+               Util.assert.includes(doc, 'div.bordered-div-row:nth-child(1) [data-ice="type"]', 'number');
+               Util.assert.includes(doc, 'div.bordered-div-row:nth-child(1) [data-ice="description"]', 'this is p1.');
             });
          });
       });

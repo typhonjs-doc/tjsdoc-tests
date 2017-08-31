@@ -20,14 +20,26 @@ testConfig.forEachTarget('html_doc', 'property', (target) =>
          {
             Util.findParent(doc, '[id="instance-classmethod-method1"]', '[data-ice="detail"]', (doc) =>
             {
-               Util.assert.includes(doc, '[data-ice="returnProperties"] tbody tr:nth-child(1)',
-                'x1 number this is x1 of return value.');
+               Util.assert.includes(doc,
+                '[data-ice="returnProperties"] div.bordered-div-row:nth-child(1) [data-ice="name"]', 'x1');
+               Util.assert.includes(doc,
+                '[data-ice="returnProperties"] div.bordered-div-row:nth-child(1) [data-ice="type"]', 'number');
+               Util.assert.includes(doc,
+                '[data-ice="returnProperties"] div.bordered-div-row:nth-child(1) [data-ice="description"]',
+                 'this is x1 of return value.');
 
-               Util.assert.includes(doc, '[data-ice="returnProperties"] tbody tr:nth-child(2)',
-                'x2 TestClassDefinition this is x2 of return value.');
+               Util.assert.includes(doc,
+                '[data-ice="returnProperties"] div.bordered-div-row:nth-child(2) [data-ice="name"]', 'x2');
+               Util.assert.includes(doc,
+                '[data-ice="returnProperties"] div.bordered-div-row:nth-child(2) [data-ice="type"]',
+                 'TestClassDefinition');
+               Util.assert.includes(doc,
+                '[data-ice="returnProperties"] div.bordered-div-row:nth-child(2) [data-ice="description"]',
+                 'this is x2 of return value.');
 
-               Util.assert.includes(doc, '[data-ice="returnProperties"] tbody tr:nth-child(2) a',
-                'class/test/fixture/package/src/class/Definition.js~TestClassDefinition.html', 'href');
+               Util.assert.includes(doc,
+                '[data-ice="returnProperties"] div.bordered-div-row:nth-child(2) [data-ice="type"] a',
+                 'class/test/fixture/package/src/class/Definition.js~TestClassDefinition.html', 'href');
             });
          });
       });

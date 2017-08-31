@@ -16,10 +16,10 @@ testConfig.forEachTarget('html_doc', 'todo', (target) =>
 
       it('has todo at class.', () =>
       {
-         Util.find(doc, '.self-detail [data-ice="todo"]', (doc) =>
+         Util.find(doc, '.self-detail [data-ice="todoWrapper"]', (doc) =>
          {
-            Util.assert.includes(doc, 'li:nth-child(1)', 'this is first todo.');
-            Util.assert.includes(doc, 'li:nth-child(2)', 'this is second todo.');
+            Util.assert.includes(doc, 'div.bordered-div-row:nth-child(1) [data-ice="todoEntry"]', 'this is first todo.');
+            Util.assert.includes(doc, 'div.bordered-div-row:nth-child(2) [data-ice="todoEntry"]', 'this is second todo.');
          });
       });
 

@@ -72,7 +72,7 @@ testConfig.forEachTarget('html_doc', 'classProperty', (target) =>
                Util.find(doc, '[data-ice="detail"]:nth-of-type(1)', (doc) =>
                {
                   Util.assert.includes(doc, '#instance-classproperty-p1', 'public p1: number');
-                  Util.assert.includes(doc, '#instance-classproperty-p1 + [data-ice="description"]', 'this is p1.');
+                  Util.assert.includes(doc, '[data-ice="description"]', 'this is p1.');
                });
             });
          });

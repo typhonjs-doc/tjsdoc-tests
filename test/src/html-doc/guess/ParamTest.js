@@ -88,80 +88,111 @@ testConfig.forEachTarget('html_doc', 'guess', (target) =>
             {
                Util.assert.includes(doc, 'h3', 'public method1(p1: number, p2: string)');
 
-               Util.assert.includes(doc, '.params tbody tr:nth-child(1)', 'p1 number optional default: 123');
+               Util.assert.includes(doc, 'div.bordered-div-row:nth-child(1) [data-ice="name"]', 'p1');
+               Util.assert.includes(doc, 'div.bordered-div-row:nth-child(1) [data-ice="type"]', 'number');
+               Util.assert.includes(doc, 'div.bordered-div-row:nth-child(1) [data-ice="attributes"]',
+                'optional default: 123');
 
-               Util.assert.includes(doc, '.params tbody tr:nth-child(2)', 'p2 string optional default: text');
+               Util.assert.includes(doc, 'div.bordered-div-row:nth-child(2) [data-ice="name"]', 'p2');
+               Util.assert.includes(doc, 'div.bordered-div-row:nth-child(2) [data-ice="type"]', 'string');
+               Util.assert.includes(doc, 'div.bordered-div-row:nth-child(2) [data-ice="attributes"]',
+                'optional default: text');
             });
 
             Util.findParent(doc, '[id="instance-classmethod-method2"]', '[data-ice="detail"]', (doc) =>
             {
                Util.assert.includes(doc, 'h3', 'public method2(p1: number[], p2: {"x1": string, "x2": boolean})');
 
-               Util.assert.includes(doc, '.params tbody tr:nth-child(1)', 'p1 number[] optional default: [123,456]');
+               Util.assert.includes(doc, 'div.bordered-div-row:nth-child(1) [data-ice="name"]', 'p1');
+               Util.assert.includes(doc, 'div.bordered-div-row:nth-child(1) [data-ice="type"]', 'number[]');
+               Util.assert.includes(doc, 'div.bordered-div-row:nth-child(1) [data-ice="attributes"]',
+                'optional default: [123,456]');
 
-               Util.assert.includes(doc, '.params tbody tr:nth-child(2)',
-                'p2 {"x1": string, "x2": boolean} optional default: {"x1":"text","x2":true}');
+               Util.assert.includes(doc, 'div.bordered-div-row:nth-child(2) [data-ice="name"]', 'p2');
+               Util.assert.includes(doc, 'div.bordered-div-row:nth-child(2) [data-ice="type"]',
+                '{"x1": string, "x2": boolean}');
+               Util.assert.includes(doc, 'div.bordered-div-row:nth-child(2) [data-ice="attributes"]',
+                'optional default: {"x1":"text","x2":true}');
             });
 
             Util.findParent(doc, '[id="instance-classmethod-method3"]', '[data-ice="detail"]', (doc) =>
             {
                Util.assert.includes(doc, 'h3', 'public method3(arrayPattern: number[])');
 
-               Util.assert.includes(doc, '.params tbody tr:nth-child(1)',
-                'arrayPattern number[] optional default: [123,456]');
+               Util.assert.includes(doc, 'div.bordered-div-row:nth-child(1) [data-ice="name"]', 'arrayPattern');
+               Util.assert.includes(doc, 'div.bordered-div-row:nth-child(1) [data-ice="type"]', 'number[]');
+               Util.assert.includes(doc, 'div.bordered-div-row:nth-child(1) [data-ice="attributes"]',
+                'optional default: [123,456]');
             });
 
             Util.findParent(doc, '[id="instance-classmethod-method4"]', '[data-ice="detail"]', (doc) =>
             {
                Util.assert.includes(doc, 'h3', 'public method4(objectPattern: {"x1": number, "x2": string})');
 
-               Util.assert.includes(doc, '.params tbody tr:nth-child(1)',
-                'objectPattern {"x1": number, "x2": string} optional default: {"x1":123,"x2":"text"}');
+               Util.assert.includes(doc, 'div.bordered-div-row:nth-child(1) [data-ice="name"]', 'objectPattern');
+               Util.assert.includes(doc, 'div.bordered-div-row:nth-child(1) [data-ice="type"]',
+                '{"x1": number, "x2": string}');
+               Util.assert.includes(doc, 'div.bordered-div-row:nth-child(1) [data-ice="attributes"]',
+                'optional default: {"x1":123,"x2":"text"}');
             });
 
             Util.findParent(doc, '[id="instance-classmethod-method5"]', '[data-ice="detail"]', (doc) =>
             {
                Util.assert.includes(doc, 'h3', 'public method5(p1: ...*)');
 
-               Util.assert.includes(doc, '.params tbody tr:nth-child(1)', 'p1 ...*');
+               Util.assert.includes(doc, 'div.bordered-div-row:nth-child(1) [data-ice="name"]', 'p1');
+               Util.assert.includes(doc, 'div.bordered-div-row:nth-child(1) [data-ice="type"]',
+                '...*');
             });
 
             Util.findParent(doc, '[id="instance-classmethod-method6"]', '[data-ice="detail"]', (doc) =>
             {
                Util.assert.includes(doc, 'h3', 'public method6(objectPattern: {"x1": *, "x2": *})');
 
-               Util.assert.includes(doc, '.params tbody tr:nth-child(1)',
-                'objectPattern {"x1": *, "x2": *} default: {"x1":null,"x2":null}');
+               Util.assert.includes(doc, 'div.bordered-div-row:nth-child(1) [data-ice="name"]', 'objectPattern');
+               Util.assert.includes(doc, 'div.bordered-div-row:nth-child(1) [data-ice="type"]', '{"x1": *, "x2": *}');
+               Util.assert.includes(doc, 'div.bordered-div-row:nth-child(1) [data-ice="attributes"]',
+                'default: {"x1":null,"x2":null}');
             });
 
             Util.findParent(doc, '[id="instance-classmethod-method7"]', '[data-ice="detail"]', (doc) =>
             {
                Util.assert.includes(doc, 'h3', 'public method7(p1: *)');
 
-               Util.assert.includes(doc, '.params tbody tr:nth-child(1)', 'p1 * optional default: value');
+               Util.assert.includes(doc, 'div.bordered-div-row:nth-child(1) [data-ice="name"]', 'p1');
+               Util.assert.includes(doc, 'div.bordered-div-row:nth-child(1) [data-ice="type"]', '*');
+               Util.assert.includes(doc, 'div.bordered-div-row:nth-child(1) [data-ice="attributes"]',
+                'optional default: value');
             });
 
             Util.findParent(doc, '[id="instance-classmethod-method8"]', '[data-ice="detail"]', (doc) =>
             {
                Util.assert.includes(doc, 'h3', 'public method8(p1: *)');
 
-               Util.assert.includes(doc, '.params tbody tr:nth-child(1)', 'p1 * optional');
+               Util.assert.includes(doc, 'div.bordered-div-row:nth-child(1) [data-ice="name"]', 'p1');
+               Util.assert.includes(doc, 'div.bordered-div-row:nth-child(1) [data-ice="type"]', '*');
+               Util.assert.includes(doc, 'div.bordered-div-row:nth-child(1) [data-ice="attributes"]', 'optional');
             });
 
             Util.findParent(doc, '[id="instance-classmethod-method9"]', '[data-ice="detail"]', (doc) =>
             {
                Util.assert.includes(doc, 'h3', 'public method9(objectPattern: {"x": *, "y": *, ...z: Object})');
 
-               Util.assert.includes(doc, '.params tbody tr:nth-child(1)',
-                'objectPattern {"x": *, "y": *, ...z: Object} default: {"x":null,"y":null,"z":{}}');
+               Util.assert.includes(doc, 'div.bordered-div-row:nth-child(1) [data-ice="name"]', 'objectPattern');
+               Util.assert.includes(doc, 'div.bordered-div-row:nth-child(1) [data-ice="type"]',
+                '{"x": *, "y": *, ...z: Object}');
+               Util.assert.includes(doc, 'div.bordered-div-row:nth-child(1) [data-ice="attributes"]',
+                'default: {"x":null,"y":null,"z":{}}');
             });
 
             Util.findParent(doc, '[id="instance-classmethod-method10"]', '[data-ice="detail"]', (doc) =>
             {
                Util.assert.includes(doc, 'h3', 'public method10(arrayPattern: number[])');
 
-               Util.assert.includes(doc, '.params tbody tr:nth-child(1)',
-                'arrayPattern number[] default: [null, 10, *, "text", *]');
+               Util.assert.includes(doc, 'div.bordered-div-row:nth-child(1) [data-ice="name"]', 'arrayPattern');
+               Util.assert.includes(doc, 'div.bordered-div-row:nth-child(1) [data-ice="type"]', 'number[]');
+               Util.assert.includes(doc, 'div.bordered-div-row:nth-child(1) [data-ice="attributes"]',
+                'default: [null, 10, *, "text", *]');
             });
          });
       });

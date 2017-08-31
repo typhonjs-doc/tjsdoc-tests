@@ -24,7 +24,7 @@ testConfig.forEachTarget('html_doc', 'desc', (target) =>
                Util.assert.includes(doc.find('p:nth-child(1)'), null, 'this is TestDescMarkdown.');
 
                // code fence of html
-               Util.assert.includes(doc.find('pre:nth-child(2) code.lang-html code.source-code.prettyprint'), null,
+               Util.assert.includes(doc.find('pre:nth-child(2) code.language-html'), null,
                 `<div>text</div> <ul> <li>item1</li> <li>item2</li> <li>item3</li> </ul>`);
 
                // header
@@ -39,17 +39,19 @@ testConfig.forEachTarget('html_doc', 'desc', (target) =>
                Util.assert.includes(doc.find('p:nth-child(5) a[href$="#inner-link"]'), null, 'inner link');
 
                // code fence of js
-               Util.assert.includes(doc.find('pre:nth-child(6) code.lang-js code.source-code.prettyprint'), null,
+               Util.assert.includes(doc.find('pre:nth-child(6) code.language-js'), null,
                 `let foo = 'this is code block'`
                );
 
                // table
-               Util.assert.includes(doc.find('table:nth-child(7) thead tr'), null,
+               Util.assert.includes(doc.find('div.table-overflow:nth-child(7) table thead tr'), null,
                 'Left align Right align Center align');
 
-               Util.assert.includes(doc.find('table:nth-child(7) tbody tr:nth-child(1)'), null, 'This This This');
+               Util.assert.includes(doc.find('div.table-overflow:nth-child(7) table tbody tr:nth-child(1)'), null,
+                'This This This');
 
-               Util.assert.includes(doc.find('table:nth-child(7) tbody tr:nth-child(2)'), null, 'column column column');
+               Util.assert.includes(doc.find('div.table-overflow:nth-child(7) table tbody tr:nth-child(2)'), null,
+                'column column column');
             });
          });
       });

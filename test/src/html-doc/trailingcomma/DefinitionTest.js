@@ -47,8 +47,13 @@ testConfig.forEachTarget('html_doc', 'trailingComma', (target) =>
          {
             Util.findParent(doc, '[id="instance-classmethod-method1"]', '[data-ice="detail"]', (doc) =>
             {
-               Util.assert.includes(doc, '.params [data-ice="property"]:nth-of-type(1)', 'p1 number this is p1.');
-               Util.assert.includes(doc, '.params [data-ice="property"]:nth-of-type(2)', 'p2 string this is p2.');
+               Util.assert.includes(doc, '[data-ice="property"]:nth-of-type(1) [data-ice="name"]', 'p1');
+               Util.assert.includes(doc, '[data-ice="property"]:nth-of-type(1) [data-ice="type"]', 'number');
+               Util.assert.includes(doc, '[data-ice="property"]:nth-of-type(1) [data-ice="description"]', 'this is p1.');
+
+               Util.assert.includes(doc, '[data-ice="property"]:nth-of-type(2) [data-ice="name"]', 'p2');
+               Util.assert.includes(doc, '[data-ice="property"]:nth-of-type(2) [data-ice="type"]', 'string');
+               Util.assert.includes(doc, '[data-ice="property"]:nth-of-type(2) [data-ice="description"]', 'this is p2.');
             });
 
             Util.findParent(doc, '[id="instance-classmethod-method2"]', '[data-ice="detail"]', (doc) =>

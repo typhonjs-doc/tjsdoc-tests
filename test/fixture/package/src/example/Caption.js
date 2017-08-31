@@ -1,6 +1,6 @@
 /**
  * this is TestExampleCaption.
- * @example <caption>this is caption</caption>
+ * @example {javascript, this is caption}
  * const foo = 123;
  * console.log(foo);
  */

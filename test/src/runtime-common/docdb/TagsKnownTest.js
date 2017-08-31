@@ -57,7 +57,7 @@ testConfig.forEachTarget('runtime_common', 'docDB', (target) =>
 
          Util.assert.isArray(doc.tagsKnown);
          Util.assert.isAtLeast(doc.tagsKnown.findIndex((tag) => tag.tagName === '@example' &&
-          tag.tagValue === '<caption>this is caption</caption>\nconst foo = 123;\nconsole.log(foo);'), 0);
+          tag.tagValue === '{javascript, this is caption}\nconst foo = 123;\nconsole.log(foo);'), 0);
       });
 
       it('has known tags (@experimental / TestExperimentalClass).', () =>

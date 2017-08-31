@@ -189,19 +189,19 @@ testConfig.forEachTarget('html_doc', 'class', (target) =>
                Util.find(doc, '[data-ice="detail"]:nth-of-type(1)', (doc) =>
                {
                   Util.assert.includes(doc, '#instance-classmember-p1', 'public p1: number');
-                  Util.assert.includes(doc, '#instance-classmember-p1 + [data-ice="description"]', 'this is p1.');
+                  Util.assert.includes(doc, '[data-ice="description"]', 'this is p1.');
                });
 
                Util.find(doc, '[data-ice="detail"]:nth-of-type(2)', (doc) =>
                {
                   Util.assert.includes(doc, '#instance-classmethod-get-value1', 'public get value1: number');
-                  Util.assert.includes(doc, '#instance-classmethod-get-value1 + [data-ice="description"]', 'this is get value1.');
+                  Util.assert.includes(doc, '[data-ice="description"]', 'this is get value1.');
                });
 
                Util.find(doc, '[data-ice="detail"]:nth-of-type(3)', (doc) =>
                {
                   Util.assert.includes(doc, '#instance-classmethod-set-value2', 'public set value2: number');
-                  Util.assert.includes(doc, '#instance-classmethod-set-value2 + [data-ice="description"]', 'this is set value2.');
+                  Util.assert.includes(doc, '[data-ice="description"]', 'this is set value2.');
                });
             });
          });
@@ -214,8 +214,7 @@ testConfig.forEachTarget('html_doc', 'class', (target) =>
                {
                   Util.assert.includes(doc, '#instance-classmethod-constructor', 'public constructor()');
 
-                  Util.assert.includes(doc, '#instance-classmethod-constructor + [data-ice="description"]',
-                   'this is constructor.');
+                  Util.assert.includes(doc, '[data-ice="description"]', 'this is constructor.');
                });
             });
          });

@@ -34,9 +34,21 @@ testConfig.forEachTarget('html_doc', 'destructuring', (target) =>
             Util.findParent(doc, '[id="instance-classmethod-method1"]', '[data-ice="detail"]', (doc) =>
             {
                Util.assert.includes(doc, 'h3', 'method1(p: Object)');
-               Util.assert.includes(doc, 'table.params', 'p Object this is object p.');
-               Util.assert.includes(doc, 'table.params', 'p.p1 number this is property p1 of p.');
-               Util.assert.includes(doc, 'table.params', 'p.p2 string this is property p2 of p.');
+
+               Util.assert.includes(doc, 'div.bordered-div-row:nth-child(1) [data-ice="name"]', 'p');
+               Util.assert.includes(doc, 'div.bordered-div-row:nth-child(1) [data-ice="type"]', 'Object');
+               Util.assert.includes(doc, 'div.bordered-div-row:nth-child(1) [data-ice="description"]',
+                'this is object p.');
+
+               Util.assert.includes(doc, 'div.bordered-div-row:nth-child(2) [data-ice="name"]', 'p.p1');
+               Util.assert.includes(doc, 'div.bordered-div-row:nth-child(2) [data-ice="type"]', 'number');
+               Util.assert.includes(doc, 'div.bordered-div-row:nth-child(2) [data-ice="description"]',
+                'this is property p1 of p.');
+
+               Util.assert.includes(doc, 'div.bordered-div-row:nth-child(3) [data-ice="name"]', 'p.p2');
+               Util.assert.includes(doc, 'div.bordered-div-row:nth-child(3) [data-ice="type"]', 'string');
+               Util.assert.includes(doc, 'div.bordered-div-row:nth-child(3) [data-ice="description"]',
+                'this is property p2 of p.');
             });
          });
       });

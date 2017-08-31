@@ -1,6 +1,7 @@
 {
    "name": "tjsdoc-test-fixture",
    "version": "1.2.3",
+   "homepage": "https://tjsdoc.typhonjs.io/",
    "repository": {
       "type": "git",
       "url": "https://github.com/typhonjs-node-tjsdoc/tjsdoc"
